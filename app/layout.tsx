@@ -1,28 +1,40 @@
 import "@/styles/globals.css";
-import {Metadata} from "next";
+import {Metadata, Viewport} from "next";
 import {siteConfig} from "@/config/site";
 import {fontSans} from "@/config/fonts";
 import {Providers} from "./providers";
 import {Navbar} from "@/components/navbar";
 import {Link} from "@nextui-org/link";
 import clsx from "clsx";
+import React from "react";
 
+
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "white" },
+		{ media: "(prefers-color-scheme: dark)", color: "black" },
+	],
+	initialScale: 1,
+	width: 'device-width'
+}
 export const metadata: Metadata = {
 	title: {
 		default: siteConfig.name,
 		template: `%s - ${siteConfig.name}`,
 	},
 	description: siteConfig.description,
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
 	icons: {
 		icon: "/logo.png",
 		shortcut: "/favicon-16x16.png",
 		apple: "/apple-touch-icon.png",
 	},
+	openGraph: {
+		title: siteConfig.name,
+		description: siteConfig.description,
+	}
 };
+
+
 
 export default function RootLayout({
 	children,

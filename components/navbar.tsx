@@ -9,7 +9,7 @@ import {
 } from "@nextui-org/navbar";
 import {Button} from "@nextui-org/button";
 import {Link} from "@nextui-org/link";
-
+import {Image} from "@nextui-org/react";
 import {link as linkStyles} from "@nextui-org/theme";
 
 import {siteConfig} from "@/config/site";
@@ -28,14 +28,18 @@ export const Navbar = () => {
 					  position="sticky">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
-					<NextLink className="flex justify-start items-center gap-1 ml-2" href="/">
-						<img alt="logo" src={"/logo.png"} width={42} height={42}></img>
+					<NextLink className="flex justify-start items-center gap-2 ml-2" href="/">
+						<Image
+							width={42}
+							alt={"logo"}
+							src={"/logo.png"}
+							/>
 						<p className="font-bold header">Techknights</p>
 					</NextLink>
 				</NavbarBrand>
 				<NavbarMenu>
 					{siteConfig.navItems.map((item) => (
-						<NavbarMenuItem key={item.href} className={"justify-items-center place-items-center"}>
+						<NavbarMenuItem key={item.href} className={"flex justify-start items-center"}>
 							<NextLink
 								className={clsx(
 									linkStyles({color: "foreground"}),

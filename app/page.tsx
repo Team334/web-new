@@ -3,7 +3,7 @@ import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {subtitle, title} from "@/components/primitives";
 import {GithubIcon, InstagramIcon} from "@/components/icons";
-import Typing from "@/components/typed"
+import Header from "@/components/typed"
 
 export default function Home() {
 	return (
@@ -11,14 +11,13 @@ export default function Home() {
 			<div className="inline-block max-w-lg text-center justify-center">
 				<h1 className={title({className: "mt-6"})}>We are</h1>
 				<br/>
-				<h1 className={title({color: "cyan", className: "header"})}><Typing/>&nbsp;</h1>
+				<h1 className={title({color: "cyan", className: "header"})}><Header/>&nbsp;</h1>
 				<br/>
 				<h2 className={subtitle({class: "mt-7 text-lg font-bold"})}>
 					The 334th Team in <a target={"_blank"}
 										 className={"italic text-sky-500 transition ease-in-out delay-300 hover:underline"}
-										 href={"https://www.firstinspires.org/robotics/frc"}>FRC</a> from <a
-					target={"_blank"} className={"text-sky-500 italic"} href={"https://bths.edu"}>Brooklyn Technical
-					High School</a>
+										 href={"https://www.firstinspires.org/robotics/frc"}>FRC</a> from
+					<a target={"_blank"} className={"text-sky-500 italic"} href={"https://bths.edu"}>Brooklyn Technical High School</a>
 				</h2>
 			</div>
 

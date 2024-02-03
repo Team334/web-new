@@ -5,7 +5,7 @@ import React from "react"
 import Typed from 'typed.js'
 
 
-export default class Typing extends React.Component {
+export default class Header extends React.Component {
     componentDidMount() {
         const options = {
             strings: [
