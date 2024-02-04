@@ -7,6 +7,15 @@
     src: url("../public/Richardson Brand Accelerator.otf");
 }
 
-.header {
+@font-face {
+    font-family: '--secondary';
+    src: url("../public/Futura Medium.otf");
+}
+
+.main {
     font-family: '--main', 'sans-serif';
+}
+
+.secondary {
+    font-family: '--secondary', 'Inter Semi Bold';
 }

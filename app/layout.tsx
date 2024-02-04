@@ -6,7 +6,6 @@ import {Providers} from "./providers";
 import {Navbar} from "@/components/navbar";
 import {Link} from "@nextui-org/link";
 import clsx from "clsx";
-import React from "react";
 
 
 export const viewport: Viewport = {
@@ -18,6 +17,7 @@ export const viewport: Viewport = {
 	width: 'device-width'
 }
 export const metadata: Metadata = {
+	metadataBase: new URL("https://bthsrobotics.com"),
 	title: {
 		default: siteConfig.name,
 		template: `%s - ${siteConfig.name}`,
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
 	icons: {
 		icon: "/logo.png",
 		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
+		apple: "/logo.png",
 	},
 	openGraph: {
 		title: siteConfig.name,
 		description: siteConfig.description,
+		images: '/logo.png'
 	}
 };
-
 
 
 export default function RootLayout({
@@ -41,25 +41,29 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
 			<body
 				className={clsx(
-					"min-h-screen bg-background antialiased",
+					"bg-background w-full overscroll-none",
 					fontSans.variable
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="relative flex flex-col h-screen">
+					<div className="flex flex-col h-screen">
 						<Navbar />
-						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+						<main className="flex-grow overflow-y-hidden overflow-x-hidden overscroll-none touch-none">
 							{children}
 						</main>
-						<footer className="header w-full flex items-end justify-end py-3 p-6">
+						<footer className="relative w-full flex py-3 p-6">
+							<div className={"secondary container items-start justify-start ml-12"}>
+								<span>©1998-2024 TechKnights</span>
+							</div>
 							<Link
 								isExternal
-								className="flex justify-items-end gap-1 text-current"
+								className="main flex justify-items-end gap-1 text-current"
 								href="https://github.com/Team334"
 								title="Team 334"
 							>

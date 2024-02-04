@@ -34,7 +34,7 @@ export const Navbar = () => {
 							alt={"logo"}
 							src={"/logo.png"}
 							/>
-						<p className="font-bold header">Techknights</p>
+						<p className="font-bold main">Team 334</p>
 					</NextLink>
 				</NavbarBrand>
 				<NavbarMenu>
@@ -86,11 +86,11 @@ export const Navbar = () => {
 						isExternal
 						as={Link}
 						className="text-sm font-normal text-default-600 bg-default-100"
-						href={siteConfig.links.sponsor}
+						href={siteConfig.links.donate}
 						startContent={<HeartFilledIcon className="text-danger" />}
 						variant="flat"
 					>
-						Sponsor
+						Donate
 					</Button>
 				</NavbarItem>
 			</NavbarContent>

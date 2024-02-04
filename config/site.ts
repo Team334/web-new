@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Techknights",
+	name: "Team 334",
 	description: "The 334th Team in FIRST Robotics Competition",
 	navItems: [
 		{
@@ -22,6 +22,6 @@ export const siteConfig = {
 	links: {
 		github: "https://github.com/Team334",
 		instagram: "https://instagram.com/team334",
-		sponsor: "https://patreon.com/"
+		donate: "https://bthsalumni.org/donate/"
 	},
 };
