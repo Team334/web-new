@@ -6,16 +6,11 @@ import {siteConfig} from "@/config/site";
 import {subtitle, title} from "@/components/primitives";
 import {GithubIcon, InstagramIcon} from "@/components/icons";
 import Header from "@/components/typed"
-import Spline from '@splinetool/react-spline';
-import Skeleton from "@/components/loading";
-import {useState} from "react";
+import React, {Suspense} from "react";
 
+const Spline = React.lazy(() => import('@splinetool/react-spline'))
 
 export default function Home() {
-	const [loading, setLoading] = useState(true);
-	setTimeout(() => {
-		setLoading(false);
-	}, 5000)
 	return (
 	// <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 md:w-auto">
 	// 	<div className="inline-block text-center justify-center">
@@ -43,8 +38,18 @@ export default function Home() {
 	// 			<b>Instagram</b>
 	// 		</Link>
 	// 	</div>
-		<section>
-			{loading ? <Skeleton /> : <Spline scene="https://prod.spline.design/sLhET4MjfcWLJ1AA/scene.splinecode" />}
+		<section className={"flex-grow flex flex-col items-center gap-4 touch-none scroll-none no-scrollbar"}>
+			<div className="z-10 inline-block max-w-xl text-center justify-center py-8 md:py-10">
+				<h1 className={title({className: "mt-6 top- main display-inline"})}>Brooklyn&nbsp; Tech</h1>
+				<br />
+				<br />
+				<br />
+				<h1 className={title({className: "mt-6 main"})}>presents</h1>
+			</div>
+				<div className={"fixed top-0 w-[100vw] h-[100vh] max-h-[60rem] overflow-y-hidden "}>
+					<Spline scene="https://prod.spline.design/sLhET4MjfcWLJ1AA/scene.splinecode"
+							className={"outline-none border-none object-cover object-center"}/>
+				</div>
 		</section>
-	);
+);
 }

@@ -47,17 +47,18 @@ export default function RootLayout({
 			<head />
 			<body
 				className={clsx(
-					"bg-background w-full overscroll-none",
+					"min-h-screen bg-background w-full",
 					fontSans.variable
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="flex flex-col h-screen">
-						<Navbar />
-						<main className="flex-grow overflow-y-hidden overflow-x-hidden overscroll-none touch-none">
+						<div className={"mt-[30px] top-[2rem]"}>
+							<Navbar/>
+						</div>
+						<main className="px-0 flex-grow overflow-x-hidden">
 							{children}
 						</main>
-						<footer className="relative w-full flex py-3 p-6">
+						<footer className="fixed bottom-0 w-full flex py-3 p-6 z-10">
 							<div className={"secondary container items-start justify-start ml-12"}>
 								<span>©1998-2024 TechKnights</span>
 							</div>
@@ -71,7 +72,6 @@ export default function RootLayout({
 								<p className="text-primary">Team 334</p>
 							</Link>
 						</footer>
-					</div>
 				</Providers>
 			</body>
 		</html>

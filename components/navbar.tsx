@@ -17,17 +17,17 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import {ThemeSwitch} from "@/components/theme-switch";
-import {GithubIcon, HeartFilledIcon,} from "@/components/icons";
+import {GithubIcon, HeartFilledIcon, InstagramIcon,} from "@/components/icons";
 import React from "react";
 import {NavbarMenu} from "@nextui-org/react";
 
 export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 	return (
-		<NextUINavbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="xl"
-					  position="sticky">
+		<NextUINavbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="xl"
+					  position="sticky" className={"z-10 mt-10 box-border p-0 flex capitalize rounded-[3.5rem] bg-[#bdc5fc] m-0 max-w-screen-xl mx-auto"}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-				<NavbarBrand as="li" className="gap-3 max-w-fit">
+				<NavbarBrand as="li" className="mt-1 gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-2 ml-2" href="/">
 						<Image
 							width={42}
@@ -59,7 +59,7 @@ export const Navbar = () => {
 							<NextLink
 								className={clsx(
 									linkStyles({color: "foreground"}),
-									"data-[active=true]:text-primary data-[active=true]:font-medium transition ease-in-out delay-200 hover:text-blue-600"
+									"data-[active=true]:text-primary data-[active=true]:font-medium transition ease-in-out delay-200 hover:text-blue-600 font-bold"
 								)}
 								color="foreground"
 								href={item.href}
@@ -76,8 +76,8 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.github} aria-label="Github">
-						<GithubIcon className="text-default-500"/>
+					<Link isExternal href={siteConfig.links.instagram} aria-label="Github">
+						<InstagramIcon className="text-default-500"/>
 					</Link>
 					<ThemeSwitch/>
 				</NavbarItem>
@@ -96,8 +96,8 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-				<Link isExternal href={siteConfig.links.github} aria-label="Github">
-					<GithubIcon className={"text-default-500"}/>
+				<Link isExternal href={siteConfig.links.instagram} aria-label="Github">
+					<InstagramIcon className={"text-default-500"}/>
 				</Link>
 				<ThemeSwitch/>
 				<NavbarMenuToggle/>

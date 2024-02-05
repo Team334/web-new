@@ -16,7 +16,10 @@ export const siteConfig = {
 			label: "Blog",
 			href: "/blog",
 		},
-
+		{
+			label: "Sponsers",
+			href: "/sponsers"
+		}
 
 	],
 	links: {
