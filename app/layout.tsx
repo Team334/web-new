@@ -55,7 +55,7 @@ export default function RootLayout({
 						<div className={"mt-[30px] top-[2rem]"}>
 							<Navbar/>
 						</div>
-						<main className="px-0 flex-grow overflow-x-hidden">
+						<main className="px-0 flex flex-grow overflow-x-hidden">
 							{children}
 						</main>
 						<footer className="fixed bottom-0 w-full flex py-3 p-6 z-10">

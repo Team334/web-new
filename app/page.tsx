@@ -38,7 +38,7 @@ export default function Home() {
 	// 			<b>Instagram</b>
 	// 		</Link>
 	// 	</div>
-		<section className={"flex-grow flex flex-col items-center gap-4 touch-none scroll-none no-scrollbar"}>
+		<section className={"flex-grow flex flex-col items-center gap-4"}>
 			<div className="z-10 inline-block max-w-xl text-center justify-center py-8 md:py-10">
 				<h1 className={title({className: "mt-6 top- main display-inline"})}>Brooklyn&nbsp; Tech</h1>
 				<br />
@@ -46,9 +46,9 @@ export default function Home() {
 				<br />
 				<h1 className={title({className: "mt-6 main"})}>presents</h1>
 			</div>
-				<div className={"fixed top-0 w-[100vw] h-[100vh] max-h-[60rem] overflow-y-hidden "}>
+				<div className={"absolute top-0 w-[100%] h-[100%] max-h-[60rem] overflow-y-hidden "}>
 					<Spline scene="https://prod.spline.design/sLhET4MjfcWLJ1AA/scene.splinecode"
-							className={"outline-none border-none object-cover object-center"}/>
+							className={"outline-none border-none object-cover h-[100%]] object-center"}/>
 				</div>
 		</section>
 );
