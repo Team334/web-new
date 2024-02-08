@@ -1,55 +1,76 @@
 'use client'
 
-import {Link} from "@nextui-org/link";
-import {button as buttonStyles} from "@nextui-org/theme";
-import {siteConfig} from "@/config/site";
-import {subtitle, title} from "@/components/primitives";
-import {GithubIcon, InstagramIcon} from "@/components/icons";
-import Header from "@/components/typed"
-import React, {Suspense} from "react";
+import {HeroParallax} from "@/components/ui/hero";
 
-const Spline = React.lazy(() => import('@splinetool/react-spline'))
+export const items = [
+	{
+		"title": "Limelight",
+		"description": "Limelight was designed to make robotic perception as easy and reliable as possible without sacrificing raw performance. Limelight is easy enough for complete beginners, and powerful enough for professionals. ",
+		"link": "https://limelightvision.io/",
+		"thumbnail": "/logos/limelight.png"
+	},
+	{
+		"title": "Autodesk",
+		"description": "Autodesk is a global leader in design and make technology, with expertise across architecture, engineering, construction, design, manufacturing, etc.",
+		"link": "https://www.autodesk.com/",
+		"thumbnail": "/logos/autodesk.png"
+	},
 
+	{
+		"title": "FRC",
+		"description": "Teams of students are challenged to raise funds, design a team \"brand,\" hone teamwork skills, and build and program industrial-size robots to play a difficult field game against like-minded competitors. It’s as close to real-world engineering as a student can get. Volunteer professional mentors lend their time and talents to guide each team. Each season ends with an exciting FIRST Championship.",
+		"link": "https://www.firstinspires.org/robotics/frc",
+		"thumbnail": "/logos/frc.png"
+	},
+	{
+		"title": "Techknigts",
+		"description": "The 334th Team in FIRST Robotics Competition",
+		"link": "/",
+		"thumbnail": "/logo.png"
+	},
+	{
+		"title": "Elastic Dashboard",
+		"description": "A simple and modern dashboard for FRC.",
+		"link": "https://github.com/Gold872/elastic-dashboard",
+		"thumbnail": "/logos/elastic.png"
+	},
+	{
+		"title": "Elastic Dashboard",
+		"description": "A simple and modern dashboard for FRC.",
+		"link": "https://github.com/Gold872/elastic-dashboard",
+		"thumbnail": "/logos/elastic.png"
+	},
+	{
+		"title": "Java",
+		"description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
+		"link": "https://www.java.com/en/",
+		"thumbnail": "/logos/java.png"
+	},
+	{
+		"title": "CTR Electronics",
+		"description": "CTR Electronics provides robust embedded solutions for various control and robotic applications.",
+		"link": "https://store.ctr-electronics.com/",
+		"thumbnail": "/logos/ctr.png"
+	},
+	{
+		"title": "Wpilib",
+		"description": "The WPILib Mission is to enable FIRST Robotics teams to focus on writing game-specific software rather than focusing on hardware details - \"raise the floor, don't lower the ceiling\". We work to enable teams with limited programming knowledge and/or mentor experience to be as successful as possible, while not hampering the abilities of teams with more advanced programming capabilities.",
+		"link": "https://docs.wpilib.org/en/stable/index.html",
+		"thumbnail": "/logos/wpilib.png"
+	},
+	{
+		"title": "Andymark",
+		"description": "AndyMark develops, manufactures, and distributes mechanical and electrical parts for the mobile and competitive robotics market, with a focus on robotics education. The AndyMark staff strives to support the FIRST Community by developing and distributing important components to robot builders within the education, competition, and mobile robotics markets.",
+		"link": "https://www.autodesk.com/",
+		"thumbnail": "/logos/Andymark.png"
+	},
+
+]
 export default function Home() {
 	return (
-	// <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 md:w-auto">
-	// 	<div className="inline-block text-center justify-center">
-	// 		<h1 className={title({className: "mt-6 secondary"})}>We are</h1>
-	// 		<br/>
-	// 		<h1 className={title({color: "cyan", className: "main"})}><Header/>&nbsp;</h1>
-	// 		<br/>
-	// 		<h2 className={subtitle({class: "mt-7 text-lg font-bold italic secondary"})}>
-	// 			The 334th Team in <a target={"_blank"}
-	// 								 className={"text-sky-500 transition ease-in-out delay-300 hover:underline"}
-	// 								 href={"https://www.firstinspires.org/robotics/frc"}>FRC</a> from
-	// 			<a target={"_blank"} className={"text-sky-500"} href={"https://bths.edu"}> Brooklyn Technical High
-	// 				School</a>
-	// 		</h2>
-	// 	</div>
-	//
-	//
-	// 	<div className="flex gap-3">
-	// 		<Link
-	// 			isExternal
-	// 			className={buttonStyles({variant: "bordered", radius: "full"})}
-	// 			href={siteConfig.links.instagram}
-	// 		>
-	// 			<InstagramIcon size={20}/>
-	// 			<b>Instagram</b>
-	// 		</Link>
-	// 	</div>
-		<section className={"flex-grow flex flex-col items-center gap-4"}>
-			<div className="z-10 inline-block max-w-xl text-center justify-center py-8 md:py-10">
-				<h1 className={title({className: "mt-6 top- main display-inline"})}>Brooklyn&nbsp; Tech</h1>
-				<br />
-				<br />
-				<br />
-				<h1 className={title({className: "mt-6 main"})}>presents</h1>
-			</div>
-				<div className={"absolute top-0 w-[100%] h-[100%] max-h-[60rem] overflow-y-hidden "}>
-					<Spline scene="https://prod.spline.design/sLhET4MjfcWLJ1AA/scene.splinecode"
-							className={"outline-none border-none object-cover h-[100%]] object-center"}/>
-				</div>
+		<section className={"overflow-auto"}>
+			<HeroParallax products={items} />
+		{/*	TODO: Sponsers here */}
 		</section>
-);
+	)
 }
