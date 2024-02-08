@@ -25,7 +25,7 @@ export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 	return (
 		<NextUINavbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="xl"
-					  position="sticky" className={"z-20 top-10 box-border p-0 capitalize rounded-[3.5rem] bg-[#2B32B2] m-0 max-w-screen-xl mx-auto shadow"}>
+					  position="sticky" className={"z-20 top-10 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] m-0 max-w-screen-xl mx-auto shadow"}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="mt-1 gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-2 ml-2" href="/">
@@ -76,8 +76,8 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.instagram} aria-label="Github">
-						<InstagramIcon className="text-default-500"/>
+					<Link isExternal href={siteConfig.links.instagram} aria-label="Instagram">
+						<InstagramIcon className="tex	t-default-500"/>
 					</Link>
 					<ThemeSwitch/>
 				</NavbarItem>
@@ -85,7 +85,7 @@ export const Navbar = () => {
 					<Button
 						isExternal
 						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
+						className="text-sm text-default-800 font-bold bg-default-100"
 						href={siteConfig.links.donate}
 						startContent={<HeartFilledIcon className="text-danger" />}
 						variant="flat"
@@ -96,7 +96,7 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-				<Link isExternal href={siteConfig.links.instagram} aria-label="Github">
+				<Link isExternal href={siteConfig.links.instagram} aria-label="Instagram">
 					<InstagramIcon className={"text-default-500"}/>
 				</Link>
 				<ThemeSwitch/>

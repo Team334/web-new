@@ -19,3 +19,23 @@
 .secondary {
     font-family: '--secondary', 'Inter Semi Bold';
 }
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+/* Chromium based */
+*::-webkit-scrollbar {
+    width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 14px;
+    border: 3px solid;
+}
