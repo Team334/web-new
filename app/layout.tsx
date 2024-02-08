@@ -52,9 +52,7 @@ export default function RootLayout({
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-						<div className={"mt-[30px] top-[2rem]"}>
-							<Navbar/>
-						</div>
+					<Navbar/>
 						<main className="px-0 flex flex-grow">
 							{children}
 						</main>

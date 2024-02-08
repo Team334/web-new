@@ -25,7 +25,7 @@ export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 	return (
 		<NextUINavbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="xl"
-					  position="sticky" className={"z-10 mt-10 box-border p-0 capitalize rounded-[3.5rem] bg-[#2B32B2] m-0 max-w-screen-xl mx-auto shadow"}>
+					  position="sticky" className={"z-20 top-10 box-border p-0 capitalize rounded-[3.5rem] bg-[#2B32B2] m-0 max-w-screen-xl mx-auto shadow"}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="mt-1 gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-2 ml-2" href="/">
