@@ -102,10 +102,10 @@ export const HeroParallax = ({
 export const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-            <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+            <h1 className="text-5xl md:text-7xl font-bold dark:text-white">
                 <TextGenerateEffect words={"We are"}/><TextGenerateEffect words={"Techknights"} className={"main"}/>
             </h1>
-            <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+            <p className="text-base md:text-xl mt-8 dark:text-neutral-200">
                 TechKnights is a FIRST® Robotics Competition team from Brooklyn Technical High School in New York City.
             </p>
             <div className="flex flex-row gap-3 mt-5 opacity-1">

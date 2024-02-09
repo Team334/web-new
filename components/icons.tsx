@@ -2,7 +2,7 @@ import * as React from "react";
 import {IconSvgProps} from "@/types";
 
 export const GithubIcon: React.FC<IconSvgProps> = ({
-													   size = 24,
+													   size = 28,
 													   width,
 													   height,
 													   ...props
@@ -25,7 +25,7 @@ export const GithubIcon: React.FC<IconSvgProps> = ({
 };
 
 export const MoonFilledIcon = ({
-								   size = 24,
+								   size = 32,
 								   width,
 								   height,
 								   ...props
@@ -35,7 +35,7 @@ export const MoonFilledIcon = ({
 		focusable="false"
 		height={size || height}
 		role="presentation"
-		viewBox="0 0 24 24"
+		viewBox="0 0 24 24 "
 		width={size || width}
 		{...props}
 	>
@@ -70,7 +70,7 @@ export const SunFilledIcon = ({
 );
 
 export const HeartFilledIcon = ({
-	size = 24,
+	size = 26,
 	width,
 	height,
 	...props
@@ -95,7 +95,7 @@ export const HeartFilledIcon = ({
 );
 
 export const InstagramIcon: React.FC<IconSvgProps> = ({
-														  size = 24,
+														  size = 28,
 														  width,
 														  height,
 														  ...props
