@@ -14,7 +14,6 @@ import {TextGenerateEffect} from "@/components/ui/autotype";
 import {GithubIcon, InstagramIcon} from "@/components/icons";
 import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
-import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards";
 
 export const HeroParallax = ({
                                  products,
@@ -156,15 +155,18 @@ export const ProductCard = ({
         >
             <Link
                 href={product.link}
+                legacyBehavior
                 className="block group-hover/product:shadow-2xl "
             >
-                <Image
-                    src={product.thumbnail}
-                    height="600"
-                    width="1000"
-                    className="object-cover object-center absolute h-full w-full inset-0"
-                    alt={product.title}
-                />
+                <a href={product.link} target={"_blank"}>
+                    <Image
+                        src={product.thumbnail}
+                        height="600"
+                        width="1000"
+                        className="object-cover object-center absolute h-full w-full inset-0"
+                        alt={product.title}
+                    />
+                </a>
             </Link>
             <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
             <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">

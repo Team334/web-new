@@ -2,7 +2,7 @@
 
 import {HeroParallax} from "@/components/ui/hero";
 
-export const heroItems = [
+const heroItems = [
     {
         "title": "Autodesk",
         "description": "Autodesk is a global leader in design and make technology, with expertise across architecture, engineering, construction, design, manufacturing, etc.",

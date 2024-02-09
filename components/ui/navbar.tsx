@@ -108,7 +108,7 @@ export const Navbar = () => {
 					className="md:hidden"
 				/>
 				<NavbarBrand>
-					<NextLink className="flex justify-start items-center gap-2 ml-2 flex-shrink-0 mt-1" href="/">
+					<Link className="flex justify-start items-center gap-2 ml-2 flex-shrink-0 mt-1" href="/">
 						<Image
 							width={64}
 							alt={"logo"}
@@ -116,15 +116,14 @@ export const Navbar = () => {
 							className={"flex-shrink-0"}
 						/>
 						<p className="font-bold main">Team 334</p>
-					</NextLink>
+					</Link>
 				</NavbarBrand>
 			</NavbarContent>
 
 			<NavbarContent className="hidden md:flex gap-4" justify="center">
 				{siteConfig.navItems.map((item) => (
 					<NavbarItem key={item.href}>
-						<NextLink
-
+						<Link
 							className={clsx(
 								linkStyles({color: "foreground"}),
 								"data-[active=true]:text-primary data-[active=true]:font-medium transition ease-in-out delay-200 hover:text-blue-600 font-bold"
@@ -133,7 +132,7 @@ export const Navbar = () => {
 							href={item.href}
 						>
 							{item.label}
-						</NextLink>
+						</Link>
 					</NavbarItem>
 				))}
 				</NavbarContent>
@@ -169,7 +168,6 @@ export const Navbar = () => {
 						className={"w-full text-center block main text-2xl"}
 						href={"/"}
 						size={"lg"}
-						onPress={() => setIsMenuOpen()}
 					>
 						Home
 					</Link>
