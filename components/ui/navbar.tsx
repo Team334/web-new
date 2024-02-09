@@ -162,7 +162,18 @@ export const Navbar = () => {
 					</Button>
 				</NavbarItem>
 			</NavbarContent>
-			<NavbarMenu className={"box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col justify-center mt-2 space-y-10 space-x-2"}>
+			<NavbarMenu className={"box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col justify-center mt-10 space-y-10 space-x-2"}>
+				<NavbarMenuItem>
+					<Link
+						color={"success"}
+						className={"w-full text-center block main text-2xl"}
+						href={"/"}
+						size={"lg"}
+						onPress={() => setIsMenuOpen()}
+					>
+						Home
+					</Link>
+				</NavbarMenuItem>
 				{siteConfig.navItems.map((item, index) => (
 					<NavbarMenuItem key={`${item}-${index}`} className={"hover:animate-pulse"}>
 						<Link
@@ -172,7 +183,7 @@ export const Navbar = () => {
 							className="w-full text-center block main text-2xl"
 							href={item.href}
 							size="lg"
-
+							onPress={() => setIsMenuOpen()}
 						>
 							{item.label}
 						</Link>
