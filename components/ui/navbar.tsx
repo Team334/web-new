@@ -101,7 +101,7 @@ export const Navbar = () => {
 		// 		<NavbarMenuToggle/>
 		// 	</NavbarContent>
 		// </NextUINavbar>
-		<NextUINavbar onMenuOpenChange={setIsMenuOpen} className={"z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-5 shadow"}>
+		<NextUINavbar onMenuOpenChange={setIsMenuOpen} className={"z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
 			<NavbarContent>
 				<NavbarMenuToggle
 					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -170,7 +170,7 @@ export const Navbar = () => {
 								index === 1 ? "primary" : index === siteConfig.navItems.length - 1 ? "danger" : "foreground"
 							}
 							className="w-full text-center block main text-2xl"
-							href="#"
+							href={item.href}
 							size="lg"
 
 						>
