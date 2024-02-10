@@ -163,7 +163,7 @@ export const ProductCard = ({
                         src={product.thumbnail}
                         height="600"
                         width="1000"
-                        className="object-cover object-center absolute h-full w-full inset-0"
+                        className="object-scale-down object-center absolute h-full w-full inset-0"
                         alt={product.title}
                     />
                 </a>
