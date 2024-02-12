@@ -101,7 +101,7 @@ export const Navbar = () => {
 		// 		<NavbarMenuToggle/>
 		// 	</NavbarContent>
 		// </NextUINavbar>
-		<NextUINavbar onMenuOpenChange={setIsMenuOpen} className={"z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
+		<NextUINavbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} className={"z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
 			<NavbarContent>
 				<NavbarMenuToggle
 					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
