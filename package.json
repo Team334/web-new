@@ -24,7 +24,7 @@
     "@react-aria/visually-hidden": "^3.8.6",
     "@splinetool/react-spline": "^2.2.6",
     "@types/node": "20.5.7",
-    "@types/react": "18.2.21",
+    "@types/react": "18.2.55",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
     "clsx": "^2.1.0",
