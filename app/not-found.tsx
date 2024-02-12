@@ -1,5 +1,3 @@
-import {cn} from "@/components/cn";
-
 export default function NotFound() {
     return (
         <div
