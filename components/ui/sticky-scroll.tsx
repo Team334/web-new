@@ -1,7 +1,6 @@
 "use client";
-import React, { useRef } from "react";
-import { useMotionValueEvent, useScroll } from "framer-motion";
-import { motion } from "framer-motion";
+import React, {useRef} from "react";
+import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 
 export const StickyScroll = ({
                                  content,
@@ -13,7 +12,7 @@ export const StickyScroll = ({
 }) => {
     const [activeCard, setActiveCard] = React.useState(0);
     const ref = useRef<any>(null);
-    const { scrollYProgress } = useScroll({
+    const {scrollYProgress} = useScroll({
         container: ref,
         offset: ["start start", "end start"],
     });
@@ -74,7 +73,7 @@ export const StickyScroll = ({
                             </motion.p>
                         </div>
                     ))}
-                    <div className="h-40" />
+                    <div className="h-40"/>
                 </div>
             </div>
             <motion.div

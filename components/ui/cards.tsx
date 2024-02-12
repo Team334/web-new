@@ -1,7 +1,7 @@
-import { cn } from "@/components/cn";
-import { AnimatePresence, motion } from "framer-motion";
+import {cn} from "@/components/cn";
+import {AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import {useState} from "react";
 
 export const HoverEffect = ({
                                 items,
@@ -36,14 +36,14 @@ export const HoverEffect = ({
                             <motion.span
                                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
                                 layoutId="hoverBackground"
-                                initial={{ opacity: 0 }}
+                                initial={{opacity: 0}}
                                 animate={{
                                     opacity: 1,
-                                    transition: { duration: 0.15 },
+                                    transition: {duration: 0.15},
                                 }}
                                 exit={{
                                     opacity: 0,
-                                    transition: { duration: 0.15, delay: 0.2 },
+                                    transition: {duration: 0.15, delay: 0.2},
                                 }}
                             />
                         )}

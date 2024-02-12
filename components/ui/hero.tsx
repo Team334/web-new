@@ -1,14 +1,8 @@
 "use client";
 import React from "react";
-import {
-    motion,
-    useScroll,
-    useTransform,
-    useSpring,
-    MotionValue,
-} from "framer-motion";
+import {motion, MotionValue, useScroll, useSpring, useTransform,} from "framer-motion";
 import Image from "next/image";
-import { Link as NextuiLink } from "@nextui-org/link";
+import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
 import {TextGenerateEffect} from "@/components/ui/autotype";
 import {GithubIcon, InstagramIcon} from "@/components/icons";
@@ -27,14 +21,13 @@ export const HeroParallax = ({
 }) => {
     const firstRow = products.slice(0, 5);
     const secondRow = products.slice(5, 10);
-    const thirdRow = products.slice(10, 15);
     const ref = React.useRef(null);
-    const { scrollYProgress } = useScroll({
+    const {scrollYProgress} = useScroll({
         target: ref,
         offset: ["start start", "end start"],
     });
 
-    const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+    const springConfig = {stiffness: 300, damping: 30, bounce: 100};
 
     const translateX = useSpring(
         useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -102,7 +95,7 @@ export const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
             <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white">
-                <TextGenerateEffect words={"We are"} /><TextGenerateEffect words={"Techknights"} className={"main"} />
+                <TextGenerateEffect words={"We are"}/><TextGenerateEffect words={"Techknights"} className={"main"}/>
             </h1>
             <p className="text-base md:text-xl mt-8 dark:text-neutral-200">
                 TechKnights is a FIRST® Robotics Competition team from Brooklyn Technical High School in New York City.
@@ -168,7 +161,8 @@ export const ProductCard = ({
                     />
                 </a>
             </Link>
-            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+            <div
+                className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
             <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
                 <b>{product.title}</b> - {product.description}
             </h2>
