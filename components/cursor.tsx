@@ -30,7 +30,7 @@ const Cursor: React.FC = () => {
         };
     }, []);
 
-    const speed = 0.17;
+    const speed = 0.16;
     let currentScale = 0;
     let currentAngle = 0;
 
@@ -68,7 +68,7 @@ const Cursor: React.FC = () => {
 
     return (
         <div
-            className="fixed z-30 h-[40px] w-[40px] border border-white rounded-full pointer-events-none top-[-15px] left-[-20px]"
+            className="ease-in-out fixed z-30 h-[40px] w-[40px] border border-white rounded-full pointer-events-none top-[-15px] left-[-20px]"
             style={{ transform: transform }}
         ></div>
     );
