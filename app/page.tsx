@@ -76,45 +76,45 @@ export default function Home() {
         },
     ]
 
-    const sponsers = [
-        "/sponsors/",
-        "/sponsors/",
-        "/sponsors/"
-    ];
+    // const sponsers = [
+    //     "/sponsors/",
+    //     "/sponsors/",
+    //     "/sponsors/"
+    // ];
 
     return (
         <section className={"overflow-auto"}>
             <HeroParallax products={heroItems}/>
-            <div className={""}> {/* Sponsors */}
-                <h1>Sponsors</h1>
-                <p>
-                    ...
-                </p>
-                <ImagesSlider className="object-cover" images={sponsers}>
-                    <motion.div
-                        initial={{
-                            opacity: 0,
-                            y: -80,
-                        }}
-                        animate={{
-                            opacity: 1,
-                            y: 0,
-                        }}
-                        transition={{
-                            duration: 0.6,
-                        }}
-                        className="z-50 flex flex-col justify-center items-center"
-                    >
-                        <motion.p
-                            className="font-bold text-5xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 main">
-                            The Team Now
-                        </motion.p>
-                    </motion.div>
-                </ImagesSlider>
-            </div>
-            <div className={""}> {/* Latest News/Recaps*/}
+            {/*<div className={""}> /!* Sponsors *!/*/}
+            {/*    <h1>Sponsors</h1>*/}
+            {/*    <p>*/}
+            {/*        ...*/}
+            {/*    </p>*/}
+            {/*    <ImagesSlider className="object-cover" images={sponsers}>*/}
+            {/*        <motion.div*/}
+            {/*            initial={{*/}
+            {/*                opacity: 0,*/}
+            {/*                y: -80,*/}
+            {/*            }}*/}
+            {/*            animate={{*/}
+            {/*                opacity: 1,*/}
+            {/*                y: 0,*/}
+            {/*            }}*/}
+            {/*            transition={{*/}
+            {/*                duration: 0.6,*/}
+            {/*            }}*/}
+            {/*            className="z-50 flex flex-col justify-center items-center"*/}
+            {/*        >*/}
+            {/*            <motion.p*/}
+            {/*                className="font-bold text-5xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 main">*/}
+            {/*                The Team Now*/}
+            {/*            </motion.p>*/}
+            {/*        </motion.div>*/}
+            {/*    </ImagesSlider>*/}
+            {/*</div>*/}
+            {/*<div className={""}> /!* Latest News/Recaps*!/*/}
 
-            </div>
+            {/*</div>*/}
         </section>
     )
 }

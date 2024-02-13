@@ -6,6 +6,7 @@ import {Providers} from "./providers";
 import {Navbar} from "@/components/ui/navbar";
 import {Link} from "@nextui-org/link";
 import clsx from "clsx";
+import Cursor from "@/components/cursor";
 
 
 export const viewport: Viewport = {
@@ -52,6 +53,7 @@ export default function RootLayout({
             )}
         >
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
+            <Cursor />
             <Navbar/>
             <main className="px-0">
                 {children}
