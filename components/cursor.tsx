@@ -1,5 +1,4 @@
 "use client"
-
 import React, { useEffect, useState } from 'react';
 
 interface MousePosition {
@@ -43,7 +42,7 @@ const Cursor: React.FC = () => {
 
         const deltaMouseX = mouse.x - previousMouse.x;
         const deltaMouseY = mouse.y - previousMouse.y;
-        setPreviousMouse({x: mouse.x, y: mouse.y});
+        setPreviousMouse({ x: mouse.x, y: mouse.y });
 
         const mouseVelocity = Math.min(Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4, 150);
         const scaleValue = (mouseVelocity / 150) * 0.5;
@@ -68,8 +67,8 @@ const Cursor: React.FC = () => {
 
     return (
         <div
-            className="ease-in-out fixed z-30 h-[40px] w-[40px] border border-white rounded-full pointer-events-none top-[-15px] left-[-20px]"
-            style={{ transform: transform }}
+            className={`ease-in-out fixed z-30 h-[40px] w-[40px] rounded-full pointer-events-none top-[-12px] left-[-17px] border-blue-600 border-3 border-r-3`}
+            style={{transform: transform}}
         ></div>
     );
 };

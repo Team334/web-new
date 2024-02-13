@@ -9,7 +9,7 @@ export default function AboutPage() {
     const images = [
         "/team2022.png"
     ];
-    
+
     return (
         <div className={"w-full"}>
             <div

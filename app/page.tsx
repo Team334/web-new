@@ -1,8 +1,6 @@
 'use client'
 
 import {HeroParallax} from "@/components/ui/hero";
-import {motion} from "framer-motion";
-import {ImagesSlider} from "@/components/ui/page-hero";
 import React from "react";
 
 

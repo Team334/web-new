@@ -53,7 +53,7 @@ export default function RootLayout({
             )}
         >
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
-            <Cursor />
+            <Cursor/>
             <Navbar/>
             <main className="px-0">
                 {children}
