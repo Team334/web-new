@@ -67,7 +67,7 @@ const Cursor: React.FC = () => {
 
     return (
         <div
-            className={`ease-in-out fixed z-30 h-[40px] w-[40px] rounded-full pointer-events-none top-[-12px] left-[-17px] border-blue-600 border-3 border-r-3`}
+            className={"hidden 2xl:block ease-in-out fixed z-30 h-[40px] w-[40px] rounded-full pointer-events-none top-[-12px] left-[-17px] border-blue-600 border-3 border-r-3"}
             style={{transform: transform}}
         ></div>
     );
