@@ -58,7 +58,7 @@ export default function RootLayout({
             <main className="px-0">
                 {children}
             </main>
-            <footer className="relative bottom-0 w-full flex py-3 p-6">
+            <footer className="relative bottom-0 w-full flex py-3 p-6 text-start">
                 <div className={"secondary container items-start justify-start ml-12"}>
                     <span>©1998-2024 TechKnights</span>
                 </div>
