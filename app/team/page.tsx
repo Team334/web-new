@@ -30,7 +30,7 @@ export default function TeamPage() {
 
     return (
         <div className="container">
-            <TextGenerateEffect words={"Our Team Members"} className={"font-bold text-center text-5xl md:text-6xl main py-20"} />
+            <TextGenerateEffect words={"Our Team Members"} className={"underline font-bold text-center text-5xl md:text-6xl main py-20"} />
             <TextGenerateEffect words={"Mentors"}
                                 className={"font-bold text-3xl md:text-4xl text-center main py-4 mb-10"}/>
             <div className="flex flex-wrap gap-10 justify-center">
