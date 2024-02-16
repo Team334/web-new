@@ -1,12 +1,14 @@
+"use server"
+
 import React from "react";
 
-export default function AboutLayout({
+export default async function AboutLayout({
                                         children,
                                     }: {
     children: React.ReactNode;
 }) {
     return (
-        <section className="flex justify-center gap-4 py-8 md:py-10">
+        <section className="flex justify-center gap-4">
             {children}
         </section>
     );
