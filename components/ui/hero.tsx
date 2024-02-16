@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import {motion, MotionValue, useScroll, useSpring, useTransform,} from "framer-motion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
 import {TextGenerateEffect} from "@/components/ui/autotype";
