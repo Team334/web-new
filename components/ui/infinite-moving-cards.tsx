@@ -18,7 +18,7 @@ export const InfiniteMovingCards = ({
 
     return (
         <Marquee
-        speed={100}
+        speed={200}
         >
                 {items.map((item, idx) => (
                     <div
@@ -29,17 +29,17 @@ export const InfiniteMovingCards = ({
                             href={item.url}
                             target={"_blank"}
                         >
-                            <Card className="w-[350px] max-w-full h-[350px] relative border-b-0  md:w-[450px] max-h-full text-center border border-slate-700 rounded-lg shadow">
+                            <Card className="w-[350px] max-w-full h-[350px] md:h-max-[400px] sm:[450px] relative border-b-0 md:w-[450px] max-h-full text-center border border-slate-700 rounded-lg shadow">
                                 <CardHeader className="pb-0 pt-2 px-4 flex-col">
-                                    <h1 className="font-bold text-2xl secondary">{item.title}</h1>
+                                    <h1 className="font-bold text-xl secondary md:text-2xl sm:text-3xl">{item.title}</h1>
                                 </CardHeader>
                                 <CardBody className="py-2 flex justify-center items-center">
                                     <Image
                                         alt="Card background"
-                                        className="object-cover rounded-xl relative align-middle overflow-y-hidden"
+                                        className="object-contain md:object-scale-down rounded-xl relative align-middle overflow-y-hidden"
                                         src={item.link}
-                                        height={"230"}
-                                        width={"230"}
+                                        height={"190"}
+                                        width={"190"}
                                     />
                                 </CardBody>
                             </Card>
