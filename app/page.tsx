@@ -3,6 +3,7 @@
 import {HeroParallax} from "@/components/ui/hero";
 import React from "react";
 import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards";
+import Faq from "@/components/ui/faq";
 
 
 export default function Home() {
@@ -129,13 +130,19 @@ export default function Home() {
             <div className={"text-center h-[50vh] mt-5 mb-5"}> {/* Sponsors */}
                 <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Sponsors</h1>
                 <p>
-                    Thank you to all our sponsors and family who supported this. We could never built the robot without your help!
+                    Thank you to all our sponsors and family who supported this. We could never built the robot without
+                    your help!
                 </p>
                 <InfiniteMovingCards items={sponsors}/>
             </div>
-            <div className={""}> {/* Latest News/Recaps*/}
-
-            </div>
+            {/*<div*/}
+            {/*    className={"flex flex-col items-center border-gray-200 rounded-lg shadow md:flex-row"}> /!* Latest News/Recaps*!/*/}
+            {/*    /!*<Youtube className={"object-cover rounded-t-lg md:h-auto"}/>*!/*/}
+            {/*    <div className={"flex flex-col justify-between p-4 leading-normal"}>*/}
+            {/*        <h1>Season Recaps!</h1>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <Faq />
         </section>
     )
 }
