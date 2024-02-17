@@ -3,8 +3,8 @@
 import React from "react";
 
 export default async function AboutLayout({
-                                        children,
-                                    }: {
+                                              children,
+                                          }: {
     children: React.ReactNode;
 }) {
     return (

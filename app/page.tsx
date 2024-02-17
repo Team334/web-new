@@ -142,7 +142,7 @@ export default function Home() {
             {/*        <h1>Season Recaps!</h1>*/}
             {/*    </div>*/}
             {/*</div>*/}
-            <Faq />
+            <Faq/>
         </section>
     )
 }
