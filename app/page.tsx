@@ -2,6 +2,7 @@
 
 import {HeroParallax} from "@/components/ui/hero";
 import React from "react";
+import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards";
 
 
 export default function Home() {
@@ -31,16 +32,16 @@ export default function Home() {
             "thumbnail": "/logo.png"
         },
         {
-            "title": "Elastic Dashboard",
+            "title": "Brooklyn Tech Alumni Foundation",
             "description": "A simple and modern dashboard for FRC.",
-            "link": "https://github.com/Gold872/elastic-dashboard",
-            "thumbnail": "/logos/elastic.png"
+            "link": "https://bthsalumni.org/",
+            "thumbnail": "/sponsors/alumni-foundation.png",
         },
         {
-            "title": "Elastic Dashboard",
+            "title": "Brooklyn Tech Alumni Foundation",
             "description": "A simple and modern dashboard for FRC.",
-            "link": "https://github.com/Gold872/elastic-dashboard",
-            "thumbnail": "/logos/elastic.png"
+            "link": "https://bthsalumni.org/",
+            "thumbnail": "/sponsors/alumni-foundation.png",
         },
         {
             "title": "Java",
@@ -74,45 +75,67 @@ export default function Home() {
         },
     ]
 
-    // const sponsers = [
-    //     "/sponsors/",
-    //     "/sponsors/",
-    //     "/sponsors/"
-    // ];
+    const sponsors = [
+        {
+            title: "FIRST",
+            link: "/logos/first.png",
+            url: "https://www.firstinspires.org/"
+        },
+        {
+            title: "Brooklyn Tech Alumni Foundation",
+            link: "/sponsors/alumni-foundation.png",
+            url: "https://bthsalumni.org/"
+        },
+        {
+            title: "Arament Research, Development and Engineering Center",
+            link: "/sponsors/arament.png",
+            url: "/"
+        },
+        {
+            title: "Con Edison",
+            link: "/sponsors/con-edison.png",
+            url: "https://www.coned.com/en/"
+        },
+        {
+            title: "DoD STEM",
+            link: "/sponsors/dodstem.png",
+            url: "https://dodstem.us/"
+        },
+        {
+            title: "Gene HAAS Foundation",
+            link: "/sponsors/haas-foundation.png",
+            url: "https://ghaasfoundation.org/content/ghf/en/home.html"
+        },
+        {
+            title: "Ike Heller",
+            link: "/sponsors/ike-heller.png",
+            url: "/"
+        },
+        {
+            title: "QuoteBeam",
+            link: "/sponsors/quotebeam.png",
+            url: "https://quotebeam.com/"
+        },
+        {
+            title: "Whimsy Tech",
+            link: "/sponsors/whimsy-tech.png",
+            url: "https://www.whimsytech.net/"
+        },
+    ];
 
     return (
-        <section className={"overflow-auto"}>
+        <section className={""}>
             <HeroParallax products={heroItems}/>
-            {/*<div className={""}> /!* Sponsors *!/*/}
-            {/*    <h1>Sponsors</h1>*/}
-            {/*    <p>*/}
-            {/*        ...*/}
-            {/*    </p>*/}
-            {/*    <ImagesSlider className="object-cover" images={sponsers}>*/}
-            {/*        <motion.div*/}
-            {/*            initial={{*/}
-            {/*                opacity: 0,*/}
-            {/*                y: -80,*/}
-            {/*            }}*/}
-            {/*            animate={{*/}
-            {/*                opacity: 1,*/}
-            {/*                y: 0,*/}
-            {/*            }}*/}
-            {/*            transition={{*/}
-            {/*                duration: 0.6,*/}
-            {/*            }}*/}
-            {/*            className="z-50 flex flex-col justify-center items-center"*/}
-            {/*        >*/}
-            {/*            <motion.p*/}
-            {/*                className="font-bold text-5xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 main">*/}
-            {/*                The Team Now*/}
-            {/*            </motion.p>*/}
-            {/*        </motion.div>*/}
-            {/*    </ImagesSlider>*/}
-            {/*</div>*/}
-            {/*<div className={""}> /!* Latest News/Recaps*!/*/}
+            <div className={"text-center h-[50vh] mt-5 mb-5"}> {/* Sponsors */}
+                <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Sponsors</h1>
+                <p>
+                    Thank you to all our sponsors and family who supported this. We could never built the robot without your help!
+                </p>
+                <InfiniteMovingCards items={sponsors}/>
+            </div>
+            <div className={""}> {/* Latest News/Recaps*/}
 
-            {/*</div>*/}
+            </div>
         </section>
     )
 }

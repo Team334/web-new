@@ -148,10 +148,9 @@ export const ProductCard = ({
         >
             <Link
                 href={product.link}
-                legacyBehavior
+                target={"_blank"}
                 className="block group-hover/product:shadow-2xl "
             >
-                <a href={product.link} target={"_blank"}>
                     <Image
                         src={product.thumbnail}
                         height="600"
@@ -159,7 +158,6 @@ export const ProductCard = ({
                         className="object-scale-down object-center absolute h-full w-full inset-0"
                         alt={product.title}
                     />
-                </a>
             </Link>
             <div
                 className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>

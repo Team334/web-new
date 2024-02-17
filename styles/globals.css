@@ -16,6 +16,10 @@
     font-family: '--main', 'sans-serif';
 }
 
+.secondary {
+    font-family: '--secondary', 'sans-serif';
+}
+
 /* Firefox */
 * {
     scrollbar-width: thin;
