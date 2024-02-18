@@ -4,6 +4,7 @@ import {HeroParallax} from "@/components/ui/hero";
 import React from "react";
 import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards";
 import Faq from "@/components/ui/faq";
+import YouTubePlayer  from '@/components/ui/youtube'
 
 
 export default function Home() {
@@ -135,13 +136,16 @@ export default function Home() {
                 </p>
                 <InfiniteMovingCards items={sponsors}/>
             </div>
-            {/*<div*/}
-            {/*    className={"flex flex-col items-center border-gray-200 rounded-lg shadow md:flex-row"}> /!* Latest News/Recaps*!/*/}
-            {/*    /!*<Youtube className={"object-cover rounded-t-lg md:h-auto"}/>*!/*/}
-            {/*    <div className={"flex flex-col justify-between p-4 leading-normal"}>*/}
-            {/*        <h1>Season Recaps!</h1>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div
+                className={"mt-[5rem] flex flex-col items-center border-gray-200 rounded-lg shadow md:flex-row"}> {/* Latest News/Recaps*/}
+                <div className={"md:w-1/2 flex flex-col justify-between p-4 leading-normal"}>
+                    <h1>Season Recaps!</h1>
+                    {/* Add your text content here */}
+                </div>
+                <div className={"md:w-1/2"}>
+                    <YouTubePlayer videoId="bmD-tZe8HBA" />
+                </div>
+            </div>
             <Faq/>
         </section>
     )

@@ -67,7 +67,6 @@ const Faq: React.FC = () => {
                         isOpen={openIndex === 1}
                         toggle={() => handleToggle(1)}
                     />
-                    {/* Add more AccordionItem components as needed */}
                 </div>
             </section>
         </div>
