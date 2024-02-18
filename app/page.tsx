@@ -129,7 +129,7 @@ export default function Home() {
             <HeroParallax products={heroItems}/>
             <div className={"text-center h-[50vh] mt-5 mb-5"}> {/* Sponsors */}
                 <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Sponsors</h1>
-                <p>
+                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>
                     Thank you to all our sponsors and family who supported this. We could never built the robot without
                     your help!
                 </p>

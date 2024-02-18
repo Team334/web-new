@@ -31,7 +31,7 @@ export const InfiniteMovingCards = ({
                         >
                             <Card className="w-[350px] max-w-full h-[350px] md:h-max-[400px] sm:[450px] relative border-b-0 md:w-[450px] max-h-full text-center border border-slate-700 rounded-lg shadow">
                                 <CardHeader className="pb-0 pt-2 px-4 flex-col">
-                                    <h1 className="font-bold text-xl secondary md:text-2xl sm:text-3xl">{item.title}</h1>
+                                    <h1 className="text-base md:text-xl mt-8 dark:text-neutral-200">{item.title}</h1>
                                 </CardHeader>
                                 <CardBody className="py-2 flex justify-center items-center">
                                     <Image
