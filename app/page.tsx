@@ -198,7 +198,7 @@ export default function Home() {
             <div
                 className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[10rem] md:mt-[7rem] ">
                 <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Season Recaps!</h1>
-                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>This is all our recaps through this year's season, CRESCENDO</p>
+                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>This is all our recaps through this year season, CRESCENDO</p>
                 <Tabs tabs={tabs}/>
             </div>
             <Faq/>

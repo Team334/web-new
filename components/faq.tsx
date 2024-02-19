@@ -17,7 +17,7 @@ export default function Faq() {
                     <AccordionItem value="faq-1">
                         <AccordionTrigger className={"text-base md:text-xl dark:text-neutral-200"}>very important information</AccordionTrigger>
                         <AccordionContent className={"text-base md:text-lg dark:text-neutral-200"}>
-                            btech >> stuy
+                            btech is better than stuy
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="faq-2">
