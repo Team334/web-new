@@ -1,7 +1,7 @@
 "use client"
 
 import {motion} from "framer-motion";
-import {ImagesSlider} from "@/components/ui/page-hero";
+import {ImagesSlider} from "@/components/aceternity/ui/page-hero";
 import React from "react";
 import {title} from "@/components/primitives";
 

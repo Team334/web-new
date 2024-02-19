@@ -16,6 +16,6 @@ export const MemberCard: React.FC<MemberProps> = ({ member }) => (
         <div className="relative w-full h-36 mb-3">
             <Image unoptimized loader={({ src }) => src} src={member.image} alt={member.name} layout="fill" className="rounded-full object-cover" />
         </div>
-        <p className="text-center mb-0">{member.name}</p>
+        <p className="text-center mb-0 text-base md:text-medium dark:text-neutral-200 secondary">{member.name}</p>
     </div>
 );

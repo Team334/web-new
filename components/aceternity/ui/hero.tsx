@@ -4,7 +4,7 @@ import {motion, MotionValue, useScroll, useSpring, useTransform,} from "framer-m
 import Image from "next/legacy/image";
 import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
-import {TextGenerateEffect} from "@/components/ui/autotype";
+import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 import {GithubIcon, InstagramIcon} from "@/components/icons";
 import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
