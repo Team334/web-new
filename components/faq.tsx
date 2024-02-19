@@ -5,7 +5,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/shadcn/ui/accordion"
+} from "@/components/shadcn/ui/accordion"
 
 
 export default function Faq() {

@@ -1,8 +1,8 @@
 "use client"
-import {Member, MemberCard} from "@/components/ui/member-card";
+import {Member, MemberCard} from "@/components/member-card";
 import React, {useMemo} from "react";
 import roster from './team.json'
-import {TextGenerateEffect} from "@/components/ui/autotype";
+import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 
 export default function TeamPage() {
     const {mentors, mechanical, programming, media, lead} = useMemo(() => (

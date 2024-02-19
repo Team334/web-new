@@ -1,11 +1,11 @@
 'use client'
 
-import {HeroParallax} from "@/components/ui/hero";
+import {HeroParallax} from "@/components/aceternity/ui/hero";
 import React from "react";
-import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards";
-import Faq from "@/components/ui/faq";
-import YouTubePlayer  from '@/components/ui/youtube'
-import {Tabs} from "@/components/ui/tabs";
+import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
+import Faq from "@/components/faq";
+import YouTubePlayer  from '@/components/youtube'
+import {Tabs} from "@/components/aceternity/ui/tabs";
 
 
 export default function Home() {
