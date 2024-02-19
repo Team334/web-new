@@ -5,6 +5,7 @@ import React from "react";
 import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards";
 import Faq from "@/components/ui/faq";
 import YouTubePlayer  from '@/components/ui/youtube'
+import {Tabs} from "@/components/ui/tabs";
 
 
 export default function Home() {
@@ -125,6 +126,64 @@ export default function Home() {
         },
     ];
 
+    const tabs = [
+        {
+            title: "Week 1",
+            value: "week1",
+            content: (
+                <div
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    <h1 className={"light:text-white text-black"}>Week 1 Recap</h1>
+                    <YouTubePlayer videoId={"vGIsE0y7tVQ"}/>
+                </div>
+            ),
+        },
+        {
+            title: "Week 2",
+            value: "week2",
+            content: (
+                <div
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    <h1 className={"light:text-white text-black"}>Week 2 Recap</h1>
+                    <YouTubePlayer videoId={"k9-qFX8pPWc"}/>
+                </div>
+            ),
+        },
+        {
+            title: "Week 3",
+            value: "week3",
+            content: (
+                <div
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    <h1 className={"light:text-white text-black"}>Week 3 Recap</h1>
+                    <YouTubePlayer videoId={"kMeeyb-l-0U"}/>
+                </div>
+            ),
+        },
+        {
+            title: "Week 4",
+            value: "week4",
+            content: (
+                <div
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    <h1 className={"light:text-white text-black"}>Week 4 Recap</h1>
+                    <YouTubePlayer videoId={"3xwtSjaZoUM"}/>
+                </div>
+            ),
+        },
+        {
+            title: "Week 5",
+            value: "week5",
+            content: (
+                <div
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    <h1 className={"light:text-white text-black"}>Week 5 Recap</h1>
+                    <YouTubePlayer videoId={"bjL-mn2fMTc"}/>
+                </div>
+            ),
+        },
+    ]
+
     return (
         <section className={""}>
             <HeroParallax products={heroItems}/>
@@ -137,14 +196,10 @@ export default function Home() {
                 <InfiniteMovingCards items={sponsors}/>
             </div>
             <div
-                className={"mt-[5rem] flex flex-col items-center border-gray-200 rounded-lg shadow md:flex-row"}> {/* Latest News/Recaps*/}
-                <div className={"md:w-1/2 flex flex-col justify-between p-4 leading-normal"}>
-                    <h1>Season Recaps!</h1>
-                    {/* Add your text content here */}
-                </div>
-                <div className={"md:w-1/2"}>
-                    <YouTubePlayer videoId="bmD-tZe8HBA" />
-                </div>
+                className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[10rem] md:mt-[7rem] ">
+                <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Season Recaps!</h1>
+                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>This is all our recaps through this year's season, CRESCENDO</p>
+                <Tabs tabs={tabs}/>
             </div>
             <Faq/>
         </section>
