@@ -12,8 +12,8 @@ export interface ProvidersProps {
     themeProps?: ThemeProviderProps;
 }
 
-const domain = process.env.REACT_APP_AUTH0_ISSUER_BASE_URL
-const id = process.env.REACT_APP_AUTH0_CLIENT_ID
+const domain = process.env.NEXT_PUBLIC_AUTH0_ISSUER_BASE_URL
+const id = process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID
 
 export function Providers({ children, themeProps }: ProvidersProps) {
     const router = useRouter();
