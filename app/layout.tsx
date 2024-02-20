@@ -7,6 +7,8 @@ import {Navbar} from "@/components/navbar";
 import {Link} from "@nextui-org/link";
 import clsx from "clsx";
 import Cursor from "@/components/cursor";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 export const viewport: Viewport = {
@@ -57,6 +59,8 @@ export default function RootLayout({
             <Navbar/>
             <main className="px-0">
                 {children}
+                <Analytics />
+                <SpeedInsights />
             </main>
             <footer className="relative bottom-0 w-full flex py-3 p-6 text-start">
                 <div className={"secondary container items-start justify-start ml-12"}>
