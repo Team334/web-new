@@ -6,7 +6,7 @@ import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-ca
 import Faq from "@/components/faq";
 import YouTubePlayer  from '@/components/youtube'
 import {Tabs} from "@/components/aceternity/ui/tabs";
-
+import { useAuth0 } from '@auth0/auth0-react'; // Import useAuth0 hook
 
 export default function Home() {
     const heroItems = [
@@ -195,8 +195,16 @@ export default function Home() {
         },
     ]
 
+    const { isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0(); // Destructure authentication state and functions
+
+
     return (
         <section className={""}>
+            {isAuthenticated ? (
+                <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button>
+            ) : (
+                <button onClick={loginWithRedirect}>Login</button>
+            )}
             <HeroParallax products={heroItems}/>
             <div className={"text-center h-[50vh] mt-5 mb-5"}> {/* Sponsors */}
                 <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Sponsors</h1>
