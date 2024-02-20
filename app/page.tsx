@@ -182,6 +182,17 @@ export default function Home() {
                 </div>
             ),
         },
+        {
+            title: "Week 6",
+            value: "week6",
+            content: (
+                <div
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    <h1 className={"light:text-white text-black"}>Week 6 Recap</h1>
+                    <YouTubePlayer videoId={"KSeID8Ug1Os"}/>
+                </div>
+            ),
+        },
     ]
 
     return (
