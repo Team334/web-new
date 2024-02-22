@@ -17,7 +17,57 @@ import clsx from "clsx";
 
 import {ThemeSwitch} from "@/components/theme-switch";
 import {GithubIcon, HeartFilledIcon, InstagramIcon} from "@/components/icons";
-import React from "react";
+import React, {useState} from "react";
+import {useAuth0} from "@auth0/auth0-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
+    DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut,
+    DropdownMenuTrigger
+} from "@/components/shadcn/ui/dropdown-menu";
+
+const Profile = () => {
+    const { user, isAuthenticated, isLoading, logout } = useAuth0();
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const handleLogout = () => {
+        logout({ logoutParams: { returnTo: window.location.origin } });
+    };
+
+    return (
+        isAuthenticated && (
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Image
+                        src={user.picture}
+                        alt={user.name}
+                        width={48}
+                    />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                    <DropdownMenuLabel>Hi {user.name}!</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                        <Link href={"/settings"}>Settings</Link>
+                        <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuGroup>
+                        <DropdownMenuItem onClick={handleLogout}>
+                            Log out
+                            <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
+                        </DropdownMenuItem>
+                    </DropdownMenuGroup>
+                </DropdownMenuContent>
+            </DropdownMenu>
+        )
+    );
+};
+
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useReducer((current) => !current, false);
@@ -100,7 +150,7 @@ export const Navbar = () => {
         // 	</NavbarContent>
         // </NextUINavbar>
         <NextUINavbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}
-                      className={"z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
+                      className={"flex z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -160,6 +210,10 @@ export const Navbar = () => {
                         Donate
                     </Button>
                 </NavbarItem>
+                <NavbarItem className="md:flex"> {/* Move Profile component here */}
+                    <Profile />
+                </NavbarItem>
+
             </NavbarContent>
             <NavbarMenu
                 className={"box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col justify-center mt-10 space-y-10 space-x-2"}>
