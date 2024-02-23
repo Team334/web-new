@@ -27,6 +27,8 @@ export function Providers({children, themeProps}: ProvidersProps) {
                 authorizationParams={{
                     redirect_uri: redirect_uri
                 }}
+                useRefreshTokens
+                cacheLocation="localstorage"
             >
                 <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
             </Auth0Provider>
