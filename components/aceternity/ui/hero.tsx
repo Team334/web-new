@@ -151,13 +151,13 @@ export const ProductCard = ({
                 target={"_blank"}
                 className="block group-hover/product:shadow-2xl "
             >
-                    <Image
-                        src={product.thumbnail}
-                        height="600"
-                        width="1000"
-                        className="object-scale-down object-center absolute h-full w-full inset-0"
-                        alt={product.title}
-                    />
+                <Image
+                    src={product.thumbnail}
+                    height="600"
+                    width="1000"
+                    className="object-scale-down object-center absolute h-full w-full inset-0"
+                    alt={product.title}
+                />
             </Link>
             <div
                 className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>

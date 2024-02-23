@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 interface MousePosition {
     x: number;
@@ -12,14 +12,14 @@ interface CirclePosition {
 }
 
 const Cursor: React.FC = () => {
-    const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
-    const [previousMouse, setPreviousMouse] = useState<MousePosition>({ x: 0, y: 0 });
-    const [circle, setCircle] = useState<CirclePosition>({ x: 0, y: 0 });
+    const [mouse, setMouse] = useState<MousePosition>({x: 0, y: 0});
+    const [previousMouse, setPreviousMouse] = useState<MousePosition>({x: 0, y: 0});
+    const [circle, setCircle] = useState<CirclePosition>({x: 0, y: 0});
     const [transform, setTransform] = useState<string>('');
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            setMouse({ x: e.clientX, y: e.clientY });
+            setMouse({x: e.clientX, y: e.clientY});
         };
 
         window.addEventListener('mousemove', handleMouseMove);
@@ -42,7 +42,7 @@ const Cursor: React.FC = () => {
 
         const deltaMouseX = mouse.x - previousMouse.x;
         const deltaMouseY = mouse.y - previousMouse.y;
-        setPreviousMouse({ x: mouse.x, y: mouse.y });
+        setPreviousMouse({x: mouse.x, y: mouse.y});
 
         const mouseVelocity = Math.min(Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4, 150);
         const scaleValue = (mouseVelocity / 150) * 0.5;

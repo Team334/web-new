@@ -59,12 +59,12 @@ const config = {
             },
             keyframes: {
                 "accordion-down": {
-                    from: { height: "0" },
-                    to: { height: "var(--radix-accordion-content-height)" },
+                    from: {height: "0"},
+                    to: {height: "var(--radix-accordion-content-height)"},
                 },
                 "accordion-up": {
-                    from: { height: "var(--radix-accordion-content-height)" },
-                    to: { height: "0" },
+                    from: {height: "var(--radix-accordion-content-height)"},
+                    to: {height: "0"},
                 },
                 scroll: {
                     to: {
@@ -83,7 +83,7 @@ const config = {
     plugins: [
         nextui(),
         require("tailwindcss-animate"),
-        function ({ addBase, matchUtilities, theme }) {
+        function ({addBase, matchUtilities, theme}) {
             matchUtilities(
                 {
                     "bg-grid": (value) => ({
@@ -102,7 +102,7 @@ const config = {
                         )}")`,
                     }),
                 },
-                { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+                {values: flattenColorPalette(theme("backgroundColor")), type: "color"}
             );
 
             let allColors = flattenColorPalette(theme("colors"));

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "@/components/cn";
+import {useState} from "react";
+import {motion} from "framer-motion";
+import {cn} from "@/components/cn";
 
 type Tab = {
     title: string;
@@ -60,7 +60,7 @@ export const Tabs = ({
                         {active.value === tab.value && (
                             <motion.div
                                 layoutId="clickedbutton"
-                                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                transition={{type: "spring", bounce: 0.3, duration: 0.6}}
                                 className={cn(
                                     "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
                                     activeTabClassName

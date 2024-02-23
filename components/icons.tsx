@@ -142,11 +142,11 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
 
 
 export const Arrow: React.FC<IconSvgProps> = ({
-                                                          size = 28,
-                                                          width,
-                                                          height,
-                                                          ...props
-                                                      }) => {
+                                                  size = 28,
+                                                  width,
+                                                  height,
+                                                  ...props
+                                              }) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path

@@ -21,13 +21,17 @@ import React, {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
     DropdownMenu,
-    DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
-    DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
     DropdownMenuTrigger
 } from "@/components/shadcn/ui/dropdown-menu";
 
 const Profile = () => {
-    const { user, isAuthenticated, isLoading, logout } = useAuth0();
+    const {user, isAuthenticated, isLoading, logout} = useAuth0();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -35,27 +39,27 @@ const Profile = () => {
     };
 
     const handleLogout = () => {
-        logout({ logoutParams: { returnTo: window.location.origin } });
+        logout({logoutParams: {returnTo: window.location.origin}});
     };
 
     return (
-        isAuthenticated && (
+        user !== undefined && isAuthenticated && (
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Image
                         src={user.picture}
                         alt={user.name}
-                        width={48}
+                        width={40}
                     />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
                     <DropdownMenuLabel>Hi {user.name}!</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
+                    <DropdownMenuSeparator/>
                     <DropdownMenuItem>
                         <Link href={"/settings"}>Settings</Link>
                         <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                    <DropdownMenuSeparator />
+                    <DropdownMenuSeparator/>
                     <DropdownMenuGroup>
                         <DropdownMenuItem onClick={handleLogout}>
                             Log out
@@ -211,7 +215,7 @@ export const Navbar = () => {
                     </Button>
                 </NavbarItem>
                 <NavbarItem className="md:flex"> {/* Move Profile component here */}
-                    <Profile />
+                    <Profile/>
                 </NavbarItem>
 
             </NavbarContent>

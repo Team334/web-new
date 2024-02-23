@@ -4,9 +4,9 @@ import {HeroParallax} from "@/components/aceternity/ui/hero";
 import React from "react";
 import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
 import Faq from "@/components/faq";
-import YouTubePlayer  from '@/components/youtube'
+import YouTubePlayer from '@/components/youtube'
 import {Tabs} from "@/components/aceternity/ui/tabs";
-import { useAuth0 } from '@auth0/auth0-react'; // Import useAuth0 hook
+import {useAuth0} from '@auth0/auth0-react'; // Import useAuth0 hook
 
 export default function Home() {
     const heroItems = [
@@ -195,13 +195,13 @@ export default function Home() {
         },
     ]
 
-    const { isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0(); // Destructure authentication state and functions
+    const {isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0(); // Destructure authentication state and functions
 
 
     return (
         <section className={""}>
             {isAuthenticated ? (
-                <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                <button onClick={() => logout({logoutParams: {returnTo: window.location.origin}})}>
                     Logout
                 </button>
             ) : (
@@ -219,7 +219,8 @@ export default function Home() {
             <div
                 className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[10rem] md:mt-[7rem] ">
                 <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Season Recaps!</h1>
-                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>This is all our recaps through this year season, CRESCENDO</p>
+                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>This is all our recaps through this
+                    year season, CRESCENDO</p>
                 <Tabs tabs={tabs}/>
             </div>
             <Faq/>
