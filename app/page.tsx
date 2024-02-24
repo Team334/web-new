@@ -1,14 +1,31 @@
-'use client'
-
+"use client"
 import {HeroParallax} from "@/components/aceternity/ui/hero";
 import React from "react";
 import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
 import Faq from "@/components/faq";
 import YouTubePlayer from '@/components/youtube'
 import {Tabs} from "@/components/aceternity/ui/tabs";
+import {useAuth0} from "@auth0/auth0-react";
+import {Progress} from "@/components/shadcn/ui/progress";
 
 
 export default function Home() {
+    const {isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0(); // Destructure authentication state and functions
+    const [progress, setProgress] = React.useState(13)
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => setProgress(100), 1000)
+        return () => clearTimeout(timer)
+    }, [])
+
+    if (isLoading) {
+        return (
+            <div className={"flex justify-center items-center w-full h-[100vh]"}>
+                <Progress value={progress} className="w-[60%]"/>
+            </div>
+        )
+    }
+
     const heroItems = [
         {
             "title": "Autodesk",
@@ -125,6 +142,7 @@ export default function Home() {
             url: "https://www.whimsytech.net/"
         },
     ];
+
 
     const tabs = [
         {
