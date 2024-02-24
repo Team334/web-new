@@ -1,34 +1,15 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import {Card, CardBody, CardHeader} from "@nextui-org/card";
 import {Image} from "@nextui-org/react";
 import Marquee from "react-fast-marquee";
 
-export const InfiniteMovingCards = ({
-                                        items,
-                                    }: {
-    items: {
-        link: string;
-        title: string;
-        url: string;
-    }[];
-}) => {
-
+export const InfiniteMovingCards = ({items}: { items: { link: string; title: string; url: string; }[] }) => {
     return (
-        <Marquee
-            speed={200}
-        >
+        <Marquee speed={200}>
             {items.map((item, idx) => (
-                <div
-                    className={"container px-3 py-5"}
-                    key={item.title}
-                >
-                    <Link
-                        href={item.url}
-                        target={"_blank"}
-                    >
+                <div className={"container px-3 py-5"} key={item.title}>
+                    <Link href={item.url} target={"_blank"} passHref>
                         <Card
                             className="w-[250px] max-w-full h-[250px] md:h-max-[400px] sm:[450px] relative border-b-0 md:w-[450px] md:h-[350px] max-h-full text-center border border-slate-700 rounded-lg shadow">
                             <CardHeader className="pb-0 pt-2 px-4 flex-col">
@@ -36,12 +17,12 @@ export const InfiniteMovingCards = ({
                             </CardHeader>
                             <CardBody className="py-2 flex justify-center items-center">
                                 <Image
-                                    alt="Card background"
-                                    className="md:object-contain object-scale-down rounded-xl relative align-middle overflow-y-hidden"
+                                    alt={item.title}
                                     src={item.link}
-                                    height={"190"}
-                                    width={"190"}
-                                    loading={"lazy"}
+                                    height={190}
+                                    width={190}
+                                    loading="lazy"
+                                    className="rounded-xl"
                                 />
                             </CardBody>
                         </Card>

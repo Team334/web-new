@@ -1,6 +1,6 @@
 "use client"
-import React, {useEffect, useState} from "react";
-import {motion, MotionValue, useScroll, useSpring, useTransform} from "framer-motion";
+import React, {useEffect, useMemo, useState} from "react";
+import {motion, useScroll, useSpring, useTransform} from "framer-motion";
 import Image from "next/legacy/image";
 import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
@@ -10,81 +10,36 @@ import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
 
-export const HeroParallax = ({
-                                 products,
-                             }: {
-    products: {
-        title: string;
-        description: string;
-        link: string;
-        thumbnail: string;
-    }[];
+export const HeroParallax = ({products}: {
+    products: { title: string; description: string; link: string; thumbnail: string; }[]
 }) => {
-    const firstRow = products.slice(0, 5);
-    const secondRow = products.slice(5, 10);
+    const firstRow = useMemo(() => products.slice(0, 5), [products]);
+    const secondRow = useMemo(() => products.slice(5, 10), [products]);
     const ref = React.useRef(null);
-    const {scrollYProgress} = useScroll({
-        target: ref,
-        offset: ["start start", "end start"],
-    });
+    const {scrollYProgress} = useScroll({target: ref, offset: ["start start", "end start"],});
 
     const springConfig = {stiffness: 300, damping: 30, bounce: 100};
 
-    const translateX = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, 1000]),
-        springConfig
-    );
-    const translateXReverse = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, -1000]),
-        springConfig
-    );
-    const rotateX = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-        springConfig
-    );
-    const opacity = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-        springConfig
-    );
-    const rotateZ = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-        springConfig
-    );
-    const translateY = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
-        springConfig
-    );
+    const translateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1000]), springConfig);
+    const translateXReverse = useSpring(useTransform(scrollYProgress, [0, 1], [0, -1000]), springConfig);
+    const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.2], [15, 0]), springConfig);
+    const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
+    const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
+    const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
+
     return (
-        <div
-            ref={ref}
-            className="h-[232vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto"
-        >
+        <div ref={ref}
+             className="h-[232vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
             <Header/>
-            <motion.div
-                style={{
-                    rotateX,
-                    rotateZ,
-                    translateY,
-                    opacity,
-                }}
-                className=""
-            >
+            <motion.div style={{rotateX, rotateZ, translateY, opacity}} className="">
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-                    {firstRow.map((product) => (
-                        <ProductCard
-                            product={product}
-                            translate={translateX}
-                            key={product.title}
-                        />
+                    {firstRow.map((product, index) => (
+                        <ProductCard product={product} translate={translateX} key={index}/>
                     ))}
                 </motion.div>
                 <motion.div className="flex flex-row mb-20 space-x-20 ">
-                    {secondRow.map((product) => (
-                        <ProductCard
-                            product={product}
-                            translate={translateXReverse}
-                            key={product.title}
-                        />
+                    {secondRow.map((product, index) => (
+                        <ProductCard product={product} translate={translateXReverse} key={index}/>
                     ))}
                 </motion.div>
             </motion.div>
@@ -125,27 +80,17 @@ export const Header = () => {
     );
 };
 
-export const ProductCard = ({
-                                product,
-                                translate,
-                            }: {
-    product: {
-        title: string;
-        description: string;
-        link: string;
-        thumbnail: string;
-    };
-    translate: MotionValue<number>;
+export const ProductCard = ({product, translate}: {
+    product: { title: string; description: string; link: string; thumbnail: string; };
+    translate: any;
 }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading delay
         const timer = setTimeout(() => {
             setLoading(false);
         }, 1000);
 
-        // Clean up timer
         return () => clearTimeout(timer);
     }, []);
 
@@ -175,7 +120,7 @@ export const ProductCard = ({
                             width="1000"
                             className="object-scale-down object-center absolute h-full w-full inset-0"
                             alt={product.title}
-                            loading="lazy" // Lazy load images
+                            loading="lazy"
                         />
                     </Link>
                     <div

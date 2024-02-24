@@ -1,8 +1,18 @@
-"use client";
-
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {cn} from "@/components/cn";
+
+const debounce = <T extends (...args: any[]) => any>(
+    func: T,
+    delay: number
+) => {
+    let timeout: NodeJS.Timeout;
+    const debouncedFunc = (...args: Parameters<T>): void => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+    return debouncedFunc as T & { timeout: NodeJS.Timeout };
+};
 
 type Tab = {
     title: string;
@@ -25,16 +35,22 @@ export const Tabs = ({
 }) => {
     const [active, setActive] = useState<Tab>(propTabs[0]);
     const [tabs, setTabs] = useState<Tab[]>(propTabs);
+    const [hovering, setHovering] = useState(false);
 
-    const moveSelectedTabToTop = (idx: number) => {
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setActive(tabs[0]);
+        }, 300);
+        return () => clearTimeout(timeout);
+    }, [tabs]);
+
+    const moveSelectedTabToTop = debounce((idx: number) => {
         const newTabs = [...propTabs];
         const selectedTab = newTabs.splice(idx, 1);
         newTabs.unshift(selectedTab[0]);
         setTabs(newTabs);
         setActive(newTabs[0]);
-    };
-
-    const [hovering, setHovering] = useState(false);
+    }, 300);
 
     return (
         <>
@@ -52,7 +68,10 @@ export const Tabs = ({
                         }}
                         onMouseEnter={() => setHovering(true)}
                         onMouseLeave={() => setHovering(false)}
-                        className={cn("relative px-2 md:px-4 py-2 rounded-full my-4", tabClassName)}
+                        className={cn(
+                            "relative px-2 md:px-4 py-2 rounded-full my-4",
+                            tabClassName
+                        )}
                         style={{
                             transformStyle: "preserve-3d",
                         }}
