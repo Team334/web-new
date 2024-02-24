@@ -19,7 +19,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({videoId}) => {
             <YouTube
                 videoId={videoId}
                 opts={opts}
-                className={"w-full max-h-full object-scale-down h-full flex-1"}
+                className={"w-full max-h-full object-scale-down h-full flex-1 p-2"}
             />
         </div>
     );

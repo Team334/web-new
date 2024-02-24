@@ -63,7 +63,7 @@ export default function RootLayout({
                 <SpeedInsights/>
             </main>
             <footer className="relative bottom-0 w-full flex py-3 p-6 text-start">
-                <div className={"secondary container items-start justify-start ml-12"}>
+                <div className={"secondary container items-start justify-start md:ml-12"}>
                     <span>©1998-2024 TechKnights</span>
                 </div>
                 <Link

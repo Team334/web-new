@@ -170,7 +170,7 @@ export const Navbar = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden md:flex gap-4 mr-[4.5rem]" justify="center">
+            <NavbarContent className="hidden md:flex md:text-center gap-4 md:m-auto mr-[4.5rem]" justify="center">
                 {siteConfig.navItems.map((item) => (
                     <NavbarItem key={item.href}>
                         <Link
@@ -188,18 +188,18 @@ export const Navbar = () => {
             </NavbarContent>
 
             <NavbarContent justify="end">
-                <NavbarItem className="md:flex gap-2">
+                <NavbarItem className="gap-2 flex">
                     <Link isExternal href={siteConfig.links.instagram} aria-label="Instagram"
-                          className={"hidden md:flex"}>
+                          className={"hidden lg:flex"}>
                         <InstagramIcon className="text-default-500 m-auto"/>
                     </Link>
-                    <Link isExternal href={siteConfig.links.github} aria-label="Github" className={"hidden md:flex"}>
+                    <Link isExternal href={siteConfig.links.github} aria-label="Github" className={"hidden lg:flex"}>
                         <GithubIcon className={"text-default-500 m-auto"}/>
                     </Link>
                     <ThemeSwitch/>
                 </NavbarItem>
 
-                <NavbarItem className="md:flex">
+                <NavbarItem className="hidden md:flex">
                     <Button
                         isExternal
                         as={Link}
@@ -211,7 +211,7 @@ export const Navbar = () => {
                         Donate
                     </Button>
                 </NavbarItem>
-                <div className="hidden md:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
+                <div className="hidden lg:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
                 <NavbarItem className="hidden md:flex">
                     {isAuthenticated ? (
                         <Profile/>

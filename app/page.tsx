@@ -132,7 +132,7 @@ export default function Home() {
             value: "week1",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2]">
                     <h1 className={"light:text-white text-black"}>Week 1 Recap</h1>
                     <YouTubePlayer videoId={"vGIsE0y7tVQ"}/>
                 </div>
@@ -200,16 +200,16 @@ export default function Home() {
             <HeroParallax products={heroItems}/>
             <div className={"text-center h-[50vh] mt-5 mb-5"}> {/* Sponsors */}
                 <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Sponsors</h1>
-                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>
+                <p className={"text-base md:text-xl my-3 dark:text-neutral-200 p-2"}>
                     Thank you to all our sponsors and family who supported this. We could never built the robot without
                     your help!
                 </p>
                 <InfiniteMovingCards items={sponsors}/>
             </div>
             <div
-                className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[10rem] md:mt-[7rem] ">
-                <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Season Recaps!</h1>
-                <p className={"text-base md:text-xl my-3 dark:text-neutral-200"}>This is all our recaps through this
+                className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[10rem] md:mt-[7rem]">
+                <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center"}>Season Recaps!</h1>
+                <p className={"text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center"}>This is all our recaps through this
                     year season, CRESCENDO</p>
                 <Tabs tabs={tabs}/>
             </div>
