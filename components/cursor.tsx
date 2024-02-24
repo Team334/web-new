@@ -56,7 +56,13 @@ const Cursor: React.FC = () => {
         const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
         const scaleTransform = `scale(${1 + currentScale}, ${1 - currentScale})`;
         const rotateTransform = `rotate(${currentAngle}deg)`;
-        setTransform(`${translateTransform} ${rotateTransform} ${scaleTransform}`);
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            setTransform(`${rotateTransform} ${scaleTransform}`);
+        } else {
+            setTransform(`${translateTransform} ${rotateTransform} ${scaleTransform}`);
+        }
 
         window.requestAnimationFrame(tick);
     };
