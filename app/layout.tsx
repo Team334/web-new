@@ -9,6 +9,7 @@ import clsx from "clsx";
 import Cursor from "@/components/cursor";
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
+import React from "react";
 
 
 export const viewport: Viewport = {
@@ -20,7 +21,7 @@ export const viewport: Viewport = {
     width: 'device-width'
 }
 export const metadata: Metadata = {
-    metadataBase: new URL("https://bthsrobotics.com"),
+    metadataBase: new URL("https://team334.vercel.app"),
     title: {
         default: siteConfig.name,
         template: `%s - ${siteConfig.name}`,
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     icons: {
         icon: "/logo.png",
-        shortcut: "/favicon-16x16.png",
+        shortcut: "/logo.png",
         apple: "/logo.png",
     },
     openGraph: {

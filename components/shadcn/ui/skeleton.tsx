@@ -1,4 +1,5 @@
 import {cn} from "@/components/cn"
+import React from "react";
 
 function Skeleton({
                       className,
