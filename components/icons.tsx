@@ -142,17 +142,107 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
 
 
 export const Arrow: React.FC<IconSvgProps> = ({
-                                                          size = 28,
-                                                          width,
-                                                          height,
-                                                          ...props
-                                                      }) => {
+                                                  size = 28,
+                                                  width,
+                                                  height,
+                                                  ...props
+                                              }) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path
                 fillRule="evenodd"
                 d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
             />
+        </svg>
+    )
+}
+
+export const LoginIcon: React.FC<IconSvgProps> = ({
+                                                      size = 28,
+                                                      width,
+                                                      height,
+                                                      ...props
+                                                  }) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            width={size || width}
+            height={size || height}
+            viewBox="0 0 1080 1080"
+            xmlSpace="preserve"
+        >
+            <defs></defs>
+            <g transform="matrix(1 0 0 1 540 540)" id="aed47e3a-4167-44e2-9d92-2d05b1d5b3f6">
+                <rect
+                    style={{
+                        stroke: 'none',
+                        strokeWidth: 1,
+                        strokeDasharray: 'none',
+                        strokeLinecap: 'butt',
+                        strokeDashoffset: 0,
+                        strokeLinejoin: 'miter',
+                        strokeMiterlimit: 4,
+                        fill: 'rgb(255,255,255)',
+                        fillRule: 'nonzero',
+                        opacity: 1,
+                        visibility: 'hidden',
+                    }}
+                    vectorEffect="non-scaling-stroke"
+                    x="-540"
+                    y="-540"
+                    rx="0"
+                    ry="0"
+                    width="1080"
+                    height="1080"
+                />
+            </g>
+            <g transform="matrix(1 0 0 1 540 540)" id="46c73f46-d30a-40e3-9e61-c2c6081f163f"></g>
+            <g transform="matrix(1 0 0 1 540 540)">
+                <g vectorEffect="non-scaling-stroke">
+                    <g transform="matrix(1.56 0 0 1.56 92.2 0)">
+                        <path
+                            style={{
+                                stroke: 'none',
+                                strokeWidth: 1,
+                                strokeDasharray: 'none',
+                                strokeLinecap: 'butt',
+                                strokeDashoffset: 0,
+                                strokeLinejoin: 'miter',
+                                strokeMiterlimit: 4,
+                                fill: 'rgb(0,0,0)',
+                                fillRule: 'nonzero',
+                                opacity: 1,
+                            }}
+                            vectorEffect="non-scaling-stroke"
+                            transform=" translate(-315.01, -256)"
+                            d="M 155.81 0 L 155.81 173.889 L 189.227 173.889 L 189.227 33.417 L 424.819 33.417 L 349.949 84.07300000000001 C 341.48 89.80000000000001 336.414 99.36200000000001 336.414 109.57600000000001 L 336.414 395.81600000000003 L 189.227 395.81600000000003 L 189.227 282.079 L 155.81 282.079 L 155.81 429.233 L 336.414 429.233 L 336.414 500.163 C 336.414 504.545 338.837 508.567 342.704 510.61400000000003 C 346.571 512.6700000000001 351.262 512.4250000000001 354.89300000000003 509.97 L 474.211 429.23400000000004 L 474.211 0 L 155.81 0 z"
+                            strokeLinecap="round"
+                        />
+                    </g>
+                    <g transform="matrix(1.56 0 0 1.56 -124.78 -43.78)">
+                        <path
+                            style={{
+                                stroke: 'none',
+                                strokeWidth: 1,
+                                strokeDasharray: 'none',
+                                strokeLinecap: 'butt',
+                                strokeDashoffset: 0,
+                                strokeLinejoin: 'miter',
+                                strokeMiterlimit: 4,
+                                fill: 'rgb(0,0,0)',
+                                fillRule: 'nonzero',
+                                opacity: 1,
+                            }}
+                            vectorEffect="non-scaling-stroke"
+                            transform=" translate(-176.14, -227.98)"
+                            d="M 228.657 290.4 C 228.657 292.24399999999997 229.72500000000002 293.924 231.407 294.7 C 233.071 295.47499999999997 235.04500000000002 295.214 236.449 294.015 L 314.493 227.98 L 236.449 161.94599999999997 C 235.04500000000002 160.74599999999998 233.07100000000003 160.48599999999996 231.407 161.25999999999996 C 229.726 162.03499999999997 228.657 163.71599999999995 228.657 165.55999999999997 L 228.657 198.95199999999997 L 37.79 198.95199999999997 L 37.79 257.01599999999996 L 228.658 257.01599999999996 L 228.658 290.4 z"
+                            strokeLinecap="round"
+                        />
+                    </g>
+                </g>
+            </g>
         </svg>
     )
 }

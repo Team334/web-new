@@ -5,7 +5,7 @@ interface YouTubePlayerProps {
     videoId: string;
 }
 
-const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
+const YouTubePlayer: React.FC<YouTubePlayerProps> = ({videoId}) => {
     const opts = {
         width: '100%', // Set width to 100% to make it responsive
         height: '100%', // Set height to 100% to maintain aspect ratio
@@ -15,13 +15,13 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
     };
 
     return (
-            <div className="youtube-player relative mt-2 w-full h-[95%] md:h-[90%] flex flex-col">
-                <YouTube
-                    videoId={videoId}
-                    opts={opts}
-                    className={"w-full max-h-full object-scale-down h-full flex-1"}
-                />
-            </div>
+        <div className="youtube-player relative mt-2 w-full h-[95%] md:h-[90%] flex flex-col">
+            <YouTube
+                videoId={videoId}
+                opts={opts}
+                className={"w-full max-h-full object-scale-down h-full flex-1 p-2"}
+            />
+        </div>
     );
 };
 

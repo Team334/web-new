@@ -94,7 +94,7 @@ export const HeroParallax = ({
 export const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-            <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white">
+            <h1 className="text-[2rem] md:text-7xl font-bold dark:text-white">
                 <TextGenerateEffect words={"We are"}/><TextGenerateEffect words={"Techknights"} className={"main"}/>
             </h1>
             <p className="text-base md:text-xl mt-8 dark:text-neutral-200">
@@ -144,20 +144,20 @@ export const ProductCard = ({
                 y: -20,
             }}
             key={product.title}
-            className="group/product h-96 w-[30rem] relative flex-shrink-0"
+            className="group/product h-60 md:h-96 w-[13rem] md:w-[30rem]  relative flex-shrink-0"
         >
             <Link
                 href={product.link}
                 target={"_blank"}
                 className="block group-hover/product:shadow-2xl "
             >
-                    <Image
-                        src={product.thumbnail}
-                        height="600"
-                        width="1000"
-                        className="object-scale-down object-center absolute h-full w-full inset-0"
-                        alt={product.title}
-                    />
+                <Image
+                    src={product.thumbnail}
+                    height="600"
+                    width="1000"
+                    className="object-scale-down object-center absolute h-full w-full inset-0"
+                    alt={product.title}
+                />
             </Link>
             <div
                 className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
