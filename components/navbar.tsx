@@ -16,7 +16,7 @@ import {siteConfig} from "@/config/site";
 import clsx from "clsx";
 
 import {ThemeSwitch} from "@/components/theme-switch";
-import {GithubIcon, HeartFilledIcon, InstagramIcon} from "@/components/icons";
+import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon} from "@/components/icons";
 import React, {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
@@ -34,6 +34,9 @@ const Profile = () => {
     const {user, isAuthenticated, isLoading, logout} = useAuth0();
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const name = user?.name;
+    const picture = user?.picture;
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
@@ -43,37 +46,36 @@ const Profile = () => {
     };
 
     return (
-        user !== undefined && isAuthenticated && (
-            <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                    <Image
-                        src={user.picture}
-                        alt={user.name}
-                        width={40}
-                    />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                    <DropdownMenuLabel>Hi {user.name}!</DropdownMenuLabel>
-                    <DropdownMenuSeparator/>
-                    <DropdownMenuItem>
-                        <Link href={"/settings"}>Settings</Link>
-                        <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Image
+                    src={picture}
+                    alt={name}
+                    width={40}
+                />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+                <DropdownMenuLabel>Hi {name}!</DropdownMenuLabel>
+                <DropdownMenuSeparator/>
+                <DropdownMenuItem>
+                    <Link href={"/settings"}>Settings</Link>
+                    <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator/>
+                <DropdownMenuGroup>
+                    <DropdownMenuItem onClick={handleLogout}>
+                        Log out
+                        <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                    <DropdownMenuSeparator/>
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={handleLogout}>
-                            Log out
-                            <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                </DropdownMenuContent>
-            </DropdownMenu>
-        )
+                </DropdownMenuGroup>
+            </DropdownMenuContent>
+        </DropdownMenu>
     );
 };
 
 
 export const Navbar = () => {
+    const {isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0(); // Destructure authentication state and functions
     const [isMenuOpen, setIsMenuOpen] = React.useReducer((current) => !current, false);
     return (
         // <NextUINavbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="xl"
@@ -173,7 +175,7 @@ export const Navbar = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden md:flex gap-4" justify="center">
+            <NavbarContent className="hidden md:flex gap-4 mr-[4.5rem]" justify="center">
                 {siteConfig.navItems.map((item) => (
                     <NavbarItem key={item.href}>
                         <Link
@@ -214,8 +216,20 @@ export const Navbar = () => {
                         Donate
                     </Button>
                 </NavbarItem>
-                <NavbarItem className="md:flex"> {/* Move Profile component here */}
-                    <Profile/>
+                <div className="hidden md:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
+                <NavbarItem className="hidden md:flex">
+                    {isAuthenticated ? (
+                        <Profile/>
+                    ) : (
+                        <Button
+                            onClick={() => loginWithRedirect()}
+                            className="text-sm text-default-800 font-bold bg-default-100"
+                            variant="flat"
+                            startContent={<LoginIcon className="text-danger m-auto"/>}
+                        >
+                            Log In
+                        </Button>
+                    )}
                 </NavbarItem>
 
             </NavbarContent>
