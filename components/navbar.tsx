@@ -170,7 +170,7 @@ export const Navbar = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden md:flex md:text-center gap-4 md:m-auto mr-[4.5rem]" justify="center">
+            <NavbarContent className="hidden md:flex md:text-center gap-4 mr-0 lg:mr-[4.5rem]" justify="center">
                 {siteConfig.navItems.map((item) => (
                     <NavbarItem key={item.href}>
                         <Link
@@ -212,7 +212,7 @@ export const Navbar = () => {
                     </Button>
                 </NavbarItem>
                 <div className="hidden lg:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
-                <NavbarItem className="hidden md:flex">
+                <NavbarItem className="hidden lg:flex">
                     {isAuthenticated ? (
                         <Profile/>
                     ) : (

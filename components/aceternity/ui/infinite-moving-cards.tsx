@@ -41,6 +41,7 @@ export const InfiniteMovingCards = ({
                                     src={item.link}
                                     height={"190"}
                                     width={"190"}
+                                    loading={"lazy"}
                                 />
                             </CardBody>
                         </Card>

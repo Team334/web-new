@@ -50,7 +50,7 @@ export default function RootLayout({
         <head/>
         <body
             className={clsx(
-                "min-h-screen bg-background w-full",
+                "min-h-screen bg-background w-full scroll-smooth",
                 fontSans.variable
             )}
         >
