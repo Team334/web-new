@@ -168,8 +168,8 @@ export const LoginIcon: React.FC<IconSvgProps> = ({
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             version="1.1"
-            width="1080"
-            height="1080"
+            width={size || width}
+            height={size || height}
             viewBox="0 0 1080 1080"
             xmlSpace="preserve"
         >

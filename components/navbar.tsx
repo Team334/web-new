@@ -54,17 +54,12 @@ const Profile = () => {
                     width={40}
                 />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
+            <DropdownMenuContent className="w-56 mt-4">
                 <DropdownMenuLabel>Hi {name}!</DropdownMenuLabel>
-                <DropdownMenuSeparator/>
-                <DropdownMenuItem>
-                    <Link href={"/settings"}>Settings</Link>
-                    <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut>
-                </DropdownMenuItem>
                 <DropdownMenuSeparator/>
                 <DropdownMenuGroup>
                     <DropdownMenuItem onClick={handleLogout}>
-                        Log out
+                        <LoginIcon height={"28"} width={"28"}/> Log out
                         <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
@@ -225,7 +220,7 @@ export const Navbar = () => {
                             onClick={() => loginWithRedirect()}
                             className="text-sm text-default-800 font-bold bg-default-100"
                             variant="flat"
-                            startContent={<LoginIcon className="text-danger m-auto"/>}
+                            startContent={<LoginIcon width={40} height={40} className="text-danger m-auto"/>}
                         >
                             Log In
                         </Button>
