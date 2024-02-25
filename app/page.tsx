@@ -1,22 +1,21 @@
 "use client"
-import {HeroParallax} from "@/components/aceternity/ui/hero";
-import React from "react";
-import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
+import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { HeroParallax } from "@/components/aceternity/ui/hero";
+import { InfiniteMovingCards } from "@/components/aceternity/ui/infinite-moving-cards";
 import Faq from "@/components/faq";
-import YouTubePlayer from '@/components/youtube'
-import {Tabs} from "@/components/aceternity/ui/tabs";
-import {useAuth0} from "@auth0/auth0-react";
-import {Progress} from "@/components/shadcn/ui/progress";
-
+import YouTubePlayer from "@/components/youtube";
+import { Tabs } from "@/components/aceternity/ui/tabs";
+import { Progress } from "@/components/shadcn/ui/progress";
 
 export default function Home() {
-    const {isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0(); // Destructure authentication state and functions
-    const [progress, setProgress] = React.useState(13)
+    const { isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
+    const [progress, setProgress] = useState(13);
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => setProgress(100), 1000)
-        return () => clearTimeout(timer)
-    }, [])
+    useEffect(() => {
+        const timer = setTimeout(() => setProgress(100), 1000);
+        return () => clearTimeout(timer);
+    }, []);
 
     if (isLoading) {
         return (
@@ -214,23 +213,22 @@ export default function Home() {
     ]
 
     return (
-        <section className={""}>
+        <section>
             <HeroParallax products={heroItems}/>
-            <div className={"text-center h-[50vh] mt-5 mb-5"}> {/* Sponsors */}
-                <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main"}>Sponsors</h1>
-                <p className={"text-base md:text-xl my-3 dark:text-neutral-200 p-2"}>
-                    Thank you to all our sponsors and family who supported this. We could never built the robot without
+            <div className="text-center h-[50vh] mt-5 mb-5">
+                <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main">Sponsors</h1>
+                <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
+                    Thank you to all our sponsors and family who supported this. We could never build the robot without
                     your help!
                 </p>
                 <InfiniteMovingCards items={sponsors}/>
             </div>
             <div
                 className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[10rem] md:mt-[7rem]">
-                <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center"}>Season
+                <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season
                     Recaps!</h1>
-                <p className={"text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center"}>This is all our recaps
-                    through this
-                    year season, CRESCENDO</p>
+                <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">This is all our recaps
+                    through this year season, CRESCENDO</p>
                 <Tabs tabs={tabs}/>
             </div>
             <Faq/>

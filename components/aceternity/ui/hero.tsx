@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect, useMemo, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import {motion, useScroll, useSpring, useTransform} from "framer-motion";
 import Image from "next/legacy/image";
 import {Link as NextuiLink} from "@nextui-org/link";
@@ -89,16 +89,12 @@ const HeroParallax = React.memo(({products}: {
             <motion.div style={{rotateX, rotateZ, translateY, opacity}} className="">
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
                     {firstRow.map((product, index) => (
-                        <Suspense key={index} fallback={<div>Loading...</div>}>
-                            <ProductCard product={product} translate={translateX}/>
-                        </Suspense>
+                        <ProductCard product={product} translate={translateX} key={index}/>
                     ))}
                 </motion.div>
                 <motion.div className="flex flex-row mb-20 space-x-20 ">
                     {secondRow.map((product, index) => (
-                        <Suspense key={index} fallback={<div>Loading...</div>}>
-                            <ProductCard product={product} translate={translateXReverse}/>
-                        </Suspense>
+                        <ProductCard product={product} translate={translateXReverse} key={index}/>
                     ))}
                 </motion.div>
             </motion.div>

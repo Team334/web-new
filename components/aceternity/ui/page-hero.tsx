@@ -1,16 +1,16 @@
-"use client";
-import {AnimatePresence, motion} from "framer-motion";
-import React, {useEffect, useState} from "react";
+"use client"
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
 export const ImagesSlider = ({
-                                 images,
-                                 children,
-                                 overlay = true,
-                                 overlayClassName,
-                                 className,
-                                 autoplay = true,
-                                 direction = "up",
-                             }: {
+                          images,
+                          children,
+                          overlay = true,
+                          overlayClassName,
+                          className,
+                          autoplay = true,
+                          direction = "up",
+                      }: {
     images: string[];
     children: React.ReactNode;
     overlay?: React.ReactNode;
@@ -57,6 +57,7 @@ export const ImagesSlider = ({
             })
             .catch((error) => console.error("Failed to load images", error));
     };
+
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "ArrowRight") {
@@ -80,9 +81,6 @@ export const ImagesSlider = ({
             window.removeEventListener("keydown", handleKeyDown);
             clearInterval(interval);
         };
-    }, []);
-
-    useEffect(() => {
     }, []);
 
     const slideVariants = {
@@ -120,18 +118,14 @@ export const ImagesSlider = ({
 
     return (
         <div
-            className={
-                "h-screen w-full flex items-center justify-center"
-            }
+            className={"h-screen w-full flex items-center justify-center"}
             style={{
                 perspective: "1000px",
             }}
         >
             {areImagesLoaded && children}
             {areImagesLoaded && overlay && (
-                <div
-                    className={"absolute inset-0 bg-black/60 z-40"}
-                />
+                <div className={"absolute inset-0 bg-black/60 z-40"} />
             )}
 
             {areImagesLoaded && (
