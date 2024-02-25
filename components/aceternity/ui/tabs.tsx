@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {motion} from "framer-motion";
-import {cn} from "@/components/cn";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/components/cn";
 
 const debounce = <T extends (...args: any[]) => any>(
     func: T,
@@ -20,13 +20,13 @@ type Tab = {
     content?: string | React.ReactNode | any;
 };
 
-export const Tabs = ({
-                         tabs: propTabs,
-                         containerClassName,
-                         activeTabClassName,
-                         tabClassName,
-                         contentClassName,
-                     }: {
+export const Tabs = React.memo(({
+                                    tabs: propTabs,
+                                    containerClassName,
+                                    activeTabClassName,
+                                    tabClassName,
+                                    contentClassName,
+                                }: {
     tabs: Tab[];
     containerClassName?: string;
     activeTabClassName?: string;
@@ -102,13 +102,15 @@ export const Tabs = ({
             />
         </>
     );
-};
+});
 
-export const FadeInDiv = ({
-                              className,
-                              tabs,
-                              hovering,
-                          }: {
+Tabs.displayName = "Tabs"
+
+const FadeInDiv = React.memo(({
+                                         className,
+                                         tabs,
+                                         hovering,
+                                     }: {
     className?: string;
     key?: any;
     tabs: Tab[];
@@ -140,4 +142,6 @@ export const FadeInDiv = ({
             ))}
         </div>
     );
-};
+});
+
+FadeInDiv.displayName = "FadeInDiv"
