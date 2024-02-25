@@ -18,7 +18,7 @@ export const HeroParallax = React.memo(({ products }: {
     const ref = React.useRef(null);
     const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-    const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+    const springConfig = { stiffness: 120, damping: 20, bounce: 25, mass: 0.1};
 
     const translateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1000]), springConfig);
     const translateXReverse = useSpring(useTransform(scrollYProgress, [0, 1], [0, -1000]), springConfig);
