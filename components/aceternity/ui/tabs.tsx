@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/components/cn";
+import React, {useEffect, useState} from "react";
+import {motion} from "framer-motion";
+import {cn} from "@/components/cn";
 
 const debounce = <T extends (...args: any[]) => any>(
     func: T,
@@ -107,10 +107,10 @@ export const Tabs = React.memo(({
 Tabs.displayName = "Tabs"
 
 const FadeInDiv = React.memo(({
-                                         className,
-                                         tabs,
-                                         hovering,
-                                     }: {
+                                  className,
+                                  tabs,
+                                  hovering,
+                              }: {
     className?: string;
     key?: any;
     tabs: Tab[];

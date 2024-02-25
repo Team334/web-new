@@ -141,8 +141,6 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
 };
 
 
-
-
 export const LoginIcon: React.FC<IconSvgProps> = ({
                                                       size = 28,
                                                       width,
