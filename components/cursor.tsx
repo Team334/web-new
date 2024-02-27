@@ -11,7 +11,7 @@ interface CirclePosition {
     y: number;
 }
 
-const Cursor: React.FC = React.memo(() => {
+const Cursor: React.FC = () => {
     const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
     const [previousMouse, setPreviousMouse] = useState<MousePosition>({ x: 0, y: 0 });
     const [circle, setCircle] = useState<CirclePosition>({ x: 0, y: 0 });
@@ -76,7 +76,7 @@ const Cursor: React.FC = React.memo(() => {
             style={{ transform: transform }}
         ></div>
     );
-});
+};
 
 Cursor.displayName = "Cursor"
 
