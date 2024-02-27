@@ -84,7 +84,7 @@ const ProfileMenu = () => {
 
     return (
         <div className="flex items-center justify-between p-3">
-            <div className="flex items-center justify-start">
+            <div className="flex items-center justify-start gap-2 text-xl">
                 <Image
                     src={picture}
                     alt={name}
@@ -93,9 +93,9 @@ const ProfileMenu = () => {
                 />
                 <span className="mr-2">{name}</span>
             </div>
-            <div className="flex items-center justify-end"> {/* Changed 'justify-end' to 'flex items-center justify-end' */}
-                <button onClick={handleLogout} className="text-danger">
-                    <LoginIcon width={60} height={60}/>
+            <div className="flex items-center justify-end">
+                <button onClick={handleLogout} className="text-danger m-auto">
+                    <LoginIcon width={60} height={60} />
                 </button>
             </div>
         </div>
@@ -194,20 +194,20 @@ export const Navbar = () => {
                     ) : (
                         <Button
                             onClick={() => loginWithRedirect()}
-                            className="text-sm text-default-800 font-bold bg-default-100"
+                            className="text-sm text-default-800 font-bold bg-default-100 w-[40%] align-middle m-auto"
                             variant="flat"
-                            startContent={<LoginIcon width={40} height={40} className="text-danger m-auto"/>}
+                            startContent={<LoginIcon width={40} height={40} className="text-danger"/>}
                         >
                             Log In
                         </Button>
                     )}
                 </div>
-                <hr className="border-gray-200 my-2"/>
-                <div className="flex flex-col p-4 space-y-10"> {/* Added flex-col class to make it a flex container */}
+                <hr className="align-middle border-gray-200 my-2 w-[90%] overflow-x-hidden m-auto"/>
+                <div className="flex flex-col p-4 space-y-10 mt-10">
                     <NavbarMenuItem>
                         <Link
                             color="success"
-                            className="w-full block main text-2xl"
+                            className="w-full block main text-2xl text-center"
                             href="/"
                             size="lg"
                         >
@@ -218,16 +218,16 @@ export const Navbar = () => {
                         <NavbarMenuItem key={`${item}-${index}`} className="hover:animate-pulse">
                             <Link
                                 color={index === 1 ? "primary" : index === siteConfig.navItems.length - 1 ? "danger" : "foreground"}
-                                className="w-full block main text-2xl"
+                                className="w-full block main text-2xl text-center"
                                 href={item.href}
                                 size="lg"
-                                onPress={setIsMenuOpen} // Assuming onPress should be used here
+                                onPress={setIsMenuOpen}
                             >
                                 {item.label}
                             </Link>
                         </NavbarMenuItem>
                     ))}
-                    <div className="mt-4 flex justify-center items-end space-x-2 "> {/* Container for the icons */}
+                    <div className="mt-4 w-full flex justify-center items-end space-x-4 align-bottom">
                         <Link isExternal href={siteConfig.links.instagram} aria-label="Instagram">
                             <InstagramIcon className="text-default-500"/>
                         </Link>
@@ -235,6 +235,18 @@ export const Navbar = () => {
                             <GithubIcon className="text-default-500"/>
                         </Link>
                         <ThemeSwitch/>
+                    </div>
+                    <div className="mt-4 flex justify-center items-end space-x-4 align-bottom">
+                        <Button
+                            isExternal
+                            as={Link}
+                            className="text-sm text-default-800 font-bold bg-default-100"
+                            href={siteConfig.links.donate}
+                            startContent={<HeartFilledIcon className="text-danger m-auto"/>}
+                            variant="flat"
+                        >
+                            Donate
+                        </Button>
                     </div>
                 </div>
             </NavbarMenu>
