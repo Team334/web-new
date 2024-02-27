@@ -143,23 +143,19 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
 };
 
 
-export const LoginIcon: React.FC<IconSvgProps & { isDarkMode?: boolean }> = ({
-                                                                                 size = 28,
+export const LoginIcon: React.FC<IconSvgProps> = ({
+                                                                                 size = 32,
                                                                                  width,
                                                                                  height,
-                                                                                 isDarkMode = true,
                                                                                  ...props
                                                                              }) => {
-    const iconColor = isDarkMode ? 'rgb(255,255,255)' : 'rgb(0,0,0)';
-    const backgroundColor = isDarkMode ? 'rgb(0,0,0)' : 'rgb(255,255,255)';
-
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             version="1.1"
-            width={size || width}
-            height={size || height}
+            width={width}
+            height={height}
             viewBox="0 0 1080 1080"
             xmlSpace="preserve"
         >
@@ -174,7 +170,7 @@ export const LoginIcon: React.FC<IconSvgProps & { isDarkMode?: boolean }> = ({
                         strokeDashoffset: 0,
                         strokeLinejoin: 'miter',
                         strokeMiterlimit: 4,
-                        fill: backgroundColor,
+                        fill: "currentColor",
                         fillRule: 'nonzero',
                         opacity: 1,
                         visibility: 'hidden',
@@ -201,7 +197,7 @@ export const LoginIcon: React.FC<IconSvgProps & { isDarkMode?: boolean }> = ({
                                 strokeDashoffset: 0,
                                 strokeLinejoin: 'miter',
                                 strokeMiterlimit: 4,
-                                fill: iconColor,
+                                fill: "currentColor",
                                 fillRule: 'nonzero',
                                 opacity: 1,
                             }}
@@ -221,7 +217,7 @@ export const LoginIcon: React.FC<IconSvgProps & { isDarkMode?: boolean }> = ({
                                 strokeDashoffset: 0,
                                 strokeLinejoin: 'miter',
                                 strokeMiterlimit: 4,
-                                fill: iconColor,
+                                fill: "currentColor",
                                 fillRule: 'nonzero',
                                 opacity: 1,
                             }}

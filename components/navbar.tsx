@@ -15,8 +15,8 @@ import {link as linkStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import clsx from "clsx";
 
-import {LoginSwitch, ThemeSwitch} from "@/components/theme-switch";
-import {GithubIcon, HeartFilledIcon, InstagramIcon} from "@/components/icons";
+import {ThemeSwitch} from "@/components/theme-switch";
+import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon} from "@/components/icons";
 import React, {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
@@ -59,7 +59,7 @@ const Profile = React.memo(() => {
                 <DropdownMenuSeparator/>
                 <DropdownMenuGroup>
                     <DropdownMenuItem onClick={handleLogout}>
-                        <LoginSwitch /> Log out
+                        <LoginIcon width={30} height={30} /> Log out
                         <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
@@ -94,11 +94,11 @@ const ProfileMenu = React.memo(() => {
                     width={40}
                     className="rounded-full mr-2"
                 />
-                <span className="mr-2">{name}</span>
+                <span className="mr-2">Hi, <b>{name}</b></span>
             </div>
             <div className="flex items-center justify-end">
                 <button onClick={handleLogout} className="text-danger m-auto">
-                    <LoginSwitch />
+                    <LoginIcon width={44} height={44} className={"align-middle"}/>
                 </button>
             </div>
         </div>
@@ -182,7 +182,7 @@ export const Navbar = React.memo(() => {
                             onClick={() => loginWithRedirect()}
                             className="text-sm text-default-800 font-bold bg-default-100"
                             variant="flat"
-                            startContent={<LoginSwitch />}
+                            startContent={<LoginIcon width={32} height={32}/>}
                         >
                             Log In
                         </Button>
@@ -198,9 +198,9 @@ export const Navbar = React.memo(() => {
                     ) : (
                         <Button
                             onClick={() => loginWithRedirect()}
-                            className="text-sm text-default-800 font-bold bg-default-100 w-[40%] align-middle m-auto"
+                            className="text-sm text-default-800 font-bold w-[40%] align-middle m-auto"
                             variant="flat"
-                            startContent={<LoginSwitch />}
+                            startContent={<LoginIcon width={32} height={32}/>}
                         >
                             Log In
                         </Button>
