@@ -30,7 +30,7 @@ import {
     DropdownMenuTrigger
 } from "@/components/shadcn/ui/dropdown-menu";
 
-const Profile = () => {
+const Profile = React.memo(() => {
     const {user, isAuthenticated, isLoading, logout} = useAuth0();
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -66,8 +66,11 @@ const Profile = () => {
             </DropdownMenuContent>
         </DropdownMenu>
     );
-};
-const ProfileMenu = () => {
+});
+
+Profile.displayName = "DesktopProfile"
+
+const ProfileMenu = React.memo(() => {
     const { user, isAuthenticated, isLoading, logout } = useAuth0();
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -100,10 +103,11 @@ const ProfileMenu = () => {
             </div>
         </div>
     );
-};
+});
 
+ProfileMenu.displayName = "MobileNavbar"
 
-export const Navbar = () => {
+export const Navbar = React.memo(() => {
     const {isAuthenticated, loginWithRedirect} = useAuth0();
     const [isMenuOpen, setIsMenuOpen] = React.useReducer((current) => !current, false);
 
@@ -252,4 +256,6 @@ export const Navbar = () => {
             </NavbarMenu>
         </NextUINavbar>
     );
-};
+});
+
+Navbar.displayName = "Navbar"
