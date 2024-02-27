@@ -16,7 +16,7 @@ import {siteConfig} from "@/config/site";
 import clsx from "clsx";
 
 import {ThemeSwitch} from "@/components/theme-switch";
-import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon} from "@/components/icons";
+import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon, YoutubeIcon} from "@/components/icons";
 import React, {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
@@ -192,7 +192,7 @@ export const Navbar = React.memo(() => {
             </NavbarContent>
             <NavbarMenu
                 className="box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col mt-10 fixed w-[300px]">
-                <div className="flex flex-col mt-5">
+                <div className="flex flex-col mt-5 mb-3">
                     {isAuthenticated ? (
                         <ProfileMenu/>
                     ) : (
@@ -207,7 +207,7 @@ export const Navbar = React.memo(() => {
                     )}
                 </div>
                 <hr className="align-middle border-gray-200 my-2 w-[90%] overflow-x-hidden m-auto"/>
-                <div className="flex flex-col p-4 space-y-10 mt-10">
+                <div className="flex flex-col p-4 space-y-10 mt-3">
                     <NavbarMenuItem>
                         <Link
                             color="success"
@@ -238,7 +238,11 @@ export const Navbar = React.memo(() => {
                         <Link isExternal href={siteConfig.links.github} aria-label="Github">
                             <GithubIcon className="text-default-500"/>
                         </Link>
+                        <Link isExternal href={siteConfig.links.youtube} aria-label="Youtube">
+                            <YoutubeIcon width={28} height={28}/>
+                        </Link>
                         <ThemeSwitch/>
+
                     </div>
                     <div className="mt-4 flex justify-center items-end space-x-4 align-bottom">
                         <Button

@@ -25,6 +25,7 @@ export const siteConfig = {
     links: {
         github: "https://github.com/Team334",
         instagram: "https://instagram.com/team334",
-        donate: "https://bthsalumni.org/donate/"
+        donate: "https://bthsalumni.org/donate/",
+        youtube: "https://youtube.com"
     },
 };

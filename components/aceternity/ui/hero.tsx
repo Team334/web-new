@@ -4,7 +4,7 @@ import Image from "next/legacy/image";
 import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
-import {GithubIcon, InstagramIcon} from "@/components/icons";
+import {GithubIcon, InstagramIcon, YoutubeIcon} from "@/components/icons";
 import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
@@ -128,8 +128,8 @@ const Header = () => {
                 <TextGenerateEffect words={"Techknights"} className={"main"}/>
             </h1>
             <p className="text-base md:text-xl mt-8 dark:text-neutral-200">
-                TechKnights is a FIRST® Robotics Competition team from Brooklyn Technical
-                High School in New York City.
+                TechKnights is a FIRST® Robotics Competition Team from Brooklyn Technical
+                High School in Downtown Brooklyn, NY.
             </p>
             <div className="flex flex-row gap-3 mt-5 opacity-1">
                 <NextuiLink
@@ -147,6 +147,14 @@ const Header = () => {
                 >
                     <GithubIcon size={20}/>
                     <b>Github</b>
+                </NextuiLink>
+                <NextuiLink
+                    isExternal
+                    className={buttonStyles({variant: "bordered", radius: "full"})}
+                    href={siteConfig.links.youtube}
+                >
+                    <YoutubeIcon width={24} height={24}/>
+                    <b>Youtube</b>
                 </NextuiLink>
             </div>
         </div>
