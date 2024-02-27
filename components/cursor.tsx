@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 interface MousePosition {
     x: number;
@@ -12,14 +12,14 @@ interface CirclePosition {
 }
 
 const Cursor: React.FC = () => {
-    const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
-    const [previousMouse, setPreviousMouse] = useState<MousePosition>({ x: 0, y: 0 });
-    const [circle, setCircle] = useState<CirclePosition>({ x: 0, y: 0 });
+    const [mouse, setMouse] = useState<MousePosition>({x: 0, y: 0});
+    const [previousMouse, setPreviousMouse] = useState<MousePosition>({x: 0, y: 0});
+    const [circle, setCircle] = useState<CirclePosition>({x: 0, y: 0});
     const [transform, setTransform] = useState<string>('');
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            setMouse({ x: e.clientX, y: e.clientY });
+            setMouse({x: e.clientX, y: e.clientY});
         };
 
         window.addEventListener('mousemove', handleMouseMove);
@@ -29,17 +29,25 @@ const Cursor: React.FC = () => {
         };
     }, []);
 
-    const calculateTransform = () => {
+    const speed = 0.16;
+    let currentScale = 0;
+    let currentAngle = 0;
+
+    let tick: () => void;
+    tick = () => {
+        setCircle(prevCircle => ({
+            x: prevCircle.x + (mouse.x - prevCircle.x) * speed,
+            y: prevCircle.y + (mouse.y - prevCircle.y) * speed
+        }));
+
         const deltaMouseX = mouse.x - previousMouse.x;
         const deltaMouseY = mouse.y - previousMouse.y;
-        setPreviousMouse({ x: mouse.x, y: mouse.y });
+        setPreviousMouse({x: mouse.x, y: mouse.y});
 
         const mouseVelocity = Math.min(Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4, 150);
         const scaleValue = (mouseVelocity / 150) * 0.5;
-        let currentScale = 0;
-        currentScale += (scaleValue - currentScale) * 0.16;
+        currentScale += (scaleValue - currentScale) * speed;
 
-        let currentAngle = 0;
         const angle = Math.atan2(deltaMouseY, deltaMouseX) * 180 / Math.PI;
         if (mouseVelocity > 20) {
             currentAngle = angle;
@@ -55,29 +63,20 @@ const Cursor: React.FC = () => {
         } else {
             setTransform(`${translateTransform} ${rotateTransform} ${scaleTransform}`);
         }
+
+        window.requestAnimationFrame(tick);
     };
 
     useEffect(() => {
-        const tick = () => {
-            setCircle(prevCircle => ({
-                x: prevCircle.x + (mouse.x - prevCircle.x) * 0.16,
-                y: prevCircle.y + (mouse.y - prevCircle.y) * 0.16
-            }));
-            calculateTransform();
-            window.requestAnimationFrame(tick);
-        };
-
         window.requestAnimationFrame(tick);
-    }, [mouse]);
+    }, [tick]);
 
     return (
         <div
-            className={"hidden xl:block ease-in-out fixed z-30 h-[40px] w-[40px] rounded-full pointer-events-none top-[-12px] left-[-17px] border-blue-600 border-3 border-r-3"}
-            style={{ transform: transform }}
+            className={"hidden 2xl:block ease-in-out fixed z-30 h-[40px] w-[40px] rounded-full pointer-events-none top-[-12px] left-[-17px] border-blue-600 border-3 border-r-3"}
+            style={{transform: transform}}
         ></div>
     );
 };
-
-Cursor.displayName = "Cursor"
 
 export default Cursor;

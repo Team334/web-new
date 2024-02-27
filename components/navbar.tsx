@@ -71,7 +71,7 @@ const Profile = React.memo(() => {
 Profile.displayName = "DesktopProfile"
 
 const ProfileMenu = React.memo(() => {
-    const { user, isAuthenticated, isLoading, logout } = useAuth0();
+    const {user, isAuthenticated, isLoading, logout} = useAuth0();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const name = user?.name;
@@ -82,7 +82,7 @@ const ProfileMenu = React.memo(() => {
     };
 
     const handleLogout = () => {
-        logout({ logoutParams: { returnTo: window.location.origin } });
+        logout({logoutParams: {returnTo: window.location.origin}});
     };
 
     return (
@@ -98,7 +98,7 @@ const ProfileMenu = React.memo(() => {
             </div>
             <div className="flex items-center justify-end">
                 <button onClick={handleLogout} className="text-danger m-auto">
-                    <LoginIcon width={60} height={60} />
+                    <LoginIcon width={60} height={60}/>
                 </button>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import YouTube from 'react-youtube';
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
 
@@ -6,7 +6,7 @@ interface YouTubePlayerProps {
     videoId: string;
 }
 
-const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
+const YouTubePlayer: React.FC<YouTubePlayerProps> = ({videoId}) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
                     className={"w-full max-h-full object-scale-down h-full flex-1 p-2"}
                 />
             ) : (
-                <Skeleton className="w-full max-h-full object-scale-down h-full flex-1 p-2" />
+                <Skeleton className="w-full max-h-full object-scale-down h-full flex-1 p-2"/>
             )}
         </div>
     );

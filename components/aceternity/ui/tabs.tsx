@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/components/cn";
+import React, {useEffect, useState} from "react";
+import {motion} from "framer-motion";
+import {cn} from "@/components/cn";
 
 const debounce = <T extends (...args: any[]) => any>(
     func: T,
@@ -79,7 +79,7 @@ const Tabs = React.memo(({
                         {active.value === tab.value && (
                             <motion.div
                                 layoutId="clickedbutton"
-                                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                transition={{type: "spring", bounce: 0.3, duration: 0.6}}
                                 className={cn(
                                     "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
                                     activeTabClassName
@@ -146,4 +146,4 @@ const FadeInDiv = React.memo(({
 
 FadeInDiv.displayName = "FadeInDiv";
 
-export { Tabs, FadeInDiv };
+export {Tabs, FadeInDiv};

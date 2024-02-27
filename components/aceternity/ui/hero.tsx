@@ -99,7 +99,7 @@ const HeroParallax = React.memo(({products}: {
 
     return (
         <div ref={ref}
-             style={{ height: containerHeight }}
+             style={{height: containerHeight}}
              className="py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
             <Header/>
             <motion.div style={{rotateX, rotateZ, translateY, opacity}} className="">

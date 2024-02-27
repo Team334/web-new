@@ -1,15 +1,15 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import { HeroParallax } from "@/components/aceternity/ui/hero";
-import { InfiniteMovingCards } from "@/components/aceternity/ui/infinite-moving-cards";
+import React, {useEffect, useState} from "react";
+import {useAuth0} from "@auth0/auth0-react";
+import {HeroParallax} from "@/components/aceternity/ui/hero";
+import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
 import Faq from "@/components/faq";
 import YouTubePlayer from "@/components/youtube";
-import { Tabs } from "@/components/aceternity/ui/tabs";
-import { Progress } from "@/components/shadcn/ui/progress";
+import {Tabs} from "@/components/aceternity/ui/tabs";
+import {Progress} from "@/components/shadcn/ui/progress";
 
 export default function Home() {
-    const { isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
+    const {isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0();
     const [progress, setProgress] = useState(13);
 
     useEffect(() => {

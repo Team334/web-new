@@ -1,16 +1,16 @@
 "use client"
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import {AnimatePresence, motion} from "framer-motion";
+import React, {useEffect, useState} from "react";
 
 export const ImagesSlider = ({
-                          images,
-                          children,
-                          overlay = true,
-                          overlayClassName,
-                          className,
-                          autoplay = true,
-                          direction = "up",
-                      }: {
+                                 images,
+                                 children,
+                                 overlay = true,
+                                 overlayClassName,
+                                 className,
+                                 autoplay = true,
+                                 direction = "up",
+                             }: {
     images: string[];
     children: React.ReactNode;
     overlay?: React.ReactNode;
@@ -125,7 +125,7 @@ export const ImagesSlider = ({
         >
             {areImagesLoaded && children}
             {areImagesLoaded && overlay && (
-                <div className={"absolute inset-0 bg-black/60 z-40"} />
+                <div className={"absolute inset-0 bg-black/60 z-40"}/>
             )}
 
             {areImagesLoaded && (
