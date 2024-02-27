@@ -67,6 +67,41 @@ const Profile = () => {
         </DropdownMenu>
     );
 };
+const ProfileMenu = () => {
+    const { user, isAuthenticated, isLoading, logout } = useAuth0();
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const name = user?.name;
+    const picture = user?.picture;
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const handleLogout = () => {
+        logout({ logoutParams: { returnTo: window.location.origin } });
+    };
+
+    return (
+        <div className="flex items-center justify-between p-3">
+            <div className="flex items-center justify-start">
+                <Image
+                    src={picture}
+                    alt={name}
+                    width={40}
+                    className="rounded-full mr-2"
+                />
+                <span className="mr-2">{name}</span>
+            </div>
+            <div className="flex items-center justify-end"> {/* Changed 'justify-end' to 'flex items-center justify-end' */}
+                <button onClick={handleLogout} className="text-danger">
+                    <LoginIcon width={60} height={60}/>
+                </button>
+            </div>
+        </div>
+    );
+};
+
 
 export const Navbar = () => {
     const {isAuthenticated, loginWithRedirect} = useAuth0();
@@ -152,32 +187,56 @@ export const Navbar = () => {
 
             </NavbarContent>
             <NavbarMenu
-                className={"box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col justify-center mt-10 space-y-10 space-x-2"}>
-                <NavbarMenuItem>
-                    <Link
-                        color={"success"}
-                        className={"w-full text-center block main text-2xl"}
-                        href={"/"}
-                        size={"lg"}
-                    >
-                        Home
-                    </Link>
-                </NavbarMenuItem>
-                {siteConfig.navItems.map((item, index) => (
-                    <NavbarMenuItem key={`${item}-${index}`} className={"hover:animate-pulse"}>
-                        <Link
-                            color={
-                                index === 1 ? "primary" : index === siteConfig.navItems.length - 1 ? "danger" : "foreground"
-                            }
-                            className="w-full text-center block main text-2xl"
-                            href={item.href}
-                            size="lg"
-                            onPress={() => setIsMenuOpen()}
+                className="box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col mt-10 fixed w-[300px]">
+                <div className="flex flex-col mt-10">
+                    {isAuthenticated ? (
+                        <ProfileMenu/>
+                    ) : (
+                        <Button
+                            onClick={loginWithRedirect}
+                            className="text-sm text-default-800 font-bold bg-default-100"
+                            variant="flat"
+                            startContent={<LoginIcon width={40} height={40} className="text-danger m-auto"/>}
                         >
-                            {item.label}
+                            Log In
+                        </Button>
+                    )}
+                </div>
+                <hr className="border-gray-200 my-2"/>
+                <div className="flex flex-col p-4 space-y-10"> {/* Added flex-col class to make it a flex container */}
+                    <NavbarMenuItem>
+                        <Link
+                            color="success"
+                            className="w-full block main text-2xl"
+                            href="/"
+                            size="lg"
+                        >
+                            Home
                         </Link>
                     </NavbarMenuItem>
-                ))} {/* TODO: REDO Mobile Nav Menu*/}
+                    {siteConfig.navItems.map((item, index) => (
+                        <NavbarMenuItem key={`${item}-${index}`} className="hover:animate-pulse">
+                            <Link
+                                color={index === 1 ? "primary" : index === siteConfig.navItems.length - 1 ? "danger" : "foreground"}
+                                className="w-full block main text-2xl"
+                                href={item.href}
+                                size="lg"
+                                onPress={setIsMenuOpen} // Assuming onPress should be used here
+                            >
+                                {item.label}
+                            </Link>
+                        </NavbarMenuItem>
+                    ))}
+                    <div className="mt-4 flex justify-center items-end space-x-2 "> {/* Container for the icons */}
+                        <Link isExternal href={siteConfig.links.instagram} aria-label="Instagram">
+                            <InstagramIcon className="text-default-500"/>
+                        </Link>
+                        <Link isExternal href={siteConfig.links.github} aria-label="Github">
+                            <GithubIcon className="text-default-500"/>
+                        </Link>
+                        <ThemeSwitch/>
+                    </div>
+                </div>
             </NavbarMenu>
         </NextUINavbar>
     );

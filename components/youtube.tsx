@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
+import {Skeleton} from "@/components/shadcn/ui/skeleton";
 
 interface YouTubePlayerProps {
     videoId: string;
 }
 
-const YouTubePlayer: React.FC<YouTubePlayerProps> = ({videoId}) => {
+const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        // Simulate loading delay
+        const timeout = setTimeout(() => {
+            setLoaded(true);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
     const opts = {
-        width: '100%', // Set width to 100% to make it responsive
-        height: '100%', // Set height to 100% to maintain aspect ratio
+        width: '100%',
+        height: '100%',
         playerVars: {
             autoplay: 0,
         },
@@ -16,13 +28,17 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({videoId}) => {
 
     return (
         <div className="youtube-player relative mt-2 w-full h-[95%] md:h-[90%] flex flex-col">
-            <YouTube
-                videoId={videoId}
-                opts={opts}
-                className={"w-full max-h-full object-scale-down h-full flex-1 p-2"}
-            />
+            {loaded ? (
+                <YouTube
+                    videoId={videoId}
+                    opts={opts}
+                    className={"w-full max-h-full object-scale-down h-full flex-1 p-2"}
+                />
+            ) : (
+                <Skeleton className="w-full max-h-full object-scale-down h-full flex-1 p-2" />
+            )}
         </div>
     );
 };
 
-export default YouTubePlayer;
+export default React.memo(YouTubePlayer);

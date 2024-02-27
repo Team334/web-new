@@ -8,6 +8,7 @@ import {GithubIcon, InstagramIcon} from "@/components/icons";
 import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
+import {min} from "@floating-ui/utils";
 
 const springConfig = {stiffness: 120, damping: 20, bounce: 25, mass: 0.1};
 
@@ -34,7 +35,7 @@ const ProductCard = React.memo(({product, translate}: {
                 y: -20
             }}
             key={product.title}
-            className="group/product h-60 md:h-96 w-[13rem] md:w-[30rem]  relative flex-shrink-0"
+            className="group/product h-60 w-[13rem] md:h-96 md:w-[30rem] relative flex-shrink-0"
         >
             {loading ? (
                 <Skeleton className="w-full h-full"/>
@@ -82,9 +83,24 @@ const HeroParallax = React.memo(({products}: {
     const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
     const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
 
+    const containerHeight = useMemo(() => {
+        const minHeight = 2150;
+        const screenHeight = window.innerHeight;
+        const isMobile = window.innerWidth <= 768;
+
+        let adjustedHeight = minHeight;
+        if (isMobile) {
+            adjustedHeight -= 450;
+        }
+
+        return Math.max(adjustedHeight, screenHeight);
+    }, []);
+
+
     return (
         <div ref={ref}
-             className="h-[232vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
+             style={{ height: containerHeight }}
+             className="py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
             <Header/>
             <motion.div style={{rotateX, rotateZ, translateY, opacity}} className="">
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
