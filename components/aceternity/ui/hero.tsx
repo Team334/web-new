@@ -8,7 +8,7 @@ import {GithubIcon, InstagramIcon} from "@/components/icons";
 import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
-import {min} from "@floating-ui/utils";
+
 
 const springConfig = {stiffness: 120, damping: 20, bounce: 25, mass: 0.1};
 

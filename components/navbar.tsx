@@ -192,7 +192,7 @@ export const Navbar = React.memo(() => {
             </NavbarContent>
             <NavbarMenu
                 className="box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col mt-10 fixed w-[300px]">
-                <div className="flex flex-col mt-10">
+                <div className="flex flex-col mt-5">
                     {isAuthenticated ? (
                         <ProfileMenu/>
                     ) : (
