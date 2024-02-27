@@ -193,7 +193,7 @@ export const Navbar = () => {
                         <ProfileMenu/>
                     ) : (
                         <Button
-                            onClick={loginWithRedirect}
+                            onClick={() => loginWithRedirect()}
                             className="text-sm text-default-800 font-bold bg-default-100"
                             variant="flat"
                             startContent={<LoginIcon width={40} height={40} className="text-danger m-auto"/>}
