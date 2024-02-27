@@ -15,8 +15,8 @@ import {link as linkStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import clsx from "clsx";
 
-import {ThemeSwitch} from "@/components/theme-switch";
-import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon} from "@/components/icons";
+import {LoginSwitch, ThemeSwitch} from "@/components/theme-switch";
+import {GithubIcon, HeartFilledIcon, InstagramIcon} from "@/components/icons";
 import React, {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
@@ -59,7 +59,7 @@ const Profile = React.memo(() => {
                 <DropdownMenuSeparator/>
                 <DropdownMenuGroup>
                     <DropdownMenuItem onClick={handleLogout}>
-                        <LoginIcon height={"28"} width={"28"}/> Log out
+                        <LoginSwitch /> Log out
                         <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
@@ -98,7 +98,7 @@ const ProfileMenu = React.memo(() => {
             </div>
             <div className="flex items-center justify-end">
                 <button onClick={handleLogout} className="text-danger m-auto">
-                    <LoginIcon width={60} height={60}/>
+                    <LoginSwitch />
                 </button>
             </div>
         </div>
@@ -182,7 +182,7 @@ export const Navbar = React.memo(() => {
                             onClick={() => loginWithRedirect()}
                             className="text-sm text-default-800 font-bold bg-default-100"
                             variant="flat"
-                            startContent={<LoginIcon width={40} height={40} className="text-danger m-auto"/>}
+                            startContent={<LoginSwitch />}
                         >
                             Log In
                         </Button>
@@ -200,7 +200,7 @@ export const Navbar = React.memo(() => {
                             onClick={() => loginWithRedirect()}
                             className="text-sm text-default-800 font-bold bg-default-100 w-[40%] align-middle m-auto"
                             variant="flat"
-                            startContent={<LoginIcon width={40} height={40} className="text-danger"/>}
+                            startContent={<LoginSwitch />}
                         >
                             Log In
                         </Button>

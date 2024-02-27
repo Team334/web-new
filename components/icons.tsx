@@ -1,5 +1,7 @@
+"use client"
 import * as React from "react";
 import {IconSvgProps} from "@/types";
+import {useEffect, useState} from "react";
 
 export const GithubIcon: React.FC<IconSvgProps> = ({
                                                        size = 28,
@@ -141,12 +143,16 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
 };
 
 
-export const LoginIcon: React.FC<IconSvgProps> = ({
-                                                      size = 28,
-                                                      width,
-                                                      height,
-                                                      ...props
-                                                  }) => {
+export const LoginIcon: React.FC<IconSvgProps & { isDarkMode?: boolean }> = ({
+                                                                                 size = 28,
+                                                                                 width,
+                                                                                 height,
+                                                                                 isDarkMode = true,
+                                                                                 ...props
+                                                                             }) => {
+    const iconColor = isDarkMode ? 'rgb(255,255,255)' : 'rgb(0,0,0)';
+    const backgroundColor = isDarkMode ? 'rgb(0,0,0)' : 'rgb(255,255,255)';
+
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +174,7 @@ export const LoginIcon: React.FC<IconSvgProps> = ({
                         strokeDashoffset: 0,
                         strokeLinejoin: 'miter',
                         strokeMiterlimit: 4,
-                        fill: 'rgb(255,255,255)',
+                        fill: backgroundColor,
                         fillRule: 'nonzero',
                         opacity: 1,
                         visibility: 'hidden',
@@ -195,7 +201,7 @@ export const LoginIcon: React.FC<IconSvgProps> = ({
                                 strokeDashoffset: 0,
                                 strokeLinejoin: 'miter',
                                 strokeMiterlimit: 4,
-                                fill: 'rgb(0,0,0)',
+                                fill: iconColor,
                                 fillRule: 'nonzero',
                                 opacity: 1,
                             }}
@@ -215,7 +221,7 @@ export const LoginIcon: React.FC<IconSvgProps> = ({
                                 strokeDashoffset: 0,
                                 strokeLinejoin: 'miter',
                                 strokeMiterlimit: 4,
-                                fill: 'rgb(0,0,0)',
+                                fill: iconColor,
                                 fillRule: 'nonzero',
                                 opacity: 1,
                             }}
@@ -230,3 +236,4 @@ export const LoginIcon: React.FC<IconSvgProps> = ({
         </svg>
     )
 }
+
