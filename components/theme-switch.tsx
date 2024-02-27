@@ -8,6 +8,7 @@ import {useIsSSR} from "@react-aria/ssr";
 import clsx from "clsx";
 
 import {LoginIcon, MoonFilledIcon, SunFilledIcon} from "@/components/icons";
+import {useAuth0} from "@auth0/auth0-react";
 
 export interface ThemeSwitchProps {
     className?: string;
@@ -75,17 +76,13 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         </Component>
     );
 };
-
 export const LoginSwitch: FC<ThemeSwitchProps> = ({
                                                       className,
                                                       classNames,
                                                   }) => {
-    const {theme, setTheme} = useTheme();
+    const { theme, setTheme } = useTheme();
     const isSSR = useIsSSR();
-
-    const onChange = () => {
-        theme === "light" ? setTheme("dark") : setTheme("light");
-    };
+    const {user, isAuthenticated, isLoading, logout} = useAuth0();
 
     const {
         Component,
@@ -96,23 +93,14 @@ export const LoginSwitch: FC<ThemeSwitchProps> = ({
         getWrapperProps,
     } = useSwitch({
         isSelected: theme === "light" || isSSR,
-        "aria-label": `Switch to ${theme === "light" || isSSR ? "dark" : "light"} mode`,
-        onChange,
     });
 
+    const handleLogout = () => {
+        logout({logoutParams: {returnTo: window.location.origin}});
+    };
+
     return (
-        <Component
-            {...getBaseProps({
-                className: clsx(
-                    "px-px transition-opacity hover:opacity-80 cursor-pointer",
-                    className,
-                    classNames?.base
-                ),
-            })}
-        >
-            <VisuallyHidden>
-                <input {...getInputProps()} />
-            </VisuallyHidden>
+        <div className={className}>
             <div
                 {...getWrapperProps()}
                 className={slots.wrapper({
@@ -134,6 +122,6 @@ export const LoginSwitch: FC<ThemeSwitchProps> = ({
             >
                 {!isSelected || isSSR ? <LoginIcon width={60} height={60} isDarkMode={true}/> : <LoginIcon width={60} height={60} isDarkMode={false}/>}
             </div>
-        </Component>
+        </div>
     );
 };
