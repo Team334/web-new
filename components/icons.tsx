@@ -143,11 +143,11 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
 
 
 export const LoginIcon: React.FC<IconSvgProps> = ({
-                                                                                 size = 32,
-                                                                                 width,
-                                                                                 height,
-                                                                                 ...props
-                                                                             }) => {
+                                                      size = 32,
+                                                      width,
+                                                      height,
+                                                      ...props
+                                                  }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -234,11 +234,11 @@ export const LoginIcon: React.FC<IconSvgProps> = ({
 
 
 export const YoutubeIcon: React.FC<IconSvgProps> = ({
-                                                      size = 32,
-                                                      width,
-                                                      height,
-                                                      ...props
-                                                  }) => {
+                                                        size = 32,
+                                                        width,
+                                                        height,
+                                                        ...props
+                                                    }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

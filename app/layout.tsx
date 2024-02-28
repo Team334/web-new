@@ -35,7 +35,8 @@ export const metadata: Metadata = {
     openGraph: {
         title: siteConfig.name,
         description: siteConfig.description,
-        images: '/logo.png'
+        images: '/logo.png',
+        url: 'https://bthsrobotics.com'
     }
 };
 

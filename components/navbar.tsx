@@ -59,7 +59,7 @@ const Profile = React.memo(() => {
                 <DropdownMenuSeparator/>
                 <DropdownMenuGroup>
                     <DropdownMenuItem onClick={handleLogout}>
-                        <LoginIcon width={30} height={30} /> Log out
+                        <LoginIcon width={30} height={30}/> Log out
                         <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
