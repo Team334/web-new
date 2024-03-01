@@ -4,11 +4,90 @@ import {motion} from "framer-motion";
 import {ImagesSlider} from "@/components/aceternity/ui/page-hero";
 import React from "react";
 import {title} from "@/components/primitives";
+import {AwardBanner} from "@/components/awards";
 
 export default function AboutPage() {
     const images = [
         "/team2022.png"
     ];
+
+    const Awards = [
+        {
+            title: "Finalist",
+            year: "2023",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Excellence in Engineering Award",
+            year: "2019",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Judges' Award",
+            year: "2019",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Industrial Design Award",
+            year: "2016",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Winner",
+            year: "2014",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Creativity Award",
+            year: "2014",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Industrial Design Award",
+            year: "2013",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Creativity Award",
+            year: "2012",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Gracious Professionalism Award",
+            year: "2008",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Engineering Inspiration Award",
+            year: "2007",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Sportsmanship Award",
+            year: "2006",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Engineering Inspiration Award",
+            year: "2005",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Engineering Inspiration Award",
+            year: "2004",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Chairman's Award",
+            year: "2003",
+            comp: "NYC Regionals"
+        },
+        {
+            title: "Rookie All-Star",
+            year: "1999",
+            comp: "Philadelphia Alliance Regional"
+        },
+    ]
 
     return (
         <div className={"w-full"}>
@@ -37,9 +116,19 @@ export default function AboutPage() {
                     </motion.div>
                 </ImagesSlider>
             </div>
-            <div className={"w-full justify-center text-center"}>
+            <div className={"w-full justify-center text-center items-center p-5"}>
                 <h1 className={title({class: "main"})}>Awards</h1>
-                {/*		TODO: Awards */}
+                <hr className="align-middle border-gray-500 my-2 w-[40%] overflow-x-hidden m-auto"/>
+                <div className={"flex flex-wrap mt-10 gap-7 items-center justify-center"}>
+                    {Awards.map((award, index) => (
+                        <AwardBanner
+                            key={index}
+                            title={award.title}
+                            year={award.year}
+                            comp={award.comp}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
