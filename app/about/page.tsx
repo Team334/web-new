@@ -1,15 +1,34 @@
 "use client"
 
+
 import {motion} from "framer-motion";
 import {ImagesSlider} from "@/components/aceternity/ui/page-hero";
 import React from "react";
 import {title} from "@/components/primitives";
 import {AwardBanner} from "@/components/awards";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/shadcn/ui/carousel"
+import {Card} from "@nextui-org/card";
+import {CardContent} from "@/components/shadcn/ui/card";
+import {Image} from "@nextui-org/react"
+import { type CarouselApi } from "@/components/shadcn/ui/carousel"
+
+
+
 
 export default function AboutPage() {
     const images = [
-        "/team2022.png"
+        "/team2021.png",
+        "/team2022.png",
+        "/team2023.png",
+        "/team2024.png",
     ];
+
 
     const Awards = [
         {
@@ -89,6 +108,42 @@ export default function AboutPage() {
         },
     ]
 
+
+    const teamImages = [
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+        "/team/",
+    ];
+
+
+    const [api, setApi] = React.useState<CarouselApi>()
+    const [current, setCurrent] = React.useState(0)
+    const [count, setCount] = React.useState(0)
+
+
+    React.useEffect(() => {
+        if (!api) {
+            return
+        }
+
+
+        setCount(api.scrollSnapList().length)
+        setCurrent(api.selectedScrollSnap() + 1)
+
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1)
+        })
+    }, [api])
+
+
     return (
         <div className={"w-full"}>
             <div
@@ -130,6 +185,100 @@ export default function AboutPage() {
                     ))}
                 </div>
             </div>
-        </div>
+            <div className="w-full md:flex justify-center flex-shrink-0 mt-10 p-6 gap-5">
+                <div className="flex justify-center items-center w-full md:w-[65%] float-start">
+                    <Carousel
+                        setApi={setApi}
+                        opts={{
+                            align: "start",
+                        }}
+                        className="w-full max-w-[16rem] md:max-w-[14rem] lg:max-w-[40rem]"
+                    >
+                        <CarouselContent>
+                            {teamImages.map((imageUrl, index) => (
+                                <CarouselItem key={index}>
+                                    <div className="w-full">
+                                        <Card>
+                                            <CardContent className="flex aspect-square items-center justify-center">
+                                                <Image
+                                                    src={imageUrl}
+                                                    alt={`Team member ${index + 1}`}
+                                                    width={1300}
+                                                    height={300}
+                                                    className={"object-scale-down"}
+                                                />
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious/>
+                        <CarouselNext/>
+                        <div className="py-2 text-center text-sm text-muted-foreground">
+                            Image {current} of {count}
+                        </div>
+                    </Carousel>
+                </div>
+                <div className="w-full mx-auto flex justify-center items-center">
+                    <div className="text-center text-wrap w-full mx-6">
+                        <h1 className="text-2xl sm:text-[2rem] md:text-[2rem] lg:text-[3.1rem] font-semibold main">
+                            The Team Now
+                            <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>
+                        </h1>
+                        <p className={"secondary"}>
+                            Currently, our team consists of 50-60 students which come nearly every day to work on the
+                            robot during the build season. After 10th period, we meet at the wonderful Ike Heller
+                            Robotics Center at BTHS to build our award-winning robots. With the help of our mentors, we
+                            machine and fabricate all our parts in-house—from 3D printing and sanding, to cutting on the
+                            plasma cutter and the CNC machines.
+                        </p>
+                        <br/>
+                        <p className={"secondary"}>
+                            During our preseason, we exchange information between the previous members, and the
+                            newcomers, ensuring that our build season occurs flawlessly. We host events and tryouts for
+                            students at our school to have an opportunity to join the team. During our offseason, we
+                            begin planning ahead for next year’s preseason and work on projects around the lab. We also
+                            host Future Vision events, in which middle schools from all across Brooklyn come to visit
+                            the school. We teach them about FIRST and engineering, while also letting them drive our
+                            robot.
+                        </p>
+                    </div>
+                </div>
+            </div>
+                <div className="justify-center text-center mx-5">
+                <div className="flex-wrap">
+                    <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">
+                        Brooklyn Technical High School
+                        <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>
+                    </h1>
+                    <p className={"secondary"}>
+                        Brooklyn Technical High School (aka. “BTHS”, “Tech”) is one of New York City’s specialized
+                        high schools for science, technology, engineering, and mathematics. Tech is the largest high
+                        school in the United States, with an enrollment of 6,500 students across all four grades.
+                    </p>
+                </div>
+                <div className="row-when-mobile">
+                    <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">
+                        What is FIRST?
+                        <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>
+                    </h1>
+                    <p className={"secondary"}>
+                        FIRST (For Inspiration and Recognition of Science and Technology), founded in 1989 by Dean
+                        Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers
+                            like us to connect across the globe via engineering and innovation.
+                        </p>
+                        <br/>
+                        <p className={"secondary"}>
+                            Each year FIRST designs an international robotics competition in which 26 countries and over
+                            3,200 teams participate in each year. Over 500,000 students participate in the FIRST
+                            Robotics Competition itself, and high schools across the globe build a robot and compete at
+                            various regional competitions. After all regionals take place, winners and award recipients
+                            are invited to compete at the championship, which takes place in Houston, Texas. Over 450
+                            teams proceeded to the championships in the 2022 season.
+                        </p>
+                    </div>
+                </div>
+            </div>
     );
 }
