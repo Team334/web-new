@@ -8,6 +8,7 @@ import {title} from "@/components/primitives";
 import {AwardBanner} from "@/components/awards";
 import {
     Carousel,
+    type CarouselApi,
     CarouselContent,
     CarouselItem,
     CarouselNext,
@@ -16,9 +17,6 @@ import {
 import {Card} from "@nextui-org/card";
 import {CardContent} from "@/components/shadcn/ui/card";
 import {Image} from "@nextui-org/react"
-import { type CarouselApi } from "@/components/shadcn/ui/carousel"
-
-
 
 
 export default function AboutPage() {
@@ -246,7 +244,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-                <div className="justify-center text-center mx-5">
+            <div className="justify-center text-center mx-5">
                 <div className="flex-wrap">
                     <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">
                         Brooklyn Technical High School
@@ -266,19 +264,19 @@ export default function AboutPage() {
                     <p className={"secondary"}>
                         FIRST (For Inspiration and Recognition of Science and Technology), founded in 1989 by Dean
                         Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers
-                            like us to connect across the globe via engineering and innovation.
-                        </p>
-                        <br/>
-                        <p className={"secondary"}>
-                            Each year FIRST designs an international robotics competition in which 26 countries and over
-                            3,200 teams participate in each year. Over 500,000 students participate in the FIRST
-                            Robotics Competition itself, and high schools across the globe build a robot and compete at
-                            various regional competitions. After all regionals take place, winners and award recipients
-                            are invited to compete at the championship, which takes place in Houston, Texas. Over 450
-                            teams proceeded to the championships in the 2022 season.
-                        </p>
-                    </div>
+                        like us to connect across the globe via engineering and innovation.
+                    </p>
+                    <br/>
+                    <p className={"secondary"}>
+                        Each year FIRST designs an international robotics competition in which 26 countries and over
+                        3,200 teams participate in each year. Over 500,000 students participate in the FIRST
+                        Robotics Competition itself, and high schools across the globe build a robot and compete at
+                        various regional competitions. After all regionals take place, winners and award recipients
+                        are invited to compete at the championship, which takes place in Houston, Texas. Over 450
+                        teams proceeded to the championships in the 2022 season.
+                    </p>
                 </div>
             </div>
+        </div>
     );
 }

@@ -1,6 +1,4 @@
-import Container from "../_components/container";
-import { HeroPost } from "@/app/_components/hero-post";
-import { getAllPosts } from "@/components/markdown/api";
+import {getAllPosts} from "@/components/markdown/api";
 import {Link} from "@nextui-org/link";
 import {Image} from "@nextui-org/react";
 

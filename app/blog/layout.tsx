@@ -1,13 +1,17 @@
+"use client"
+
 import React from "react";
 
-export default function BlogLayout({
-                                       children,
-                                   }: {
+export default function AboutLayout({
+                                        children,
+                                    }: {
     children: React.ReactNode;
 }) {
+
+
     return (
-        <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-1">
-            <div className="inline-block max-w-lg text-center justify-center">
+        <section>
+            <div className="flex justify-center gap-4 py-8 md:py-10">
                 {children}
             </div>
         </section>
