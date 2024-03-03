@@ -3,7 +3,6 @@ import matter from "gray-matter";
 import { join } from "path";
 
 const postsDirectory = join(process.cwd(), "_posts");
-console.log(postsDirectory)
 
 export type Author = {
     name: string;
@@ -28,8 +27,13 @@ export function getPostSlugs() {
     return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string) {
-    const realSlug = slug.replace(/\.md$/, "");
+export function getPostBySlug(slug: string | string[]) {
+    let realSlug: string;
+    if (Array.isArray(slug)) {
+        realSlug = slug[0].replace(/\.md$/, "");
+    } else {
+        realSlug = slug.replace(/\.md$/, "");
+    }
     const fullPath = join(postsDirectory, `${realSlug}.md`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);

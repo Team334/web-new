@@ -8,12 +8,10 @@ import Header from "@/app/_components/header";
 import { PostBody } from "../../_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
 
-console.log("Hello World")
 
 export default async function Post({ params }: Params) {
     const post = getPostBySlug(params.slug);
 
-    console.log(post)
 
     if (!post) {
         return notFound();
@@ -68,6 +66,8 @@ export async function generateStaticParams() {
     const posts = getAllPosts();
 
     return posts.map((post) => ({
-        slug: post.slug,
+        params: {
+            slug: post.slug,
+        }
     }));
 }
