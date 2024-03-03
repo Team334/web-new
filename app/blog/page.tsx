@@ -1,4 +1,3 @@
-import {title} from "@/components/primitives";
 import Container from "../_components/container";
 import { HeroPost } from "@/app/_components/hero-post";
 import { getAllPosts } from "@/components/markdown/api";
