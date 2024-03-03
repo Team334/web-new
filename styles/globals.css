@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: '--main';
-    src: url("../public/Richardson Brand Accelerator.otf");
+    src: url("../public/fonts/Richardson Brand Accelerator.otf");
 }
 
 @font-face {
     font-family: '--secondary';
-    src: url("../public/Futura Medium.otf");
+    src: url("../public/fonts/oxanium-vrb.ttf");
 }
 
 .main {
