@@ -7,7 +7,7 @@ export default function BlogPage() {
 
 
     return (
-        <div className="">
+        <div className="p-5">
             <div className="grid grid-cols-2 gap-4">
                 {posts
                     .sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1)
