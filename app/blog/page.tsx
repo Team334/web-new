@@ -1,37 +1,52 @@
-import {getAllPosts} from "@/components/markdown/api";
+import {getAllPosts} from "@/components/markdown";
 import {Link} from "@nextui-org/link";
 import {Image} from "@nextui-org/react";
+import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/shadcn/ui/card";
+import React from "react";
+import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 
 export default function BlogPage() {
     const posts = getAllPosts();
 
-
     return (
         <div className="p-5">
-            <div className="grid grid-cols-2 gap-4">
+            <TextGenerateEffect words={"Blog"}
+                                className={"underline font-bold text-center text-5xl md:text-6xl main mb-10"}/>
+            <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
                 {posts
                     .sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1)
                     .map((post) => (
-                        <Link href={`/posts/${post.slug}`} key={post.slug}>
-                            <div
-                                className="rounded-[1.5rem] overflow-hidden bg-slate-900 cursor-pointer duration-300 ease-out hover:-translate-y-2">
-                                <div className="relative h-40 w-full">
-                                    {post.coverImage && (
+                        <Link
+                            href={`/posts/${post.slug}`}
+                            key={post.slug}
+                        >
+                            <Card className="w-[330px]">
+                                <CardHeader>
+                                    <CardTitle className={"text-center"}>{post.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className={"flex items-center justify-center"}>
                                         <Image
                                             alt={"blogImage"}
                                             src={`${post.coverImage}`}
+                                            className={"justify-self-center"}
                                         />
-                                    )}
-                                    <div
-                                        className="relative w-full h-full flex bg-gradient-to-b from-transparent via-slate-900/70 to-slate-900 px-16 py-10"/>
-                                </div>
-                                <div className="p-5 pb-7">
-                                    <h1>{post.title} <span
-                                        className="text-xl font-normal text-slate-400">{new Date(post.date).toLocaleDateString()}</span>
-                                    </h1>
-                                    <p className="text-slate-400">{post.excerpt}</p>
-                                </div>
-                            </div>
+                                    </div>
+                                    <hr className="align-middle border-gray-200 my-2 w-full overflow-x-hidden m-auto"/>
+                                    <p>{post.excerpt.length > 70 ? post.excerpt.slice(0, 70) + "..." : post.excerpt}</p>
+                                </CardContent>
+                                <CardFooter className="flex justify-between">
+                                <div className={"flex flex-row items-center text-center gap-2"}>
+                                        <Image
+                                            alt={"blogAuthor"}
+                                            src={post.author.picture}
+                                            width={40}
+                                        />
+                                        <h1>{post.author.name}</h1>
+                                    </div>
+                                    <h1>{new Date(post.date).toLocaleDateString()}</h1>
+                                </CardFooter>
+                            </Card>
                         </Link>
                     ))
                 }

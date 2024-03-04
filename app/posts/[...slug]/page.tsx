@@ -1,10 +1,12 @@
 import {Metadata} from "next";
 import {notFound} from "next/navigation";
-import {getAllPosts, getPostBySlug} from "@/components/markdown/api";
-import markdownToHtml from "@/components/markdown/markdownToHTML";
+import {getAllPosts, getPostBySlug} from "@/components/markdown";
 import {format} from 'date-fns';
 import React from "react";
 import {Image} from "@nextui-org/react";
+import markdownStyles from "./markdown-styles.module.css";
+import remarkGfm from "remark-gfm";
+import ReactMarkdown from "react-markdown";
 
 export default async function Post({params}: Params) {
     const post = getPostBySlug(params.slug);
@@ -14,8 +16,6 @@ export default async function Post({params}: Params) {
         return notFound();
     }
 
-
-    const content = await markdownToHtml(post.content || "");
 
     return (
 
@@ -35,9 +35,7 @@ export default async function Post({params}: Params) {
                 </div>
             </div>
             <article className="prose max-w-none dark:prose-invert">
-                <div
-                    dangerouslySetInnerHTML={{__html: content}}
-                />
+                <ReactMarkdown className={markdownStyles["markdown"]} remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
             </article>
         </div>
     );
