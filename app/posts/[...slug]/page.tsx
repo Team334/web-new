@@ -7,6 +7,13 @@ import {Image} from "@nextui-org/react";
 import markdownStyles from "./markdown-styles.module.css";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkParse from "remark-parse";
+import remarkStringify from "remark-stringify";
+import remarkRehype from "remark-rehype";
+import rehypeFormat from "rehype-format";
+import rehypeMinifyWhitespace from "rehype-minify-whitespace";
+import rehypeStringify from "rehype-stringify";
 
 export default async function Post({params}: Params) {
     const post = getPostBySlug(params.slug);
@@ -15,6 +22,8 @@ export default async function Post({params}: Params) {
     if (!post) {
         return notFound();
     }
+
+    console.log(post.content)
 
 
     return (
@@ -34,9 +43,9 @@ export default async function Post({params}: Params) {
                     <h4 className="font-normal">by {post.author.name} — {format(new Date(post.date), 'MMMM dd, yyyy')}</h4>
                 </div>
             </div>
-            <article className="prose max-w-none dark:prose-invert">
-                <ReactMarkdown className={markdownStyles["markdown"]} remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
-            </article>
+            <div className="prose max-w-none dark:prose-invert">
+                <ReactMarkdown className={markdownStyles["markdown"]} remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]} rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}>{post.content}</ReactMarkdown>
+            </div>
         </div>
     );
 }

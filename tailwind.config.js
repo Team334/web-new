@@ -81,6 +81,7 @@ const config = {
         },
     },
     plugins: [
+        require('@tailwindcss/typography'),
         nextui(),
         require("tailwindcss-animate"),
         function ({addBase, matchUtilities, theme}) {
