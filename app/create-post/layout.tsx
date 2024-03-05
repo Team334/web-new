@@ -1,15 +1,19 @@
-"use server"
+"use client"
 
 import React from "react";
 
-export default async function TeamLayout({
+export default function CreatePostLayout({
                                              children,
                                          }: {
     children: React.ReactNode;
 }) {
+
+
     return (
-        <section className="flex justify-center gap-4">
-            {children}
+        <section>
+            <div className="flex justify-center gap-4 py-8 md:py-10">
+                {children}
+            </div>
         </section>
     );
 }

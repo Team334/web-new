@@ -73,28 +73,28 @@ export default async function Post({params}: Params) {
                 </div>
             </div>
             <div className="prose max-w-none dark:prose-invert">
-        
-            <ReactMarkdown
-                className={markdownStyles["markdown"]}
-                remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
-                rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}
-                components={{
-                    code({ node, inline, className, children, ...props }: any) {
-                      const match = /language-(\w+)/.exec(className || '');
-            
-                      return !inline && match ? (
-                        <SyntaxHighlighter style={prism} PreTag="div" language={match[1]} {...props}>
-                          {String(children).replace(/\n$/, '')}
-                        </SyntaxHighlighter>
-                      ) : (
-                        <code className={className} {...props}>
-                          {children}
-                        </code>
-                      );
-                    },
-                  }}
-            >
-                {post.content}
+
+                <ReactMarkdown
+                    className={markdownStyles["markdown"]}
+                    remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
+                    rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}
+                    components={{
+                        code({node, inline, className, children, ...props}: any) {
+                            const match = /language-(\w+)/.exec(className || '');
+
+                            return !inline && match ? (
+                                <SyntaxHighlighter style={prism} PreTag="div" language={match[1]} {...props}>
+                                    {String(children).replace(/\n$/, '')}
+                                </SyntaxHighlighter>
+                            ) : (
+                                <code className={className} {...props}>
+                                    {children}
+                                </code>
+                            );
+                        },
+                    }}
+                >
+                    {post.content}
                 </ReactMarkdown>
             </div>
         </div>

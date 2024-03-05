@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import {join} from "path";
 
-const postsDirectory = join(process.cwd(), "_posts");
+const postsDirectory: string = join(process.cwd(), "_posts");
 
 export type Author = {
     name: string;
@@ -23,27 +23,27 @@ export type Post = {
     preview?: boolean;
 };
 
-export function getPostSlugs() {
+export function getPostSlugs(): string[] {
     return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string | string[]) {
+export function getPostBySlug(slug: string | string[]): Post {
     let realSlug: string;
     if (Array.isArray(slug)) {
         realSlug = slug[0].replace(/\.md$/, "");
     } else {
         realSlug = slug.replace(/\.md$/, "");
     }
-    const fullPath = join(postsDirectory, `${realSlug}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const {data, content} = matter(fileContents);
+    const fullPath: string = join(postsDirectory, `${realSlug}.md`);
+    const fileContents: string = fs.readFileSync(fullPath, "utf8");
+    const {data, content}: { data: Partial<Post>; content: string } = matter(fileContents);
 
-    return {...data, slug: realSlug, content} as Post;
+    return {...(data as Post), slug: realSlug, content};
 }
 
 export function getAllPosts(): Post[] {
-    const slugs = getPostSlugs();
-    const posts = slugs
+    const slugs: string[] = getPostSlugs();
+    const posts: Post[] = slugs
         .map((slug) => getPostBySlug(slug))
         // sort posts by date in descending order
         .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
