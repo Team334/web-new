@@ -1,9 +1,8 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { join } from "path";
+import {join} from "path";
 
 const postsDirectory = join(process.cwd(), "_posts");
-console.log(postsDirectory)
 
 export type Author = {
     name: string;
@@ -28,15 +27,18 @@ export function getPostSlugs() {
     return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string) {
-    const realSlug = slug.replace(/\.md$/, "");
-    console.log(realSlug)
+export function getPostBySlug(slug: string | string[]) {
+    let realSlug: string;
+    if (Array.isArray(slug)) {
+        realSlug = slug[0].replace(/\.md$/, "");
+    } else {
+        realSlug = slug.replace(/\.md$/, "");
+    }
     const fullPath = join(postsDirectory, `${realSlug}.md`);
-    console.log(fullPath)
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
+    const {data, content} = matter(fileContents);
 
-    return { ...data, slug: realSlug, content } as Post;
+    return {...data, slug: realSlug, content} as Post;
 }
 
 export function getAllPosts(): Post[] {
