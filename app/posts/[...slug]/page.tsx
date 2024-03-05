@@ -3,7 +3,8 @@ import {notFound} from "next/navigation";
 import {getAllPosts, getPostBySlug} from "@/components/markdown";
 import {format} from 'date-fns';
 import React from "react";
-import {Image} from "@nextui-org/react";
+import Image from "next/image";
+import {Image as NextUIImage} from "@nextui-org/react"
 import markdownStyles from "./markdown-styles.module.css";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
@@ -23,28 +24,38 @@ export default async function Post({params}: Params) {
         return notFound();
     }
 
-    console.log(post.content)
-
 
     return (
 
         <div className="p-10">
-            <div className="relative h-72 w-full rounded-[1.5rem] overflow-hidden mb-10">
-                <Image
-                    alt={"blogImage"}
-                    src={post.coverImage}
-                    className={"object-fill"}
-                />
-            </div>
-            <div
-                className="relative w-full h-full flex bg-gradient-to-b from-transparent via-slate-900/70 to-slate-900 px-16 py-10">
-                <div className="self-end">
-                    <h1 className="text-5xl">{post.title}</h1>
-                    <h4 className="font-normal">by {post.author.name} — {format(new Date(post.date), 'MMMM dd, yyyy')}</h4>
+            <div className={"flex justify-center items-center text-center w-full my-10"}>
+                <div className={"space-y-5"}>
+                    <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white secondary p-2"}>{post.title}</h1>
+                    <div className="flex flex-row items-center justify-center text-center gap-2">
+                        <Image
+                            alt="blogAuthor"
+                            src={post.author.picture}
+                            className="rounded-full"
+                            width={40}
+                            height={40}
+                            style={{width: "40px", height: "40px", objectFit: "cover"}}
+                        />
+
+                        <h1 className="main">{post.author.name}</h1>
+                        <div className="hidden lg:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
+                        <h1 className="secondary">{new Date(post.date).toLocaleDateString()}</h1>
+                    </div>
+                    <NextUIImage
+                        src={post.coverImage}
+                        alt={"blogImage"}
+                        style={{width: '100%', height: 'auto', maxWidth: '1500px', maxHeight: '600px'}}
+                    />
                 </div>
             </div>
             <div className="prose max-w-none dark:prose-invert">
-                <ReactMarkdown className={markdownStyles["markdown"]} remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]} rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}>{post.content}</ReactMarkdown>
+                <ReactMarkdown className={markdownStyles["markdown"]}
+                               remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
+                               rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}>{post.content}</ReactMarkdown>
             </div>
         </div>
     );
