@@ -1,7 +1,6 @@
 import {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {getAllPosts, getPostBySlug} from "@/components/markdown";
-import {format} from 'date-fns';
 import React from "react";
 import Image from "next/image";
 import {Image as NextUIImage} from "@nextui-org/react"
@@ -16,6 +15,28 @@ import rehypeFormat from "rehype-format";
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeStringify from "rehype-stringify";
 
+import {PrismLight as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism'
+
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
+import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import py from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+import html from 'react-syntax-highlighter/dist/esm/languages/prism/markup';
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
+import json from 'react-syntax-highlighter/dist/esm/languages/prism/json';
+import java from 'react-syntax-highlighter/dist/esm/languages/prism/java';
+import dart from 'react-syntax-highlighter/dist/esm/languages/prism/dart';
+
+SyntaxHighlighter.registerLanguage('tsx', tsx);
+SyntaxHighlighter.registerLanguage('js', js);
+SyntaxHighlighter.registerLanguage('py', py);
+SyntaxHighlighter.registerLanguage('html', html);
+SyntaxHighlighter.registerLanguage('css', css);
+SyntaxHighlighter.registerLanguage('json', json);
+SyntaxHighlighter.registerLanguage('java', java);
+SyntaxHighlighter.registerLanguage('dart', dart);
+
+
 export default async function Post({params}: Params) {
     const post = getPostBySlug(params.slug);
 
@@ -23,7 +44,6 @@ export default async function Post({params}: Params) {
     if (!post) {
         return notFound();
     }
-
 
     return (
 
@@ -53,9 +73,29 @@ export default async function Post({params}: Params) {
                 </div>
             </div>
             <div className="prose max-w-none dark:prose-invert">
-                <ReactMarkdown className={markdownStyles["markdown"]}
-                               remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
-                               rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}>{post.content}</ReactMarkdown>
+        
+            <ReactMarkdown
+                className={markdownStyles["markdown"]}
+                remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
+                rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}
+                components={{
+                    code({ node, inline, className, children, ...props }: any) {
+                      const match = /language-(\w+)/.exec(className || '');
+            
+                      return !inline && match ? (
+                        <SyntaxHighlighter style={prism} PreTag="div" language={match[1]} {...props}>
+                          {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                      ) : (
+                        <code className={className} {...props}>
+                          {children}
+                        </code>
+                      );
+                    },
+                  }}
+            >
+                {post.content}
+                </ReactMarkdown>
             </div>
         </div>
     );

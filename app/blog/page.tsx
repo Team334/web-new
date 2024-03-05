@@ -34,8 +34,8 @@ export default function BlogPage() {
                                             height={"20"}
                                         />
                                     </div>
-                                    <hr className="align-middle border-gray-200 my-2 w-full overflow-x-hidden m-auto"/>
-                                    <p className={"text-gray-600"}>{post.excerpt.length > 70 ? post.excerpt.slice(0, 70) + "..." : post.excerpt}</p>
+                                    {/* <hr className="align-middle border-gray-200 my-2 w-full overflow-x-hidden m-auto"/> */}
+                                    <p className={"text-gray-500 mt-3"}>{post.excerpt.length > 70 ? post.excerpt.slice(0, 70) + "..." : post.excerpt}</p>
                                 </CardContent>
                                 <CardFooter className="flex justify-between">
                                     <div className={"flex flex-row items-center text-center gap-2"}>
