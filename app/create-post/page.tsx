@@ -7,7 +7,6 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import remarkRehype from "remark-rehype";
-import rehypeRaw from "rehype-raw";
 import rehypeFormat from "rehype-format";
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeStringify from "rehype-stringify";
@@ -34,7 +33,7 @@ export default function CreateBlogPage() {
                     <ReactMarkdown
                         className={markdownStyles["markdown"]}
                         remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
-                        rehypePlugins={[rehypeRaw, rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}
+                        rehypePlugins={[rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}
                         components={{
                             code({node, inline, className, children, ...props}: any) {
                                 const match = /language-(\w+)/.exec(className || '');
