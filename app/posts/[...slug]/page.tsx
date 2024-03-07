@@ -1,6 +1,5 @@
 import {Metadata} from "next";
 import {notFound} from "next/navigation";
-import {getAllPosts, getPostBySlug} from "@/components/markdown";
 import React from "react";
 import Image from "next/image";
 import {Image as NextUIImage} from "@nextui-org/react"
@@ -37,9 +36,22 @@ SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('dart', dart);
 
 
-export default async function Post({params}: Params) {
-    const post = getPostBySlug(params.slug);
+async function fetchAllPosts() {
+    const response = await fetch('/api/posts');
+    const data = await response.json();
+    return data;
+}
 
+async function fetchPostBySlug(slug: string) {
+    const response = await fetch(`/api/posts?slug=${slug}`);
+    const data = await response.json();
+    return data;
+}
+
+
+
+export default async function Post({params}: Params) {
+    const post = params.slug
 
     if (!post) {
         return notFound();
@@ -107,8 +119,8 @@ type Params = {
     };
 };
 
-export function generateMetadata({params}: Params): Metadata {
-    const post = getPostBySlug(params.slug);
+export async function generateMetadata({params}: Params): Metadata {
+    const post = await fetchPostBySlug(params.slug);
 
     if (!post) {
         return notFound();
@@ -125,7 +137,7 @@ export function generateMetadata({params}: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-    const posts = getAllPosts();
+    const posts = await fetchAllPosts();
 
     return posts.map((post) => ({
         params: {
