@@ -35,15 +35,25 @@ SyntaxHighlighter.registerLanguage('json', json);
 SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('dart', dart);
 
+const checkEnvironment = () => {
+    let base_url =
+        process.env.NODE_ENV === "development"
+            ? "http://localhost:3000"
+            : "https://example.com";
+
+    return base_url;
+};
+
 
 async function fetchAllPosts() {
-    const response = await fetch('/api/posts');
+    // const response = await fetch('/api/posts');
+    const response = await fetch(checkEnvironment()+'/api/posts');
     const data = await response.json();
     return data;
 }
 
 async function fetchPostBySlug(slug: string) {
-    const response = await fetch(`/api/posts?slug=${slug}`);
+    const response = await fetch(checkEnvironment() + `/api/posts?slug=${slug}`);
     const data = await response.json();
     return data;
 }
@@ -51,7 +61,8 @@ async function fetchPostBySlug(slug: string) {
 
 
 export default async function Post({params}: Params) {
-    const post = params.slug
+    const postInfo = await fetchPostBySlug(params.slug[0]);
+    const post = postInfo[0];
 
     if (!post) {
         return notFound();
@@ -119,12 +130,14 @@ type Params = {
     };
 };
 
-export async function generateMetadata({params}: Params): Metadata {
-    const post = await fetchPostBySlug(params.slug);
+export async function generateMetadata({params}: Params): Promise<Metadata> {
+    const postInfo = await fetchPostBySlug(params.slug);
+    const post = postInfo[0]
 
     if (!post) {
         return notFound();
     }
+
 
     const title = `${post.title}`;
 
@@ -139,7 +152,7 @@ export async function generateMetadata({params}: Params): Metadata {
 export async function generateStaticParams() {
     const posts = await fetchAllPosts();
 
-    return posts.map((post) => ({
+    return posts.map((post: any) => ({
         params: {
             slug: post.slug,
         }
