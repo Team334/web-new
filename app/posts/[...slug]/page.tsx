@@ -36,26 +36,19 @@ SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('dart', dart);
 
 const checkEnvironment = () => {
-    let base_url =
-        process.env.NODE_ENV === "development"
-            ? "http://localhost:3000"
-            : "https://example.com";
-
-    return base_url;
+    return "http://localhost:3000"
 };
 
 
 async function fetchAllPosts() {
     // const response = await fetch('/api/posts');
     const response = await fetch(checkEnvironment()+'/api/posts');
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
 
 async function fetchPostBySlug(slug: string) {
     const response = await fetch(checkEnvironment() + `/api/posts?slug=${slug}`);
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
 
 

@@ -5,25 +5,20 @@ import React from "react";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 
 const checkEnvironment = () => {
-    let base_url =
-        process.env.NODE_ENV === "development"
-            ? "http://localhost:3000"
-            : "https://example.com";
-
-    return base_url;
+    return "http://localhost:3000"
 };
 
 
 async function fetchAllPosts() {
     // const response = await fetch('/api/posts');
     const response = await fetch(checkEnvironment()+'/api/posts');
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
 
 
 export default async function BlogPage() {
-    const posts = await fetchAllPosts();
+    let posts
+    posts = await fetchAllPosts();
 
     return (
         <div className="p-5">
