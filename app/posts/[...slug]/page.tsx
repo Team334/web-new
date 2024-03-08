@@ -36,12 +36,13 @@ SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('dart', dart);
 
 const checkEnvironment = () => {
-    return "http://localhost:3000"
+    return process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://team334.vercel.app";
 };
 
 
 async function fetchAllPosts() {
-    // const response = await fetch('/api/posts');
     const response = await fetch(checkEnvironment()+'/api/posts');
     return await response.json();
 }
@@ -78,7 +79,7 @@ export default async function Post({params}: Params) {
                         />
 
                         <h1 className="main">{post.author.name}</h1>
-                        <div className="hidden lg:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
+                        <div className="border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
                         <h1 className="secondary">{new Date(post.date).toLocaleDateString()}</h1>
                     </div>
                     <NextUIImage

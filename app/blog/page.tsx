@@ -5,7 +5,9 @@ import React from "react";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 
 const checkEnvironment = () => {
-    return "http://localhost:3000"
+    return process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://team334.vercel.app";
 };
 
 
