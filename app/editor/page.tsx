@@ -17,13 +17,15 @@ export default function CreateBlogPage() {
     const [cursorPosition, setCursorPosition] = useState(0);
     const textareaRef = useRef(null);
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         setMarkdown(e.target.value);
     };
 
-    const handleButtonClick = (markdownText) => {
+    const handleButtonClick = (markdownText: string) => {
         setMarkdown((prevMarkdown) => {
+            // @ts-ignore
             const selectionStart = textareaRef.current.selectionStart;
+            // @ts-ignore
             const selectionEnd = textareaRef.current.selectionEnd;
 
             const updatedMarkdown =
@@ -34,10 +36,12 @@ export default function CreateBlogPage() {
             setCursorPosition(selectionStart + markdownText.length);
             return updatedMarkdown;
         });
+        // @ts-ignore
         textareaRef.current.focus();
     };
 
     const handleTextareaClick = () => {
+        // @ts-ignore
         textareaRef.current.focus();
     };
 
@@ -53,7 +57,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Heading"}
-                        onClick={() => handleButtonClick('## Heading')}
+                        onClick={() => handleButtonClick('# Heading')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-heading Button-visual">
@@ -192,7 +196,7 @@ export default function CreateBlogPage() {
                     className="w-full resize-none border rounded-md focus:outline-none focus:ring px-4 py-2 min-h-[75vh] max-h-[150vh]"
                 />
             </section>
-            <div className={"w-full text-wrap break-words h-full p-4 overflow-hidden whitespace-normal"}>
+            <div className={"w-full text-wrap break-words h-full p-4 overflow-x-hidden whitespace-normal max-h-[85vh]"}>
                 <div className="prose max-w-none dark:prose-invert ">
                     <ReactMarkdown
                         className={markdownStyles["markdown"]}
