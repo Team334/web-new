@@ -12,13 +12,22 @@ import rehypeStringify from "rehype-stringify";
 import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter";
 import {prism} from "react-syntax-highlighter/dist/esm/styles/prism";
 
+
 export default function CreateBlogPage() {
-    const [markdown, setMarkdown] = useState('## markdown preview');
+    const [markdown, setMarkdown] = useState("");
     const [cursorPosition, setCursorPosition] = useState(0);
     const textareaRef = useRef(null);
 
+    React.useEffect(() => {
+        const savedText = localStorage.getItem('savedText');
+        if (savedText) {
+            setMarkdown(savedText);
+        }
+    }, []);
+
     const handleChange = (e: any) => {
         setMarkdown(e.target.value);
+        localStorage.setItem('savedText', e.target.value);
     };
 
     const handleButtonClick = (markdownText: string) => {
@@ -29,8 +38,10 @@ export default function CreateBlogPage() {
             const selectionEnd = textareaRef.current.selectionEnd;
 
             const updatedMarkdown =
+                // @ts-ignore
                 prevMarkdown.slice(0, selectionStart) +
                 markdownText +
+                // @ts-ignore
                 prevMarkdown.slice(selectionEnd);
 
             setCursorPosition(selectionStart + markdownText.length);
@@ -48,6 +59,7 @@ export default function CreateBlogPage() {
     const handleCursorPositionChange = (e: any) => {
         setCursorPosition(e.target.selectionStart);
     };
+
 
 
     return (
@@ -101,7 +113,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Code"}
-                        onClick={() => handleButtonClick('```\n```')}
+                        onClick={() => handleButtonClick('\n```\n```')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-code Button-visual">
@@ -124,7 +136,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"List Ordered"}
-                        onClick={() => handleButtonClick('1. ')}
+                        onClick={() => handleButtonClick('\n1. ')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-list-ordered Button-visual">
@@ -135,7 +147,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Unordered List"}
-                        onClick={() => handleButtonClick('- ')}
+                        onClick={() => handleButtonClick('\n- ')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-list-unordered Button-visual">
@@ -146,7 +158,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Tasklist"}
-                        onClick={() => handleButtonClick('- [] ')}
+                        onClick={() => handleButtonClick('\n- [] ')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-tasklist Button-visual">
@@ -157,7 +169,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 text-white rounded-md"
                         title={"Table"}
-                        onClick={() => handleButtonClick('| Name | Name |\n| ------- | ------- | \n| Values | Values |')}
+                        onClick={() => handleButtonClick('\n| Name | Name |\n| ------- | ------- | \n| Values | Values |')}
                     >
                         <svg aria-hidden="true" data-view-component="true" xmlns="http://www.w3.org/2000/svg" width="16"
                              height="16" viewBox="0 0 16 16">
@@ -173,7 +185,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 text-white rounded-md"
                         title={"Table"}
-                        onClick={() => handleButtonClick('![Name](url)')}
+                        onClick={() => handleButtonClick('\n![Name](url)')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-paperclip Button-visual">
