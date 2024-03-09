@@ -2,8 +2,9 @@
 
 import React from "react";
 
-export default function CreatePostLayout({
+export default function EditorLayout({
                                              children,
+                                            draft
                                          }: {
     children: React.ReactNode;
 }) {

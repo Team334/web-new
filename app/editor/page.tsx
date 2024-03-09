@@ -11,9 +11,13 @@ import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeStringify from "rehype-stringify";
 import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter";
 import {prism} from "react-syntax-highlighter/dist/esm/styles/prism";
+import {useAuth0} from "@auth0/auth0-react";
+import remarkMath from 'remark-math'
+import remarkGemoji from 'remark-gemoji'
+import rehypeKatex from "rehype-katex";
 
 
-export default function CreateBlogPage() {
+export default function EditorPage() {
     const [markdown, setMarkdown] = useState("");
     const [cursorPosition, setCursorPosition] = useState(0);
     const textareaRef = useRef(null);
@@ -82,12 +86,33 @@ export default function CreateBlogPage() {
         setCursorPosition(e.target.selectionStart);
     };
 
-
+    const {user, isAuthenticated, isLoading, logout} = useAuth0();
 
     return (
         <div className='w-full flex h-screen p-2'>
             <section className='w-full h-full border-r border-gray-300 p-4'>
                 <div className="flex space-x-3 mb-2 border-white rounded-lg bg-gray-200 p-2">
+                    <button
+                        className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
+                        title={"Undo"}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={16} height={16}
+                             className="icon">
+                            <path
+                                d="M12.5,8C9.85,8 7.45,9 5.6,10.6L2,7V16H11L7.38,12.38C8.77,11.22 10.54,10.5 12.5,10.5C16.04,10.5 19.05,12.81 20.1,16L22.47,15.22C21.08,11.03 17.15,8 12.5,8Z"></path>
+                        </svg>
+                    </button>
+                    <button
+                        className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
+                        title={"Redo"}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={16} height={16}
+                             className="icon">
+                            <path
+                                d="M18.4,10.6C16.55,9 14.15,8 11.5,8C6.85,8 2.92,11.03 1.54,15.22L3.9,16C4.95,12.81 7.95,10.5 11.5,10.5C13.45,10.5 15.23,11.22 16.62,12.38L13,16H22V7L18.4,10.6Z"></path>
+                        </svg>
+                    </button>
+                    <div className="border-l dark:border-gray-300 border-gray-900 h-8 "/>
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Heading"}
@@ -119,6 +144,18 @@ export default function CreateBlogPage() {
                              data-view-component="true" className="octicon octicon-italic Button-visual">
                             <path
                                 d="M6 2.75A.75.75 0 0 1 6.75 2h6.5a.75.75 0 0 1 0 1.5h-2.505l-3.858 9H9.25a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h2.505l3.858-9H6.75A.75.75 0 0 1 6 2.75Z"></path>
+                        </svg>
+                    </button>
+                    <button
+                        className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
+                        title={"Strikethrough"}
+                        onClick={() => handleButtonClick('~~Text~~')}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={16} width={16}
+                             className="icon">
+                            <path
+                                d="M20.874,12.059l0,1.729l-3.541,0c0.806,1.851 0.766,6.918 -5.026,6.918c-6.721,0.043 -6.463,-5.621 -6.463,-5.621l3.203,0.044c0.024,2.914 2.55,2.914 3.05,2.879c0.516,-0.043 2.444,-0.034 2.598,-2.058c0.064,-0.942 -0.823,-1.66 -1.791,-2.162l-9.778,0l0,-1.729l17.748,0m-2.896,-3.554l-3.211,-0.026c0,0 0.137,-2.395 -2.646,-2.404c-2.783,-0.017 -2.541,1.902 -2.541,2.144c0.032,0.243 0.274,1.436 2.42,2.007l-5.074,0c0,0 -2.816,-5.82 4.057,-6.814c7.027,-1.038 7.011,5.11 6.995,5.093Z"
+                                style={{fillRule: 'nonzero'}}></path>
                         </svg>
                     </button>
                     <button
@@ -177,6 +214,17 @@ export default function CreateBlogPage() {
                                 d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
                         </svg>
                     </button>
+                    <button
+                        className="px-2 py-1 text-white rounded-md"
+                        title={"Table"}
+                        onClick={() => handleButtonClick('\n| Name | Name |\n| ------- | ------- | \n| Values | Values |')}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={16} width={16}
+                             className="icon">
+                            <path
+                                d="M 5,4L 19,4C 20.1046,4 21,4.89543 21,6L 21,18C 21,19.1046 20.1046,20 19,20L 5,20C 3.89543,20 3,19.1046 3,18L 3,6C 3,4.89543 3.89543,4 5,4 Z M 5,8L 5,12L 11,12L 11,8L 5,8 Z M 13,8L 13,12L 19,12L 19,8L 13,8 Z M 5,14L 5,18L 11,18L 11,14L 5,14 Z M 13,14L 13,18L 19,18L 19,14L 13,14 Z "></path>
+                        </svg>
+                    </button>
                     <div className="border-l dark:border-gray-300 border-gray-900 h-8 "/>
                     <button
                         className="px-2 py-1 text-white rounded-md"
@@ -206,10 +254,10 @@ export default function CreateBlogPage() {
             </section>
             <div className={"w-full text-wrap break-words h-full p-4 overflow-x-hidden whitespace-normal max-h-[85vh]"}>
                 <div className="prose max-w-none dark:prose-invert ">
-                    <ReactMarkdown
+                <ReactMarkdown
                         className={markdownStyles["markdown"]}
-                        remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype]}
-                        rehypePlugins={[rehypeFormat, rehypeMinifyWhitespace, rehypeStringify]}
+                        remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype, remarkMath, remarkGemoji]}
+                        rehypePlugins={[rehypeFormat, rehypeMinifyWhitespace, rehypeStringify, rehypeKatex]}
                         components={{
                             code({node, inline, className, children, ...props}: any) {
                                 const match = /language-(\w+)/.exec(className || '');
@@ -217,7 +265,7 @@ export default function CreateBlogPage() {
                                 return !inline && match ? (
                                     <SyntaxHighlighter style={prism} PreTag="div" language={match[1]} {...props}
                                                        className={"not-prose"}>
-                                    {String(children).replace(/\n$/, '')}
+                                        {String(children).replace(/\n$/, '')}
                                     </SyntaxHighlighter>
                                 ) : (
                                     <code className={className} {...props}>
