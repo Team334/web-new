@@ -43,7 +43,7 @@ const checkEnvironment = () => {
 
 
 async function fetchAllPosts() {
-    const response = await fetch(checkEnvironment()+'/api/posts');
+    const response = await fetch(checkEnvironment() + '/api/posts');
     return await response.json();
 }
 
@@ -51,7 +51,6 @@ async function fetchPostBySlug(slug: string) {
     const response = await fetch(checkEnvironment() + `/api/posts?slug=${slug}`);
     return await response.json();
 }
-
 
 
 export default async function Post({params}: Params) {

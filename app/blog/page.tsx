@@ -13,7 +13,7 @@ const checkEnvironment = () => {
 
 async function fetchAllPosts() {
     // const response = await fetch('/api/posts');
-    const response = await fetch(checkEnvironment()+'/api/posts');
+    const response = await fetch(checkEnvironment() + '/api/posts');
     return await response.json();
 }
 
