@@ -37,18 +37,40 @@ export default function CreateBlogPage() {
             // @ts-ignore
             const selectionEnd = textareaRef.current.selectionEnd;
 
-            const updatedMarkdown =
+            const lines = prevMarkdown.split('\n');
+            const currentLineIndex = getLineNumber(prevMarkdown, selectionStart);
+            const currentLine = lines[currentLineIndex];
+
+            // Check if the previous line is a numbered list
+            if (currentLine.match(/^\d+\.\s/)) {
                 // @ts-ignore
+                const nextNumber = parseInt(currentLine.match(/^\d+/)[0]) + 1;
+                markdownText = `\n${nextNumber}. `;
+            }
+
+            const updatedMarkdown =
                 prevMarkdown.slice(0, selectionStart) +
                 markdownText +
-                // @ts-ignore
                 prevMarkdown.slice(selectionEnd);
 
             setCursorPosition(selectionStart + markdownText.length);
             return updatedMarkdown;
         });
+
         // @ts-ignore
         textareaRef.current.focus();
+    };
+
+    const getLineNumber = (text: string, cursorPosition: number) => {
+        const lines = text.split('\n');
+        let charCount = 0;
+        for (let i = 0; i < lines.length; i++) {
+            charCount += lines[i].length + 1; // +1 to account for the newline character
+            if (charCount > cursorPosition) {
+                return i;
+            }
+        }
+        return lines.length - 1;
     };
 
     const handleTextareaClick = () => {
@@ -80,7 +102,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Bold"}
-                        onClick={() => handleButtonClick('****')}
+                        onClick={() => handleButtonClick('**Text**')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-bold Button-visual">
@@ -91,7 +113,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Italic"}
-                        onClick={() => handleButtonClick('**')}
+                        onClick={() => handleButtonClick('*Text*')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-italic Button-visual">
@@ -113,7 +135,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Code"}
-                        onClick={() => handleButtonClick('\n```\n```')}
+                        onClick={() => handleButtonClick('\n```lang\ncode\n```')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-code Button-visual">
@@ -124,7 +146,7 @@ export default function CreateBlogPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Link"}
-                        onClick={() => handleButtonClick('[]()')}
+                        onClick={() => handleButtonClick('[Name](url)')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-link Button-visual">
@@ -155,37 +177,11 @@ export default function CreateBlogPage() {
                                 d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
                         </svg>
                     </button>
-                    <button
-                        className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
-                        title={"Tasklist"}
-                        onClick={() => handleButtonClick('\n- [] ')}
-                    >
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
-                             data-view-component="true" className="octicon octicon-tasklist Button-visual">
-                            <path
-                                d="M2 2h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Zm4.655 8.595a.75.75 0 0 1 0 1.06L4.03 14.28a.75.75 0 0 1-1.06 0l-1.5-1.5a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l.97.97 2.095-2.095a.75.75 0 0 1 1.06 0ZM9.75 2.5h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5Zm0 5h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5Zm0 5h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5Zm-7.25-9v3h3v-3Z"></path>
-                        </svg>
-                    </button>
-                    <button
-                        className="px-2 py-1 text-white rounded-md"
-                        title={"Table"}
-                        onClick={() => handleButtonClick('\n| Name | Name |\n| ------- | ------- | \n| Values | Values |')}
-                    >
-                        <svg aria-hidden="true" data-view-component="true" xmlns="http://www.w3.org/2000/svg" width="16"
-                             height="16" viewBox="0 0 16 16">
-                            <g xmlns="http://www.w3.org/2000/svg"
-                               transform="translate(0.000000,16.000000) scale(0.100000,-0.100000)" fill="#000000"
-                               stroke="none">
-                                <path
-                                    d="M6 134 c-8 -20 -8 -78 0 -98 9 -23 139 -23 148 0 8 20 8 78 0 98 -9 23 -139 23 -148 0z m44 -19 c0 -8 -7 -15 -15 -15 -8 0 -15 7 -15 15 0 8 7 15 15 15 8 0 15 -7 15 -15z m45 6 c7 -12 -12 -24 -25 -16 -11 7 -4 25 10 25 5 0 11 -4 15 -9z m45 -6 c0 -8 -7 -15 -15 -15 -8 0 -15 7 -15 15 0 8 7 15 15 15 8 0 15 -7 15 -15z m-90 -35 c0 -5 -7 -10 -15 -10 -8 0 -15 5 -15 10 0 6 7 10 15 10 8 0 15 -4 15 -10z m50 0 c0 -5 -9 -10 -20 -10 -11 0 -20 5 -20 10 0 6 9 10 20 10 11 0 20 -4 20 -10z m40 0 c0 -5 -7 -10 -15 -10 -8 0 -15 5 -15 10 0 6 7 10 15 10 8 0 15 -4 15 -10z m-92 -32 c-6 -18 -28 -21 -28 -4 0 9 7 16 16 16 9 0 14 -5 12 -12z m47 3 c7 -12 -12 -24 -25 -16 -11 7 -4 25 10 25 5 0 11 -4 15 -9z m45 -7 c0 -9 -5 -14 -12 -12 -18 6 -21 28 -4 28 9 0 16 -7 16 -16z"/>
-                            </g>
-                        </svg>
-                    </button>
                     <div className="border-l dark:border-gray-300 border-gray-900 h-8 "/>
                     <button
                         className="px-2 py-1 text-white rounded-md"
-                        title={"Table"}
-                        onClick={() => handleButtonClick('\n![Name](url)')}
+                        title={"Image"}
+                        onClick={() => handleButtonClick('\n![Name](Image url)')}
                     >
                         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                              data-view-component="true" className="octicon octicon-paperclip Button-visual">
