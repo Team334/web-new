@@ -3,9 +3,8 @@
 import React from "react";
 
 export default function EditorLayout({
-                                             children,
-                                            draft
-                                         }: {
+                                         children,
+                                     }: {
     children: React.ReactNode;
 }) {
 

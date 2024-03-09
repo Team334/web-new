@@ -21,6 +21,8 @@ export default function EditorPage() {
     const [markdown, setMarkdown] = useState("");
     const [cursorPosition, setCursorPosition] = useState(0);
     const textareaRef = useRef(null);
+    const markdownRef = useRef(null);
+
 
     React.useEffect(() => {
         const savedText = localStorage.getItem('savedText');
@@ -29,10 +31,45 @@ export default function EditorPage() {
         }
     }, []);
 
+
+    React.useEffect(() => {
+        let timeout: any;
+
+        const handleScroll = () => {
+            if (textareaRef.current && markdownRef.current) {
+                // @ts-ignore
+                const percentage = textareaRef.current.scrollTop / (textareaRef.current.scrollHeight - textareaRef.current.clientHeight);
+                // @ts-ignore
+                markdownRef.current.scrollTop = percentage * (markdownRef.current.scrollHeight - markdownRef.current.clientHeight);
+            }
+        };
+
+        const debouncedHandleScroll = () => {
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(handleScroll, 50); // Adjust the delay as needed
+        };
+
+        if (textareaRef.current && markdownRef.current) {
+            // @ts-ignore
+            textareaRef.current.addEventListener('scroll', debouncedHandleScroll);
+        }
+
+        return () => {
+            if (textareaRef.current) {
+                // @ts-ignore
+                textareaRef.current.removeEventListener('scroll', debouncedHandleScroll);
+            }
+        };
+    }, []);
+
+
     const handleChange = (e: any) => {
         setMarkdown(e.target.value);
         localStorage.setItem('savedText', e.target.value);
     };
+
 
     const handleButtonClick = (markdownText: string) => {
         setMarkdown((prevMarkdown) => {
@@ -41,9 +78,11 @@ export default function EditorPage() {
             // @ts-ignore
             const selectionEnd = textareaRef.current.selectionEnd;
 
+
             const lines = prevMarkdown.split('\n');
             const currentLineIndex = getLineNumber(prevMarkdown, selectionStart);
             const currentLine = lines[currentLineIndex];
+
 
             // Check if the previous line is a numbered list
             if (currentLine.match(/^\d+\.\s/)) {
@@ -52,18 +91,22 @@ export default function EditorPage() {
                 markdownText = `\n${nextNumber}. `;
             }
 
+
             const updatedMarkdown =
                 prevMarkdown.slice(0, selectionStart) +
                 markdownText +
                 prevMarkdown.slice(selectionEnd);
 
+
             setCursorPosition(selectionStart + markdownText.length);
             return updatedMarkdown;
         });
 
+
         // @ts-ignore
         textareaRef.current.focus();
     };
+
 
     const getLineNumber = (text: string, cursorPosition: number) => {
         const lines = text.split('\n');
@@ -77,16 +120,20 @@ export default function EditorPage() {
         return lines.length - 1;
     };
 
+
     const handleTextareaClick = () => {
         // @ts-ignore
         textareaRef.current.focus();
     };
 
+
     const handleCursorPositionChange = (e: any) => {
         setCursorPosition(e.target.selectionStart);
     };
 
+
     const {user, isAuthenticated, isLoading, logout} = useAuth0();
+
 
     return (
         <div className='w-full flex h-screen p-2'>
@@ -238,6 +285,7 @@ export default function EditorPage() {
                         </svg>
                     </button>
 
+
                 </div>
 
 
@@ -252,15 +300,17 @@ export default function EditorPage() {
                     className="w-full resize-none border rounded-md focus:outline-none focus:ring px-4 py-2 min-h-[75vh] max-h-[150vh]"
                 />
             </section>
-            <div className={"w-full text-wrap break-words h-full p-4 overflow-x-hidden whitespace-normal max-h-[85vh]"}>
+            <div className={"w-full text-wrap break-words h-full p-4 overflow-x-hidden whitespace-normal max-h-[85vh]"}
+                 ref={markdownRef}>
                 <div className="prose max-w-none dark:prose-invert ">
-                <ReactMarkdown
+                    <ReactMarkdown
                         className={markdownStyles["markdown"]}
                         remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype, remarkMath, remarkGemoji]}
                         rehypePlugins={[rehypeFormat, rehypeMinifyWhitespace, rehypeStringify, rehypeKatex]}
                         components={{
                             code({node, inline, className, children, ...props}: any) {
                                 const match = /language-(\w+)/.exec(className || '');
+
 
                                 return !inline && match ? (
                                     <SyntaxHighlighter style={prism} PreTag="div" language={match[1]} {...props}
@@ -282,3 +332,4 @@ export default function EditorPage() {
         </div>
     )
 }
+
