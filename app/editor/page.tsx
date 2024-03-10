@@ -22,6 +22,8 @@ export default function EditorPage() {
     const [cursorPosition, setCursorPosition] = useState(0);
     const textareaRef = useRef(null);
     const markdownRef = useRef(null);
+    const [undoStack, setUndoStack] = useState<string[]>([]);
+    const [redoStack, setRedoStack] = useState<string[]>([]);
 
 
     React.useEffect(() => {
@@ -38,9 +40,11 @@ export default function EditorPage() {
         const handleScroll = () => {
             if (textareaRef.current && markdownRef.current) {
                 // @ts-ignore
-                const percentage = textareaRef.current.scrollTop / (textareaRef.current.scrollHeight - textareaRef.current.clientHeight);
+                const markdownScrollHeight = markdownRef.current.scrollHeight - markdownRef.current.clientHeight;
                 // @ts-ignore
-                markdownRef.current.scrollTop = percentage * (markdownRef.current.scrollHeight - markdownRef.current.clientHeight);
+                const percentage = markdownRef.current.scrollTop / markdownScrollHeight;
+                // @ts-ignore
+                textareaRef.current.scrollTop = percentage * (textareaRef.current.scrollHeight - textareaRef.current.clientHeight);
             }
         };
 
@@ -53,22 +57,50 @@ export default function EditorPage() {
 
         if (textareaRef.current && markdownRef.current) {
             // @ts-ignore
-            textareaRef.current.addEventListener('scroll', debouncedHandleScroll);
+            markdownRef.current.addEventListener('scroll', debouncedHandleScroll);
         }
 
         return () => {
-            if (textareaRef.current) {
+            if (markdownRef.current) {
                 // @ts-ignore
-                textareaRef.current.removeEventListener('scroll', debouncedHandleScroll);
+                markdownRef.current.removeEventListener('scroll', debouncedHandleScroll);
             }
         };
     }, []);
 
 
     const handleChange = (e: any) => {
-        setMarkdown(e.target.value);
-        localStorage.setItem('savedText', e.target.value);
+        const newMarkdown = e.target.value;
+        setRedoStack([]); // Clear redo stack when new changes are made
+        setMarkdown(newMarkdown);
+        setUndoStack((prevStack) => [...prevStack, markdown]);
+        localStorage.setItem('savedText', newMarkdown);
     };
+
+    const handleUndo = () => {
+        if (undoStack.length === 0) return;
+
+        const previousMarkdown = undoStack.pop() || "";
+        setRedoStack((prevStack) => [markdown, ...prevStack]);
+        setMarkdown(previousMarkdown);
+        localStorage.setItem('savedText', previousMarkdown);
+
+        // @ts-ignore
+        textareaRef.current.focus();
+    };
+
+    const handleRedo = () => {
+        if (redoStack.length === 0) return;
+
+        const nextMarkdown = redoStack.shift() || "";
+        setUndoStack((prevStack) => [...prevStack, markdown]);
+        setMarkdown(nextMarkdown);
+        localStorage.setItem('savedText', nextMarkdown);
+
+        // @ts-ignore
+        textareaRef.current.focus();
+    };
+
 
 
     const handleButtonClick = (markdownText: string) => {
@@ -136,12 +168,13 @@ export default function EditorPage() {
 
 
     return (
-        <div className='w-full flex h-screen p-2'>
+        <div className='w-full flex h-full p-2'>
             <section className='w-full h-full border-r border-gray-300 p-4'>
                 <div className="flex space-x-3 mb-2 border-white rounded-lg bg-gray-200 p-2">
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Undo"}
+                        onClick={handleUndo}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={16} height={16}
                              className="icon">
@@ -152,6 +185,7 @@ export default function EditorPage() {
                     <button
                         className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                         title={"Redo"}
+                        onClick={handleRedo}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={16} height={16}
                              className="icon">
