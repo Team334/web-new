@@ -41,8 +41,13 @@ export default function EditorPage() {
             const { scrollTop, scrollHeight, clientHeight } = event.target;
             const percentage = scrollTop / (scrollHeight - clientHeight);
             const targetElement = event.target === markdownRef.current ? textareaRef.current : markdownRef.current;
+
+            // Check if the scroll position is significantly different to avoid unnecessary updates
             // @ts-ignore
-            targetElement.scrollTop = percentage * (targetElement.scrollHeight - targetElement.clientHeight);
+            if (Math.abs(targetElement.scrollTop - percentage * (targetElement.scrollHeight - targetElement.clientHeight)) > 5) {
+                // @ts-ignore
+                targetElement.scrollTop = percentage * (targetElement.scrollHeight - targetElement.clientHeight);
+            }
         };
 
         const debouncedHandleScroll = (event: any) => {
@@ -68,6 +73,7 @@ export default function EditorPage() {
             }
         };
     }, []);
+
 
 
 
