@@ -37,36 +37,38 @@ export default function EditorPage() {
     React.useEffect(() => {
         let timeout: any;
 
-        const handleScroll = () => {
-            if (textareaRef.current && markdownRef.current) {
-                // @ts-ignore
-                const markdownScrollHeight = markdownRef.current.scrollHeight - markdownRef.current.clientHeight;
-                // @ts-ignore
-                const percentage = markdownRef.current.scrollTop / markdownScrollHeight;
-                // @ts-ignore
-                textareaRef.current.scrollTop = percentage * (textareaRef.current.scrollHeight - textareaRef.current.clientHeight);
-            }
+        const handleScroll = (event: any) => {
+            const { scrollTop, scrollHeight, clientHeight } = event.target;
+            const percentage = scrollTop / (scrollHeight - clientHeight);
+            const targetElement = event.target === markdownRef.current ? textareaRef.current : markdownRef.current;
+            // @ts-ignore
+            targetElement.scrollTop = percentage * (targetElement.scrollHeight - targetElement.clientHeight);
         };
 
-        const debouncedHandleScroll = () => {
+        const debouncedHandleScroll = (event: any) => {
             if (timeout) {
                 clearTimeout(timeout);
             }
-            timeout = setTimeout(handleScroll, 50); // Adjust the delay as needed
+            timeout = setTimeout(() => handleScroll(event), 50); // Adjust the delay as needed
         };
 
         if (textareaRef.current && markdownRef.current) {
+            // @ts-ignore
+            textareaRef.current.addEventListener('scroll', debouncedHandleScroll);
             // @ts-ignore
             markdownRef.current.addEventListener('scroll', debouncedHandleScroll);
         }
 
         return () => {
-            if (markdownRef.current) {
+            if (textareaRef.current && markdownRef.current) {
+                // @ts-ignore
+                textareaRef.current.removeEventListener('scroll', debouncedHandleScroll);
                 // @ts-ignore
                 markdownRef.current.removeEventListener('scroll', debouncedHandleScroll);
             }
         };
     }, []);
+
 
 
     const handleChange = (e: any) => {
