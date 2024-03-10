@@ -122,7 +122,7 @@ HeroParallax.displayName = 'HeroParallax';
 
 const Header = () => {
     return (
-        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full z-30 left-0 top-0">
             <h1 className="text-[2rem] md:text-7xl font-bold dark:text-white">
                 <TextGenerateEffect words={"We are"}/>
                 <TextGenerateEffect words={"Techknights"} className={"main"}/>
