@@ -1,12 +1,26 @@
-import {getAllPosts} from "@/components/markdown";
 import {Link} from "@nextui-org/link";
 import Image from 'next/image';
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/shadcn/ui/card";
 import React from "react";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 
-export default function BlogPage() {
-    const posts = getAllPosts();
+const checkEnvironment = () => {
+    return process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://team334.vercel.app";
+};
+
+
+async function fetchAllPosts() {
+    // const response = await fetch('/api/posts');
+    const response = await fetch(checkEnvironment() + '/api/posts');
+    return await response.json();
+}
+
+
+export default async function BlogPage() {
+    let posts
+    posts = await fetchAllPosts();
 
     return (
         <div className="p-5">
@@ -14,8 +28,8 @@ export default function BlogPage() {
                                 className={"underline font-bold text-center text-5xl md:text-6xl main mb-10"}/>
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
                 {posts
-                    .sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1)
-                    .map((post) => (
+                    .sort((a: any, b: any) => new Date(a.date) < new Date(b.date) ? 1 : -1)
+                    .map((post: any) => (
                         <Link
                             href={`/posts/${post.slug}`}
                             key={post.slug}

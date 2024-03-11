@@ -1,6 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import { getAllPosts } from "./markdown";
-
+import {getAllPosts} from "./markdown";
 
 export async function GET (request: NextRequest){
     const post = getAllPosts();

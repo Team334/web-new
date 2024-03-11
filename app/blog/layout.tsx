@@ -2,9 +2,9 @@
 
 import React from "react";
 
-export default function AboutLayout({
-                                        children,
-                                    }: {
+export default function BlogLayout({
+                                       children,
+                                   }: {
     children: React.ReactNode;
 }) {
 

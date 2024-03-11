@@ -1,267 +1,214 @@
-[
-  {
-    "name": "Shaina Doherty",
+{
+  "Shaina Doherty": {
     "department": "mentor",
     "image": "/team/shaina-doherty.png"
   },
-  {
-    "name": "Ali Harb",
+  "Ali Harb": {
     "department": "mentor",
     "image": "/team/ali-harb.png"
   },
-  {
-    "name": "Marlon Esguerra",
+  "Marlon Esguerra": {
     "department": "mentor",
     "image": "/team/marlon-esguerra.png"
   },
-  {
-    "name": "Samantha Tan",
+  "Samantha Tan": {
     "department": "lead",
     "image": "/team/samantha-tan.jpg"
   },
-  {
-    "name": "Fatima Moreno",
+  "Fatima Moreno": {
     "department": "mechanical",
     "image": "/team/fatima-moreno.JPG"
   },
-  {
-    "name": "Natalie Pang",
+  "Natalie Pang": {
     "department": "mechanical",
     "image": "/team/natalie-pang.JPG"
   },
-  {
-    "name": "Kelvin La",
+  "Kelvin La": {
     "department": "mechanical",
     "image": "/team/kelvin-la.jpg"
   },
-  {
-    "name": "Hazel Davies",
+  "Hazel Davies": {
     "department": "mechanical",
     "image": "/team/hazel-davies.JPG"
   },
-  {
-    "name": "Max Bernstein",
+  "Max Bernstein": {
     "department": "mechanical",
     "image": "/team/max-bernstein.jpg"
   },
-  {
-    "name": "Willem Long",
+  "Willem Long": {
     "department": "mechanical",
     "image": "/team/willem-long.jpg"
   },
-  {
-    "name": "Alexander Reyes",
+  "Alexander Reyes": {
     "department": "lead",
     "image": "/team/alexander-reyes.jpg"
   },
-  {
-    "name": "Gadin Aggarwal",
+  "Gadin Aggarwal": {
     "department": "lead",
     "image": "/team/gadin-aggarwal.jpeg"
   },
-  {
-    "name": "Kenneth Odeyemi",
+  "Kenneth Odeyemi": {
     "department": "lead",
     "image": "/team/kenneth-odeyemi.jpg"
   },
-  {
-    "name": "William Lam",
+  "William Lam": {
     "department": "mechanical",
     "image": "/team/william-lam.jpg"
   },
-  {
-    "name": "Ollintzin Mortera",
+  "Ollintzin Mortera": {
     "department": "lead",
     "image": "/team/ollintzin-mortera.jpg"
   },
-  {
-    "name": "Marzuq Mir",
+  "Marzuq Mir": {
     "department": "lead",
     "image": "/team/marzuq-mir.jpg"
   },
-  {
-    "name": "Peter Gutkovich",
+  "Peter Gutkovich": {
     "department": "programming",
     "image": "/team/peter-gutkovich.jpg"
   },
-  {
-    "name": "Elvis Osmanov",
+  "Elvis Osmanov": {
     "department": "programming",
     "image": "/team/elvis-osmanov.jpg"
   },
-  {
-    "name": "Justin Ng",
+  "Justin Ng": {
     "department": "mechanical",
     "image": "/team/justin-ng.jpg"
   },
-  {
-    "name": "Lucas Papamitsakis",
+  "Lucas Papamitsakis": {
     "department": "programming",
     "image": "/team/lucas-papamitsakis.jpg"
   },
-  {
-    "name": "Sherry Wang",
+  "Sherry Wang": {
     "department": "mechanical",
     "image": "/team/sherry-wang.jpg"
   },
-  {
-    "name": "Sabina Wolfe",
+  "Sabina Wolfe": {
     "department": "lead",
     "image": "/team/sabina-wolfe.jpg"
   },
-  {
-    "name": "Valentina Wolfe",
+  "Valentina Wolfe": {
     "department": "lead",
     "image": "/team/valentina-wolfe.jpg"
   },
-  {
-    "name": "Shirley Jiang",
+  "Shirley Jiang": {
     "department": "mechanical",
     "image": "/team/shirley-jiang.JPG"
   },
-  {
-    "name": "Leila Di Giacomo",
+  "Leila Di Giacomo": {
     "department": "lead",
     "image": "/team/leila-di-giacomo.jpg"
   },
-  {
-    "name": "Matthew Piszcz",
+  "Matthew Piszcz": {
     "department": "lead",
     "image": "/team/matthew-piszcz.jpg"
   },
-  {
-    "name": "Harry Chen",
+  "Harry Chen": {
     "department": "programming",
     "image": "/team/harry-chen.jpg"
   },
-  {
-    "name": "Mohammad-Ibraheem Mian",
+  "Mohammad-Ibraheem Mian": {
     "department": "mechanical",
     "image": "/team/mohammad-ibraheem-mian.jpg"
   },
-  {
-    "name": "Brian Mai",
+  "Brian Mai": {
     "department": "mechanical",
     "image": "/team/brian-mai.jpg"
   },
-  {
-    "name": "Danny Peng",
+  "Danny Peng": {
     "department": "mechanical",
     "image": "/team/danny-peng.jpg"
   },
-  {
-    "name": "Elymar Arenas",
+  "Elymar Arenas": {
     "department": "mechanical",
     "image": "/team/elymar-arenas.jpg"
   },
-  {
-    "name": "Peleh Liu",
+  "Peleh Liu": {
     "department": "programming",
     "image": "/team/peleh-liu.jpg"
   },
-  {
-    "name": "Johnathan Rojas",
+  "Johnathan Rojas": {
     "department": "mechanical",
     "image": "/team/johnathan-rojas.jpg"
   },
-  {
-    "name": "Dean Tuminello",
+  "Dean Tuminello": {
     "department": "mechanical",
     "image": "/team/dean-tuminello.jpg"
   },
-  {
-    "name": "Husain Baker",
+  "Husain Baker": {
     "department": "mechanical",
     "image": "/team/husain-baker.jpg"
   },
-  {
-    "name": "Rosalind Chen",
+  "Rosalind Chen": {
     "department": "mechanical",
     "image": "/team/rosalind-chen.jpg"
   },
-  {
-    "name": "Keira Lie",
+  "Keira Lie": {
     "department": "mechanical",
     "image": "/team/keira-lie.jpg"
   },
-  {
-    "name": "Sophia Liu",
+  "Sophia Liu": {
     "department": "mechanical",
     "image": "/team/sophia-liu.jpg"
   },
-  {
-    "name": "Filip Raczowski",
+  "Filip Raczowski": {
     "department": "mechanical",
     "image": "/team/filip-raczowski.jpg"
   },
-  {
-    "name": "Cherine Soewignjo",
+  "Cherine Soewignjo": {
     "department": "programming",
     "image": "/team/cherine-soewignjo.jpg"
   },
-  {
-    "name": "Isabelle Zhang",
+  "Isabelle Zhang": {
     "department": "mechanical",
     "image": "/team/isabelle-zhang.jpg"
   },
-  {
-    "name": "Ferdinand Afflerbach",
+  "Ferdinand Afflerbach": {
     "department": "mechanical",
     "image": "/team/ferdinand-afflerbach.jpg"
   },
-  {
-    "name": "Hadi Al Sati",
+  "Hadi Al Sati": {
     "department": "mechanical",
     "image": "/team/hadi-al-sati.jpg"
   },
-  {
-    "name": "Jia Yi He",
+  "Jia Yi He": {
     "department": "mechanical",
     "image": "/team/jia-yi-he.jpg"
   },
-  {
-    "name": "Derek Pohl",
+  "Derek Pohl": {
     "department": "mechanical",
     "image": "/team/derek-pohl.jpg"
   },
-  {
-    "name": "Seth Simo",
+  "Seth Simo": {
     "department": "mechanical",
     "image": "/team/seth-simo.jpg"
   },
-  {
-    "name": "Isabelle Yeung",
+  "Isabelle Yeung": {
     "department": "mechanical",
     "image": "/team/isabelle-yeung.jpg"
   },
-  {
-    "name": "Fiad Muntakim",
+  "Fiad Muntakim": {
     "department": "media",
     "image": "/team/fiad-muntakim.jpg"
   },
-  {
-    "name": "Maxwell Silver",
+  "Maxwell Silver": {
     "department": "media",
     "image": "/team/maxwell-silver.jpg"
   },
-  {
-    "name": "MD Sayad",
+  "MD Sayad": {
     "department": "media",
     "image": "/team/md-sayad.jpg"
   },
-  {
-    "name": "Shu Ying Zhang",
+  "Shu Ying Zhang": {
     "department": "media",
     "image": "/team/shu-ying-zhang.jpg"
   },
-  {
-    "name": "Lucas Ou",
+  "Lucas Ou": {
     "department": "programming",
     "image": "/team/lucas-ou.jpg"
   },
-  {
-    "name": "Ze Rui Zheng",
+  "Ze Rui Zheng": {
     "department": "programming",
     "image": "/team/ze-rui-zheng.jpg"
   }
-]
+}

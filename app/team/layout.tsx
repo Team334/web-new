@@ -2,9 +2,9 @@
 
 import React from "react";
 
-export default async function AboutLayout({
-                                              children,
-                                          }: {
+export default async function TeamLayout({
+                                             children,
+                                         }: {
     children: React.ReactNode;
 }) {
     return (
