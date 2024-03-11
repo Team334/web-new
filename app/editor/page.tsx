@@ -1,6 +1,6 @@
 "use client"
 import ReactMarkdown from "react-markdown";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import markdownStyles from "@/app/posts/[...slug]/markdown-styles.module.css";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -16,29 +16,29 @@ import remarkMath from 'remark-math'
 import remarkGemoji from 'remark-gemoji'
 import rehypeKatex from "rehype-katex";
 import {Progress} from "@/components/shadcn/ui/progress";
-import {Button} from "@/components/shadcn/ui/button";
-import {Image} from "@nextui-org/react";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription, DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger
-} from "@/components/shadcn/ui/dialog";
-import {Label} from "@/components/shadcn/ui/label";
-import {Input} from "@/components/shadcn/ui/input";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/shadcn/ui/select"
-import Roster from "../team/team.json"
-import {Textarea} from "@/components/shadcn/ui/textarea";
+// import {Button} from "@/components/shadcn/ui/button";
+// import {Image} from "@nextui-org/react";
+// import {
+//     Dialog,
+//     DialogContent,
+//     DialogDescription, DialogFooter,
+//     DialogHeader,
+//     DialogTitle,
+//     DialogTrigger
+// } from "@/components/shadcn/ui/dialog";
+// import {Label} from "@/components/shadcn/ui/label";
+// import {Input} from "@/components/shadcn/ui/input";
+// import {
+//     Select,
+//     SelectContent,
+//     SelectGroup,
+//     SelectItem,
+//     SelectLabel,
+//     SelectTrigger,
+//     SelectValue,
+// } from "@/components/shadcn/ui/select"
+// import Roster from "../team/team.json"
+// import {Textarea} from "@/components/shadcn/ui/textarea";
 
 
 export default function EditorPage() {
@@ -216,67 +216,67 @@ export default function EditorPage() {
 
     return (
         <div className='w-full h-full p-2'>
-            <div className={"p-2 mx-3 flex items-center justify-between"}>
-                <div className="flex items-center justify-start gap-2 md:text-3xl text-xl">
-                    <Image
-                        src={user?.picture}
-                        alt={user?.name}
-                        width={40}
-                        className="rounded-full mr-2"
-                    />
-                    <span className="mr-2">Hi, <b>{user?.name}</b></span>
-                </div>
-                <div className={"flex items-center justify-end"}>
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button variant="outline">Create Post</Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px]">
-                            <DialogHeader>
-                                <DialogTitle>Create Blog Post</DialogTitle>
-                                <DialogDescription>
-                                    Create a blog post here.
-                                </DialogDescription>
-                            </DialogHeader>
-                            <div className="grid gap-4 py-4">
-                                <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="name" className="text-right">
-                                        Name
-                                    </Label>
-                                    <Select>
-                                        <SelectTrigger className="w-[280px]">
-                                            <SelectValue placeholder="Member Name" />
-                                        </SelectTrigger>
-                                        <SelectContent className={"scroll-smooth overflow-y-auto -webkit-overflow-scrolling-touch"}>
-                                            <SelectGroup>
-                                                {Object.entries(Roster).map(([name, data]) => (
-                                                    <SelectItem value={name} key={name}>{name}</SelectItem>
-                                                ))}
-                                            </SelectGroup>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                                <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="picture" className="text-right">
-                                        Cover Image
-                                    </Label>
+            {/*<div className={"p-2 mx-3 flex items-center justify-between"}>*/}
+            {/*    <div className="flex items-center justify-start gap-2 md:text-3xl text-xl">*/}
+            {/*        <Image*/}
+            {/*            src={user?.picture}*/}
+            {/*            alt={user?.name}*/}
+            {/*            width={40}*/}
+            {/*            className="rounded-full mr-2"*/}
+            {/*        />*/}
+            {/*        <span className="mr-2">Hi, <b>{user?.name}</b></span>*/}
+            {/*    </div>*/}
+            {/*    <div className={"flex items-center justify-end"}>*/}
+            {/*        <Dialog>*/}
+            {/*            <DialogTrigger asChild>*/}
+            {/*                <Button variant="outline">Create Post</Button>*/}
+            {/*            </DialogTrigger>*/}
+            {/*            <DialogContent className="sm:max-w-[425px]">*/}
+            {/*                <DialogHeader>*/}
+            {/*                    <DialogTitle>Create Blog Post</DialogTitle>*/}
+            {/*                    <DialogDescription>*/}
+            {/*                        Create a blog post here.*/}
+            {/*                    </DialogDescription>*/}
+            {/*                </DialogHeader>*/}
+            {/*                <div className="grid gap-4 py-4">*/}
+            {/*                    <div className="grid grid-cols-4 items-center gap-4">*/}
+            {/*                        <Label htmlFor="name" className="text-right">*/}
+            {/*                            Name*/}
+            {/*                        </Label>*/}
+            {/*                        <Select>*/}
+            {/*                            <SelectTrigger className="w-[280px]">*/}
+            {/*                                <SelectValue placeholder="Member Name" />*/}
+            {/*                            </SelectTrigger>*/}
+            {/*                            <SelectContent className={"scroll-smooth overflow-y-auto -webkit-overflow-scrolling-touch"}>*/}
+            {/*                                <SelectGroup>*/}
+            {/*                                    {Object.entries(Roster).map(([name, data]) => (*/}
+            {/*                                        <SelectItem value={name} key={name}>{name}</SelectItem>*/}
+            {/*                                    ))}*/}
+            {/*                                </SelectGroup>*/}
+            {/*                            </SelectContent>*/}
+            {/*                        </Select>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="grid grid-cols-4 items-center gap-4">*/}
+            {/*                        <Label htmlFor="picture" className="text-right">*/}
+            {/*                            Cover Image*/}
+            {/*                        </Label>*/}
 
-                                    <Input id="picture" type="file" />
-                                </div>
-                                <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="name" className="text-right">
-                                        Description
-                                    </Label>
-                                    <Textarea className={"w-[280px]"}/>
-                                </div>
-                            </div>
-                            <DialogFooter>
-                                <Button type="submit">Create Post</Button>
-                            </DialogFooter>
-                        </DialogContent>
-                    </Dialog>
-                </div>
-            </div>
+            {/*                        <Input id="picture" type="file" />*/}
+            {/*                    </div>*/}
+            {/*                    <div className="grid grid-cols-4 items-center gap-4">*/}
+            {/*                        <Label htmlFor="name" className="text-right">*/}
+            {/*                            Description*/}
+            {/*                        </Label>*/}
+            {/*                        <Textarea className={"w-[280px]"}/>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*                <DialogFooter>*/}
+            {/*                    <Button type="submit">Create Post</Button>*/}
+            {/*                </DialogFooter>*/}
+            {/*            </DialogContent>*/}
+            {/*        </Dialog>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <div className={"flex"}>
                 <section className='w-full h-full border-r border-gray-300 p-4'>
                     <div className="flex space-x-3 mb-2 border-white rounded-lg bg-gray-200 p-2">
