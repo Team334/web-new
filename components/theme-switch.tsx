@@ -1,6 +1,6 @@
 "use client";
 
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SwitchProps, useSwitch} from "@nextui-org/switch";
 import {useTheme} from "next-themes";
@@ -36,6 +36,20 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         "aria-label": `Switch to ${theme === "light" || isSSR ? "dark" : "light"} mode`,
         onChange,
     });
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "q" && (e.metaKey || e.ctrlKey)) {
+                onChange();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [onChange]);
 
     return (
         <Component

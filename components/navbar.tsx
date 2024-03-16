@@ -37,10 +37,6 @@ const Profile = React.memo(() => {
     const name = user?.name;
     const picture = user?.picture;
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-
     const handleLogout = () => {
         logout({logoutParams: {returnTo: window.location.origin}});
     };

@@ -10,6 +10,7 @@ import Cursor from "@/components/cursor";
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import React from "react";
+import {CommandMenu} from "@/components/commandDialog";
 
 
 export const viewport: Viewport = {
@@ -78,6 +79,7 @@ export default function RootLayout({
                     <p className="text-primary">Team 334</p>
                 </Link>
             </footer>
+            <CommandMenu />
         </Providers>
         </body>
         </html>
