@@ -6,30 +6,41 @@ import {
     CommandGroup,
     CommandInput,
     CommandItem,
-    CommandList, CommandSeparator, CommandShortcut
+    CommandList, CommandSeparator
 } from "@/components/shadcn/ui/command";
 import {HandIcon, HomeIcon, AvatarIcon, ChatBubbleIcon, PersonIcon, SketchLogoIcon, FileTextIcon} from "@radix-ui/react-icons";
-import {Link} from "@nextui-org/link";
+import {Link} from "@nextui-org/react";
 import {siteConfig} from "@/config/site";
 import {GithubIcon, InstagramIcon, YoutubeIcon} from "@/components/icons";
-import {ThemeSwitch} from "@/components/theme-switch";
 import {useAuth0} from "@auth0/auth0-react";
-import {Image} from "@nextui-org/react";
 
 export function CommandMenu() {
     const [open, setOpen] = React.useState(false)
-    const {user, isAuthenticated, logout, loginWithRedirect} = useAuth0();
+    const {isAuthenticated, logout, loginWithRedirect} = useAuth0();
 
     React.useEffect(() => {
-        const down = (e: KeyboardEvent) => {
-            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault()
-                setOpen((open) => !open)
+        function handleKeyDown(e: KeyboardEvent) {
+            if (
+                (navigator?.platform?.toLowerCase().includes("mac")
+                    ? e.metaKey
+                    : e.ctrlKey) &&
+                e.key === "k"
+            ) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                setOpen((currentValue) => {
+                    return !currentValue;
+                });
             }
         }
-        document.addEventListener("keydown", down)
-        return () => document.removeEventListener("keydown", down)
-    }, [])
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
 
     const handleCloseDialog = () => {
         setOpen(false);
