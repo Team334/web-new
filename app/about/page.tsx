@@ -17,6 +17,7 @@ import {
 import {Card} from "@nextui-org/card";
 import {CardContent} from "@/components/shadcn/ui/card";
 import {Image} from "@nextui-org/react"
+import {BentoGrid, BentoGridItem} from "@/components/aceternity/ui/bento-grid";
 
 
 export default function AboutPage() {
@@ -119,6 +120,123 @@ export default function AboutPage() {
         "/team/",
         "/team/",
     ];
+
+    const moreItem = [
+        {
+            title: "Brooklyn Technical High School",
+            description: "Brooklyn Technical High School (aka. “BTHS”, “Tech”) is one of New York City’s specialized\n" +
+                "high schools for science, technology, engineering, and mathematics. Tech is the largest high\n" +
+                "school in the United States, with an enrollment of 6,500 students across all four grades.",
+            header: <div
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                <Image
+                    src={"https://i.ytimg.com/vi_webp/vGIsE0y7tVQ/maxresdefault.webp"}
+                    className={"object-cover"}/></div>,
+            className:
+                "md:col-span-2",
+        },
+        {
+            title: "What is FIRST?",
+            description: "FIRST (For Inspiration and Recognition of Science and Technology), founded in 1989 by Dean\n" +
+                "Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers\n" +
+                "like us to connect across the globe via engineering and innovation",
+            header: <div
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                <Image
+                    src={"https://www.firstinspires.org/sites/all/themes/first/assets/images/2020/program-block-frc.jpg"}
+                    className={"object-cover"}/></div>,
+            className:
+                "md:col-span-1",
+        },
+        {
+            title: "More About FIRST",
+            description:
+                "Each year FIRST designs an international robotics competition in which 26 countries and over\n" +
+                "3,200 teams participate in each year. Over 500,000 students participate in the FIRST\n" +
+                "Robotics Competition itself, and high schools across the globe build a robot and compete at\n" +
+                "various regional competitions. After all regionals take place, winners and award recipients\n" +
+                "are invited to compete at the championship, which takes place in Houston, Texas. Over 450\n" +
+                "teams proceeded to the championships in the 2022 season",
+            header: <div
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                <Image
+                    src={"https://www.firstinspires.org/sites/default/files/first-in-show/game-and-season/frc-header.png"}
+                    className={"object-cover"}/></div>,
+            className: "md:col-span-2",
+        },
+        {
+            title: "FIRST Core Values",
+            description:
+                    <p>
+                    Discovery: We explore new skills and ideas.
+                    Innovation: We use creativity and persistence to solve problems.
+                    Impact: We apply what we learn to improve our world.
+                    Inclusion: We respect each other and embrace our differences.
+                    Teamwork: We are stronger when we work together.
+                    Fun: We enjoy and celebrate what we do!
+                    </p>,
+            header: <div
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                <Image
+                    src={"https://www.firstinspires.org/sites/default/files/uploads/hero_headers/Header-image-fallback-gradient-high-res.jpg"}
+                    className={"object-cover"}/></div>,
+            className: "md:col-span-1",
+        },
+    ];
+
+    // const moreItem = [
+    //     {
+    //         title: "Brooklyn Technical High School",
+    //         description: "Brooklyn Technical High School (aka. “BTHS”, “Tech”) is one of New York City’s specialized\n" +
+    //             "high schools for science, technology, engineering, and mathematics. Tech is the largest high\n" +
+    //             "school in the United States, with an enrollment of 6,500 students across all four grades.",
+    //         header: <Image src={""}/>,
+    //         className: "md:col-span-2",
+    //     },
+    //     {
+    //         title: "What is FIRST?",
+    //         description: "FIRST (For Inspiration and Recognition of Science and Technology), founded in 1989 by Dean\n" +
+    //             "Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers\n" +
+    //             "like us to connect across the globe via engineering and innovation",
+    //         header: "https://www.firstinspires.org/sites/all/themes/first/assets/images/2020/program-block-frc.jpg",
+    //     },
+    //     {
+    //         title: "More About FIRST",
+    //         description:
+    //             "Each year FIRST designs an international robotics competition in which 26 countries and over\n" +
+    //             "3,200 teams participate in each year. Over 500,000 students participate in the FIRST\n" +
+    //             "Robotics Competition itself, and high schools across the globe build a robot and compete at\n" +
+    //             "various regional competitions. After all regionals take place, winners and award recipients\n" +
+    //             "are invited to compete at the championship, which takes place in Houston, Texas. Over 450\n" +
+    //             "teams proceeded to the championships in the 2022 season",
+    //         header: "https://www.firstinspires.org/sites/default/files/first-in-show/game-and-season/frc-header.png",
+    //     },
+    //     {
+    //         title: "FIRST Core Values",
+    //         description:
+    //             <div className={"space-y-1"}>
+    //                 <p>
+    //                     Discovery: We explore new skills and ideas.
+    //                 </p>
+    //                 <p>
+    //                     Innovation: We use creativity and persistence to solve problems.
+    //                 </p>
+    //                 <p>
+    //                     Impact: We apply what we learn to improve our world.
+    //                 </p>
+    //                 <p>
+    //                     Inclusion: We respect each other and embrace our differences.
+    //                 </p>
+    //                 <p>
+    //                     Teamwork: We are stronger when we work together.
+    //                 </p>
+    //                 <p>
+    //                     Fun: We enjoy and celebrate what we do!
+    //                 </p>
+    //             </div>,
+    //         header: "https://www.firstinspires.org/sites/default/files/uploads/hero_headers/Header-image-fallback-gradient-high-res.jpg",
+    //     },
+    // ];
 
 
     const [api, setApi] = React.useState<CarouselApi>()
@@ -244,39 +362,50 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-            <div className="justify-center text-center mx-5">
-                <div className="flex-wrap">
-                    <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">
-                        Brooklyn Technical High School
-                        <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>
-                    </h1>
-                    <p className={"secondary"}>
-                        Brooklyn Technical High School (aka. “BTHS”, “Tech”) is one of New York City’s specialized
-                        high schools for science, technology, engineering, and mathematics. Tech is the largest high
-                        school in the United States, with an enrollment of 6,500 students across all four grades.
-                    </p>
-                </div>
-                <div className="row-when-mobile">
-                    <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">
-                        What is FIRST?
-                        <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>
-                    </h1>
-                    <p className={"secondary"}>
-                        FIRST (For Inspiration and Recognition of Science and Technology), founded in 1989 by Dean
-                        Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers
-                        like us to connect across the globe via engineering and innovation.
-                    </p>
-                    <br/>
-                    <p className={"secondary"}>
-                        Each year FIRST designs an international robotics competition in which 26 countries and over
-                        3,200 teams participate in each year. Over 500,000 students participate in the FIRST
-                        Robotics Competition itself, and high schools across the globe build a robot and compete at
-                        various regional competitions. After all regionals take place, winners and award recipients
-                        are invited to compete at the championship, which takes place in Houston, Texas. Over 450
-                        teams proceeded to the championships in the 2022 season.
-                    </p>
-                </div>
-            </div>
+            {/*<div className="justify-center text-center mx-5">*/}
+            {/*    <div className="flex-wrap">*/}
+            {/*        <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">*/}
+            {/*            Brooklyn Technical High School*/}
+            {/*            <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>*/}
+            {/*        </h1>*/}
+            {/*        <p className={"secondary"}>*/}
+            {/*            Brooklyn Technical High School (aka. “BTHS”, “Tech”) is one of New York City’s specialized*/}
+            {/*            high schools for science, technology, engineering, and mathematics. Tech is the largest high*/}
+            {/*            school in the United States, with an enrollment of 6,500 students across all four grades.*/}
+            {/*        </p>*/}
+            {/*    </div>*/}
+            {/*    <div className="row-when-mobile">*/}
+            {/*        <h1 className="mt-10 text-2xl sm:text-[1.5rem] md:text-[1.5rem] lg:text-[2.1rem] font-semibold main ">*/}
+            {/*            What is FIRST?*/}
+            {/*            <hr className="align-middle border-gray-500 my-3 w-[50%] overflow-x-hidden m-auto"/>*/}
+            {/*        </h1>*/}
+            {/*        <p className={"secondary"}>*/}
+            {/*            FIRST (For Inspiration and Recognition of Science and Technology), founded in 1989 by Dean*/}
+            {/*            Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers*/}
+            {/*            like us to connect across the globe via engineering and innovation.*/}
+            {/*        </p>*/}
+            {/*        <br/>*/}
+            {/*        <p className={"secondary"}>*/}
+            {/*            Each year FIRST designs an international robotics competition in which 26 countries and over*/}
+            {/*            3,200 teams participate in each year. Over 500,000 students participate in the FIRST*/}
+            {/*            Robotics Competition itself, and high schools across the globe build a robot and compete at*/}
+            {/*            various regional competitions. After all regionals take place, winners and award recipients*/}
+            {/*            are invited to compete at the championship, which takes place in Houston, Texas. Over 450*/}
+            {/*            teams proceeded to the championships in the 2022 season.*/}
+            {/*        </p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <BentoGrid className="max-w-8xl mx-auto md:auto-rows-[30rem] p-10">
+                {moreItem.map((item, i) => (
+                    <BentoGridItem
+                        key={i}
+                        title={item.title}
+                        description={item.description}
+                        header={item.header}
+                        className={item.className}
+                    />
+                ))}
+            </BentoGrid>
         </div>
     );
 }
