@@ -33,7 +33,7 @@
     "@react-aria/visually-hidden": "^3.8.10",
     "@splinetool/react-spline": "^2.2.6",
     "@types/node": "20.11.25",
-    "@types/react": "18.2.66",
+    "@types/react": "18.2.67",
     "@types/react-dom": "18.2.21",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
