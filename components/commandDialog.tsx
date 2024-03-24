@@ -6,9 +6,18 @@ import {
     CommandGroup,
     CommandInput,
     CommandItem,
-    CommandList, CommandSeparator
+    CommandList,
+    CommandSeparator
 } from "@/components/shadcn/ui/command";
-import {HandIcon, HomeIcon, AvatarIcon, ChatBubbleIcon, PersonIcon, SketchLogoIcon, FileTextIcon} from "@radix-ui/react-icons";
+import {
+    AvatarIcon,
+    ChatBubbleIcon,
+    FileTextIcon,
+    HandIcon,
+    HomeIcon,
+    PersonIcon,
+    SketchLogoIcon
+} from "@radix-ui/react-icons";
 import {Link} from "@nextui-org/react";
 import {siteConfig} from "@/config/site";
 import {GithubIcon, InstagramIcon, YoutubeIcon} from "@/components/icons";
@@ -53,16 +62,16 @@ export function CommandMenu() {
 
     return (
         <CommandDialog open={open} onOpenChange={setOpen}>
-            <CommandInput placeholder="Type a command or search..." />
+            <CommandInput placeholder="Type a command or search..."/>
             <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty>
                 <CommandGroup heading={"Suggestions"}>
                     <CommandItem>
                         <Link
-                        href={"/"}
-                        onClick={handleCloseDialog}
+                            href={"/"}
+                            onClick={handleCloseDialog}
                         >
-                            <HomeIcon className="mr-2 h-4 w-4 mt-[0.1rem]" />
+                            <HomeIcon className="mr-2 h-4 w-4 mt-[0.1rem]"/>
                             <span>Home</span>
                         </Link>
                     </CommandItem>
@@ -71,7 +80,7 @@ export function CommandMenu() {
                             href={"/about"}
                             onClick={handleCloseDialog}
                         >
-                            <HandIcon className="mr-2 h-4 w-4" />
+                            <HandIcon className="mr-2 h-4 w-4"/>
                             <span>About Us</span>
                         </Link>
                     </CommandItem>
@@ -80,7 +89,7 @@ export function CommandMenu() {
                             href={"/team"}
                             onClick={handleCloseDialog}
                         >
-                            <PersonIcon className="mr-2 h-4 w-4" />
+                            <PersonIcon className="mr-2 h-4 w-4"/>
                             <span>Team</span>
                         </Link>
                     </CommandItem>
@@ -89,7 +98,7 @@ export function CommandMenu() {
                             href={"/blog"}
                             onClick={handleCloseDialog}
                         >
-                            <ChatBubbleIcon className="mr-2 h-4 w-4 mt-[0.1rem]" />
+                            <ChatBubbleIcon className="mr-2 h-4 w-4 mt-[0.1rem]"/>
                             <span>Blog</span>
                         </Link>
                     </CommandItem>
@@ -98,7 +107,7 @@ export function CommandMenu() {
                             href={"/sponsors"}
                             onClick={handleCloseDialog}
                         >
-                            <SketchLogoIcon className="mr-2 h-4 w-4 mt-[0.1rem]" />
+                            <SketchLogoIcon className="mr-2 h-4 w-4 mt-[0.1rem]"/>
                             <span>Sponsors</span>
                         </Link>
                     </CommandItem>
@@ -107,15 +116,16 @@ export function CommandMenu() {
                             href={"/editor"}
                             onClick={handleCloseDialog}
                         >
-                            <FileTextIcon className="mr-2 h-4 w-4" />
+                            <FileTextIcon className="mr-2 h-4 w-4"/>
                             <span>Markdown Editor</span>
                         </Link>
                     </CommandItem>
                 </CommandGroup>
-                <CommandSeparator />
+                <CommandSeparator/>
                 <CommandGroup heading={"Social"}>
                     <CommandItem>
-                        <Link isExternal href={siteConfig.links.instagram} aria-label="Instagram" onClick={handleCloseDialog}>
+                        <Link isExternal href={siteConfig.links.instagram} aria-label="Instagram"
+                              onClick={handleCloseDialog}>
                             <InstagramIcon className="text-default-500 mt-[0.2rem] mr-2 h-4 w-4"/>
                             <span>Instagram</span>
                         </Link>
@@ -134,18 +144,18 @@ export function CommandMenu() {
                         </Link>
                     </CommandItem>
                 </CommandGroup>
-                <CommandSeparator />
+                <CommandSeparator/>
                 <CommandGroup heading={"Settings"}>
                     <CommandItem>
                         <span>
                             {isAuthenticated ? (
                                 <Link onClick={handleLogout}>
-                                    <AvatarIcon className={"mr-2 h-4 w-4"} />
+                                    <AvatarIcon className={"mr-2 h-4 w-4"}/>
                                     <span>Logout</span>
                                 </Link>
-                                ) : (
+                            ) : (
                                 <Link onClick={() => loginWithRedirect()}>
-                                    <PersonIcon className={"mr-2 h-4 w-4"} />
+                                    <PersonIcon className={"mr-2 h-4 w-4"}/>
                                     <span>Login</span>
                                 </Link>
                             )}

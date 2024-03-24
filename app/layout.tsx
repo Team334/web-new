@@ -57,7 +57,7 @@ export default function RootLayout({
                 fontSans.variable
             )}
         >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark", children: children }}>
+        <Providers themeProps={{attribute: "class", defaultTheme: "dark", children: children}}>
             <Cursor/>
             <Navbar/>
             <main className="px-0">
@@ -79,7 +79,7 @@ export default function RootLayout({
                     <p className="text-primary">Team 334</p>
                 </Link>
             </footer>
-            <CommandMenu />
+            <CommandMenu/>
         </Providers>
         </body>
         </html>

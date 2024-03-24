@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
+import {PropsWithChildren} from "react";
 import {NextUIProvider} from "@nextui-org/system";
 import {useRouter} from 'next/navigation';
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 import {Auth0Provider} from '@auth0/auth0-react';
 import {ThemeProviderProps} from "next-themes/dist/types";
-import { PropsWithChildren } from 'react';
 
 export interface ProvidersProps {
     children: React.ReactNode;

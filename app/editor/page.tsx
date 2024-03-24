@@ -62,7 +62,7 @@ export default function EditorPage() {
         let timeout: any;
 
         const handleScroll = (event: any) => {
-            const { scrollTop, scrollHeight, clientHeight } = event.target;
+            const {scrollTop, scrollHeight, clientHeight} = event.target;
             const percentage = scrollTop / (scrollHeight - clientHeight);
             const targetElement = event.target === markdownRef.current ? textareaRef.current : markdownRef.current;
 
@@ -99,8 +99,6 @@ export default function EditorPage() {
     }, []);
 
 
-
-
     const handleChange = (e: any) => {
         const newMarkdown = e.target.value;
         setRedoStack([]); // Clear redo stack when new changes are made
@@ -132,7 +130,6 @@ export default function EditorPage() {
         // @ts-ignore
         textareaRef.current.focus();
     };
-
 
 
     const handleButtonClick = (markdownText: string) => {
@@ -207,7 +204,8 @@ export default function EditorPage() {
     if (isLoading) {
         return (
             <div className={"flex justify-center items-center w-full h-[100vh]"}>
-                <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-[2rem] md:text-5xl font-bold dark:text-white main">Loading Editor...</h1>
+                <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-[2rem] md:text-5xl font-bold dark:text-white main">Loading
+                    Editor...</h1>
                 <Progress value={progress} className="w-3/5"/>
             </div>
         )

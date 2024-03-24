@@ -1,4 +1,4 @@
-import { cn } from "@/components/cn";
+import {cn} from "@/components/cn";
 import React from "react";
 
 export const BentoGrid = React.memo(({
