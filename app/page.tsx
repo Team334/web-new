@@ -220,7 +220,7 @@ export default function Home() {
             <div className="text-center h-[60vh] mb-5">
                 <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main">Sponsors</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
-                    Thank you to all our sponsors and families who supported this. We could succeed without your help!
+                    Thank you to all our sponsors and families who supported this. We couldn't make our robot without your help!
                 </p>
                 <InfiniteMovingCards items={sponsors}/>
             </div>
@@ -247,8 +247,6 @@ export default function Home() {
                     </div>
                 </motion.h1>
             </LampContainer>
-
-
             <Faq/>
         </section>
     )
