@@ -7,6 +7,8 @@ import Faq from "@/components/faq";
 import YouTubePlayer from "@/components/youtube";
 import {Tabs} from "@/components/aceternity/ui/tabs";
 import {Progress} from "@/components/shadcn/ui/progress";
+import {LampContainer} from "@/components/aceternity/ui/lamp";
+import { motion } from "framer-motion";
 
 export default function Home() {
     const {isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0();
@@ -149,7 +151,7 @@ export default function Home() {
             value: "week1",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2]">
+                    className="w-full  relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2]">
                     <h1 className={"light:text-white text-black"}>Week 1 Recap</h1>
                     <YouTubePlayer videoId={"vGIsE0y7tVQ"}/>
                 </div>
@@ -160,7 +162,7 @@ export default function Home() {
             value: "week2",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
                     <h1 className={"light:text-white text-black"}>Week 2 Recap</h1>
                     <YouTubePlayer videoId={"k9-qFX8pPWc"}/>
                 </div>
@@ -171,7 +173,7 @@ export default function Home() {
             value: "week3",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
                     <h1 className={"light:text-white text-black"}>Week 3 Recap</h1>
                     <YouTubePlayer videoId={"kMeeyb-l-0U"}/>
                 </div>
@@ -182,7 +184,7 @@ export default function Home() {
             value: "week4",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
                     <h1 className={"light:text-white text-black"}>Week 4 Recap</h1>
                     <YouTubePlayer videoId={"3xwtSjaZoUM"}/>
                 </div>
@@ -193,7 +195,7 @@ export default function Home() {
             value: "week5",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
                     <h1 className={"light:text-white text-black"}>Week 5 Recap</h1>
                     <YouTubePlayer videoId={"bjL-mn2fMTc"}/>
                 </div>
@@ -204,7 +206,7 @@ export default function Home() {
             value: "week6",
             content: (
                 <div
-                    className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+                    className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
                     <h1 className={"light:text-white text-black"}>Week 6 Recap</h1>
                     <YouTubePlayer videoId={"KSeID8Ug1Os"}/>
                 </div>
@@ -215,21 +217,38 @@ export default function Home() {
     return (
         <section>
             <HeroParallax products={heroItems}/>
-            <div className="text-center h-[50vh] mb-5">
+            <div className="text-center h-[60vh] mb-5">
                 <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main">Sponsors</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
                     Thank you to all our sponsors and families who supported this. We could succeed without your help!
                 </p>
                 <InfiniteMovingCards items={sponsors}/>
             </div>
-            <div
-                className="h-[90vh] md:h-[50rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full overflow-y-visible items-center justify-start mt-[12rem] md:mt-[8rem]">
-                <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season
-                    Recaps!</h1>
-                <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">These are all our 2024
-                    Season recaps.</p>
-                <Tabs tabs={tabs}/>
-            </div>
+
+            <LampContainer>
+                <motion.h1
+                    initial={{opacity: 0.5, y: 100}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{
+                        delay: 0.3,
+                        duration: 0.8,
+                        ease: "easeInOut",
+                    }}
+                    className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center tracking-tight text-transparent w-full"
+                >
+                    <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season
+                        Recaps!</h1>
+                    <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">These are all our
+                        2024
+                        Season recaps.</p>
+                    <div
+                        className="relative b flex flex-col max-w-5xl w-full h-[70vh]">
+                        <Tabs tabs={tabs}/>
+                    </div>
+                </motion.h1>
+            </LampContainer>
+
+
             <Faq/>
         </section>
     )

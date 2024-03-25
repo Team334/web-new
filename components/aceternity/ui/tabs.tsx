@@ -56,7 +56,7 @@ const Tabs = React.memo(({
         <>
             <div
                 className={cn(
-                    "box-border border-shadow-lg flex flex-row items-center justify-center [perspective:1000px] relative sm:overflow-visible no-visible-scrollbar max-w-full w-full rounded-[3.5rem] shadow mx-auto dark:bg-[#191915] bg-[#e5e5e5]",
+                    "box-border border-shadow-lg flex flex-row items-center justify-center [perspective:1000px] relative sm:overflow-visible no-visible-scrollbar max-w-full w-full rounded-[3.5rem] shadow mx-auto dark:bg-[#191915] bg-[#e5e5e5] ",
                     containerClassName
                 )}
             >
