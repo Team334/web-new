@@ -1,6 +1,6 @@
 "use client"
-import { AuroraBackground } from "@/components/aceternity/ui/aurora";
-import { motion } from "framer-motion";
+import {AuroraBackground} from "@/components/aceternity/ui/aurora";
+import {motion} from "framer-motion";
 import {BentoGrid} from "@/components/aceternity/ui/bento-grid";
 import {BentoGridItem} from "@/components/aceternity/ui/direction-aware-hover";
 import React from "react";
@@ -8,7 +8,6 @@ import React from "react";
 
 export default function SponsorPage() {
     const bentoItems = [
-
         {
             image: "/team2022.png",
             text: <div>
@@ -59,7 +58,7 @@ export default function SponsorPage() {
                     </div>
                 </motion.div>
             </AuroraBackground>
-            <div className={"h-full py-20"} >
+            <div className={"h-full py-20"}>
                 <BentoGrid className="max-w-8xl mx-auto md:auto-rows-[30rem] p-10">
                     {bentoItems.map((item, i) => (
                         <BentoGridItem

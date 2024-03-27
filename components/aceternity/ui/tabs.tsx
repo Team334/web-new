@@ -50,7 +50,7 @@ const Tabs = React.memo(({
         newTabs.unshift(selectedTab[0]);
         setTabs(newTabs);
         setActive(newTabs[0]);
-    }, 300);
+    }, 75);
 
     return (
         <>

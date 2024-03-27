@@ -13,7 +13,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({videoId}) => {
         // Simulate loading delay
         const timeout = setTimeout(() => {
             setLoaded(true);
-        }, 2000);
+        }, 1200);
 
         return () => clearTimeout(timeout);
     }, []);

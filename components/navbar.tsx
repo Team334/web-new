@@ -17,7 +17,7 @@ import clsx from "clsx";
 
 import {ThemeSwitch} from "@/components/theme-switch";
 import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon, YoutubeIcon} from "@/components/icons";
-import React, {useState} from "react";
+import React from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
     DropdownMenu,
@@ -31,8 +31,7 @@ import {
 } from "@/components/shadcn/ui/dropdown-menu";
 
 const Profile = React.memo(() => {
-    const {user, isAuthenticated, isLoading, logout} = useAuth0();
-    const [menuOpen, setMenuOpen] = useState(false);
+    const {user, logout} = useAuth0();
 
     const name = user?.name;
     const picture = user?.picture;
@@ -67,15 +66,10 @@ const Profile = React.memo(() => {
 Profile.displayName = "DesktopProfile"
 
 const ProfileMenu = React.memo(() => {
-    const {user, isAuthenticated, isLoading, logout} = useAuth0();
-    const [menuOpen, setMenuOpen] = useState(false);
+    const {user, logout} = useAuth0();
 
     const name = user?.name;
     const picture = user?.picture;
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
 
     const handleLogout = () => {
         logout({logoutParams: {returnTo: window.location.origin}});

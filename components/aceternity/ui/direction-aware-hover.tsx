@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "@/components/cn";
+import {AnimatePresence, motion} from "framer-motion";
+import {cn} from "@/components/cn";
 
 export const DirectionAwareHover = ({
                                         imageUrl,
@@ -54,11 +54,10 @@ export const DirectionAwareHover = ({
         ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
         obj: HTMLElement
     ) => {
-        const { width: w, height: h, left, top } = obj.getBoundingClientRect();
+        const {width: w, height: h, left, top} = obj.getBoundingClientRect();
         const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
         const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
-        const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-        return d;
+        return Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
     };
 
     return (
@@ -77,7 +76,8 @@ export const DirectionAwareHover = ({
                     whileHover={direction}
                     exit="exit"
                 >
-                    <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+                    <motion.div
+                        className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500"/>
                     <motion.div
                         variants={variants}
                         className="h-full w-full relative bg-gray-50 dark:bg-black"
