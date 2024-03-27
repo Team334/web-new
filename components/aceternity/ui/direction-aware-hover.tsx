@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import {Image} from "@nextui-org/react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/components/cn";
 
@@ -89,7 +89,7 @@ export const DirectionAwareHover = ({
                         <Image
                             alt="image"
                             className={cn(
-                                "h-full w-full object-fit scale-[1.15]",
+                                "h-full w-full object-cover",
                                 imageClassName
                             )}
                             width="1000"
@@ -186,9 +186,11 @@ export const BentoGridItem = React.memo(({
                 className
             )}
         >
-            <DirectionAwareHover imageUrl={image}>
-                {text}
-            </DirectionAwareHover>
+            <div className="h-[40rem] overflow-hidden relative flex items-center justify-center">
+                <DirectionAwareHover imageUrl={image}>
+                    {text}
+                </DirectionAwareHover>
+            </div>
         </div>
     );
 });

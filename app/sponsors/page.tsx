@@ -10,13 +10,31 @@ export default function SponsorPage() {
     const bentoItems = [
 
         {
-            image: "https://i.ytimg.com/vi_webp/vGIsE0y7tVQ/maxresdefault.webp",
+            image: "/team2022.png",
             text: <div>
                 <h1>Team</h1>
                 <p>Something</p>
             </div>,
             className:
                 "md:col-span-1",
+        },
+        {
+            image: "/team2022.png",
+            text: <div>
+                <h1>Team</h1>
+                <p>Something</p>
+            </div>,
+            className:
+                "md:col-span-2",
+        },
+        {
+            image: "/team2022.png",
+            text: <div>
+                <h1>Team</h1>
+                <p>Something</p>
+            </div>,
+            className:
+                "md:col-span-3",
         },
     ];
 
@@ -41,7 +59,7 @@ export default function SponsorPage() {
                     </div>
                 </motion.div>
             </AuroraBackground>
-            <div className={"h-screen py-20"} >
+            <div className={"h-full py-20"} >
                 <BentoGrid className="max-w-8xl mx-auto md:auto-rows-[30rem] p-10">
                     {bentoItems.map((item, i) => (
                         <BentoGridItem
