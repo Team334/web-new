@@ -79,7 +79,8 @@ export default function RootLayout({
                     <p className="text-primary">Team 334</p>
                 </Link>
             </footer>
-            <CommandMenu/>
+            {/*Scrapped Idea I'll keep it here for an example*/}
+            {/*<CommandMenu/>*/}
         </Providers>
         </body>
         </html>
