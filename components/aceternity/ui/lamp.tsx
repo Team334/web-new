@@ -13,7 +13,7 @@ export const LampContainer = ({
     return (
         <div
             className={cn(
-                "relative flex h-[150vh] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-30",
+                "relative flex h-[160vh] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-30",
                 className
             )}
         >

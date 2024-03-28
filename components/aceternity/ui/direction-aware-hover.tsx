@@ -4,6 +4,7 @@ import React, {useRef, useState} from "react";
 import Image from "next/image";
 import {AnimatePresence, motion} from "framer-motion";
 import {cn} from "@/components/cn";
+import Link from "next/link";
 
 export const DirectionAwareHover = ({
                                         imageUrl,
@@ -65,7 +66,7 @@ export const DirectionAwareHover = ({
             onMouseEnter={handleMouseEnter}
             ref={ref}
             className={cn(
-                "w-full h-full bg-transparent rounded-lg overflow-hidden group/card relative",
+                "w-full h-[300px] bg-transparent rounded-lg overflow-hidden group/card relative",
                 className
             )}
         >
@@ -89,11 +90,11 @@ export const DirectionAwareHover = ({
                         <Image
                             alt="image"
                             className={cn(
-                                "h-full w-full object-cover",
+                                "h-full w-full object-contain",
                                 imageClassName
                             )}
-                            width="1000"
-                            height={"1000"}
+                            width="200"
+                            height={"200"}
                             src={imageUrl}
                         />
                     </motion.div>
@@ -172,26 +173,35 @@ const textVariants = {
 export const BentoGridItem = React.memo(({
                                              className,
                                              image,
+                                             url,
+                                             description,
                                              text,
                                          }: {
     className?: string;
     image: string;
+    description?: string;
+    url: string;
     text?: string | React.ReactNode;
 }) => {
 
     return (
-        <div
-            className={cn(
-                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
-                className
-            )}
-        >
-            <div className="h-[40rem] overflow-hidden relative flex items-center justify-center">
-                <DirectionAwareHover imageUrl={image}>
+            <div
+                className={cn(
+                    "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] border-black/[0.2] bg-white border justify-between flex flex-col space-y-4",
+                    className
+                )}
+            >
+                <Link href={url}>
+                    <div className="h-full overflow-hidden relative flex items-center justify-center">
+                            <DirectionAwareHover imageUrl={image}>
+                                {description}
+                            </DirectionAwareHover>
+                    </div>
+                </Link>
+                <div className={"text-center"}>
                     {text}
-                </DirectionAwareHover>
+                </div>
             </div>
-        </div>
     );
 });
 

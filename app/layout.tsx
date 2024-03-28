@@ -10,8 +10,6 @@ import Cursor from "@/components/cursor";
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import React from "react";
-import {CommandMenu} from "@/components/commandDialog";
-
 
 export const viewport: Viewport = {
     themeColor: [
@@ -57,7 +55,7 @@ export default function RootLayout({
                 fontSans.variable
             )}
         >
-        <Providers themeProps={{attribute: "class", defaultTheme: "dark", children: children}}>
+        <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
             <Cursor/>
             <Navbar/>
             <main className="px-0">
@@ -76,11 +74,9 @@ export default function RootLayout({
                     title="Team 334"
                 >
                     <span>Made by</span>
-                    <p className="text-primary">Team 334</p>
+                    <p className="text-primary">Ze Rui Zheng</p>
                 </Link>
             </footer>
-            {/*Scrapped Idea I'll keep it here for an example*/}
-            {/*<CommandMenu/>*/}
         </Providers>
         </body>
         </html>
