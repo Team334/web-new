@@ -23,7 +23,7 @@ export const AwardBanner = React.memo(({
                     height={76}
                 />
                 <div className="grow flex flex-col justify-center text-wrap">
-                    <h1 className="text-center text-xs md:text-sm font-bold mb-2 main">{year} <br/> {comp}</h1>
+                    <h1 className="text-center text-xs md:text-sm font-bold mb-2 secondary">{year} <br/> {comp}</h1>
                     <p className="text-center text-sm md:text-medium secondary">{title}</p>
                 </div>
             </div>

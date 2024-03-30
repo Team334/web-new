@@ -65,7 +65,7 @@ export default function RootLayout({
             </main>
             <footer className="relative bottom-0 w-full flex py-3 p-6 text-start">
                 <div className={"secondary container items-start justify-start md:ml-12"}>
-                    <span>©1998-2024 TechKnights</span>
+                    <span className={"font-bold"}>©1998-2024 TechKnights</span>
                 </div>
                 <Link
                     isExternal
@@ -73,7 +73,7 @@ export default function RootLayout({
                     href="https://github.com/Team334"
                     title="Team 334"
                 >
-                    <span>Made by</span>
+                    <span className={"secondary"}>Made by</span>
                     <p className="text-primary">Ze Rui Zheng</p>
                 </Link>
             </footer>

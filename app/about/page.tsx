@@ -26,72 +26,72 @@ export default function AboutPage() {
         {
             title: "Finalist",
             year: "2023",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Excellence in Engineering Award",
             year: "2019",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Judges' Award",
             year: "2019",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Industrial Design Award",
             year: "2016",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Winner",
             year: "2014",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Creativity Award",
             year: "2014",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Industrial Design Award",
             year: "2013",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Creativity Award",
             year: "2012",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Gracious Professionalism Award",
             year: "2008",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Engineering Inspiration Award",
             year: "2007",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Sportsmanship Award",
             year: "2006",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Engineering Inspiration Award",
             year: "2005",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Engineering Inspiration Award",
             year: "2004",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Chairman's Award",
             year: "2003",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Rookie All-Star",
@@ -172,7 +172,7 @@ export default function AboutPage() {
                     Fun: We enjoy and celebrate what we do!
                 </p>,
             header: <div
-                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
                 <Image
                     alt={"FIRST-3"}
                     src={"https://www.firstinspires.org/sites/default/files/uploads/hero_headers/Header-image-fallback-gradient-high-res.jpg"}
@@ -629,9 +629,14 @@ export default function AboutPage() {
                         We are a team that consists of 50-60 students which come nearly every day to work on the
                         robot during the build season and compete against teams all over the world. After 10th period,
                         we meet at the wonderful Ike Heller
-                        Robotics Center at BTHS to build our award-winning robots. With the help of our mentors, we
-                        machine and fabricate all our parts in-house—from 3D printing and sanding, to cutting on the
-                        plasma cutter and the CNC machines.
+                        <br />
+                        <br />
+                        During our preseason, we exchange information between the previous members, and the newcomers,
+                        ensuring that our build season occurs flawlessly. We host events and tryouts for students at our
+                        school to have an opportunity to join the team. During our offseason, we begin planning ahead
+                        for next year’s preseason and work on projects around the lab. We also host Future Vision
+                        events, in which middle schools from all across Brooklyn come to visit the school. We teach them
+                        about FIRST and engineering, while also letting them drive our robot.
                     </p>
                     <br/>
                     <div
