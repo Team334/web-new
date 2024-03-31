@@ -1,6 +1,19 @@
-export type SiteConfig = typeof siteConfig;
+type Color = "foreground" | "danger" | "success" | "warning" | "primary" | "secondary";
 
-export const siteConfig = {
+export type SiteConfig = {
+    name: string;
+    description: string;
+    navItems: {
+        label: string;
+        href: string;
+        color: Color;
+    }[];
+    links: {
+        [key: string]: string;
+    };
+};
+
+export const siteConfig: SiteConfig = {
     name: "Team 334",
     description: "The 334th Team in FIRST Robotics Competition",
     navItems: [

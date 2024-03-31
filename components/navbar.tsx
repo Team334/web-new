@@ -104,7 +104,7 @@ export const Navbar = React.memo(() => {
     return (
         <NextUINavbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}
                       className={"flex z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
-            <NavbarContent>
+            <NavbarContent className={"md:mr-[8rem]"}>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="md:hidden"
@@ -181,7 +181,7 @@ export const Navbar = React.memo(() => {
 
             </NavbarContent>
             <NavbarMenu
-                className="box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col mt-2 fixed w-[300px]">
+                className="box-border border-shadow-lg p-0 capitalize rounded-[1.1rem] shadow flex flex-col mt-10 fixed w-[300px]">
                 <div className="flex flex-col mt-5 mb-3">
                     {isAuthenticated ? (
                         <ProfileMenu/>
