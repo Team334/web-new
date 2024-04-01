@@ -31,7 +31,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@react-aria/ssr": "^3.9.2",
     "@react-aria/visually-hidden": "^3.8.10",
-    "@react-three/drei": "^9.102.6",
+    "@react-three/drei": "^9.103.0",
     "@react-three/fiber": "^8.16.0",
     "@splinetool/react-spline": "^2.2.6",
     "@types/node": "20.11.30",
