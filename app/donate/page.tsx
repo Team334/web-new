@@ -28,7 +28,7 @@ export default function DonatePage() {
                     </Button>
                 </div>
             </BackgroundGradientAnimation>
-            <div className="text-center h-screen mt-10 align-middle p-2">
+            <div className="text-center mt-10 align-middle p-2">
                 <h1 className="text-[2.9rem] md:text-7xl text-bold dark:text-white secondary">How to donate?</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
                     Our team appreciates both in-kind and monetary donation

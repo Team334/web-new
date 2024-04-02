@@ -11,7 +11,7 @@ export default function DonateLayout({
 
     return (
         <section>
-            <div className="flex justify-center gap-4 py-8 md:py-10">
+            <div className="flex justify-center gap-4 ">
                 {children}
             </div>
         </section>

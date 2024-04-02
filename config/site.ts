@@ -52,6 +52,7 @@ export const siteConfig: SiteConfig = {
         github: "https://github.com/Team334",
         instagram: "https://instagram.com/team334",
         donate: "https://bthsalumni.org/donate/",
-        youtube: "https://youtube.com"
+        youtube: "https://www.youtube.com/@TechKnights334",
+        blueAlliance: "https://www.thebluealliance.com/team/334"
     },
 };

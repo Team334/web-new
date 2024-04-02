@@ -4,33 +4,75 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger,} from "@/c
 
 
 export default function Faq() {
+    const faqs = [
+        {
+            question: "What is FIRST?",
+            answer: "",
+        },
+        {
+            question: "What does this robot do? Is this battlebots?",
+            answer: "",
+        },
+        {
+            question: "How much time do I have to dedicate to this?",
+            answer: "",
+        },
+        {
+            question: "When does the season start?",
+            answer: "",
+        },
+        {
+            question: "When/Where are competitions?",
+            answer: "",
+        },
+        {
+            question: "How do I join?",
+            answer: "",
+        },
+        {
+            question: "How much time do I have to dedicate to this?",
+            answer: "",
+        },
+        {
+            question: "When do we meet?",
+            answer: "",
+        },
+        {
+            question: "I don't particularly enjoy robotics, but I still want to be involved. Are there things I can help with?",
+            answer: "",
+        },
+        {
+            question: "Are there things that parents can do help out on the team?",
+            answer: "",
+        },
+        {
+            question: "Is it mandatory that I be and stay at every meeting?",
+            answer: "",
+        },
+        {
+            question: "I have other activities, can I still be on the team?",
+            answer: "",
+        },
+        {
+            question: "I have some other questions. How can I contact the team?",
+            answer: "",
+        },
+    ];
+
     return (
-        <div className="container my-24 mx-auto md:px-6 xl:px-24">
-            <section className="mb-32">
-                <h2 className="mb-6 pl-6 text-[2rem] md:text-4xl text-center font-bold dark:text-white main">Frequently
-                    asked questions</h2>
+        <div className="container my-12 mx-auto md:px-6 xl:px-24">
+            <section className="mb-10">
                 <Accordion type="single" collapsible className="w-full p-3">
-                    <AccordionItem value="faq-1">
-                        <AccordionTrigger className={"text-base md:text-xl dark:text-neutral-200"}><b>very important
-                            information</b></AccordionTrigger>
-                        <AccordionContent className={"text-base md:text-lg dark:text-neutral-200"}>
-                            btech is better than stuy
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="faq-2">
-                        <AccordionTrigger className={"text-base md:text-xl dark:text-neutral-200"}><b>Dean Kamen... Read
-                            more below</b></AccordionTrigger>
-                        <AccordionContent className={"text-base md:text-lg dark:text-neutral-200"}>
-                            We got him mewing!!!
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="faq-3">
-                        <AccordionTrigger
-                            className={"text-base md:text-xl dark:text-neutral-200"}><b>shhhh</b></AccordionTrigger>
-                        <AccordionContent className={"text-base md:text-lg dark:text-neutral-200"}>
-                            🤫🧏
-                        </AccordionContent>
-                    </AccordionItem>
+                    {faqs.map((faq, index) => (
+                        <AccordionItem key={index} value={`faq-${index + 1}`}>
+                            <AccordionTrigger className={"text-base md:text-xl dark:text-neutral-200"}>
+                                <b>{faq.question}</b>
+                            </AccordionTrigger>
+                            <AccordionContent className={"text-base md:text-lg dark:text-neutral-200"}>
+                                {faq.answer}
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
                 </Accordion>
             </section>
         </div>

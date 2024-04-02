@@ -49,7 +49,7 @@ export default function Home() {
             "title": "Techknigts",
             "description": "The 334th Team in FIRST Robotics Competition",
             "link": "/",
-            "thumbnail": "/logo.png"
+            "thumbnail": "/old-logo.png"
         },
         {
             "title": "Brooklyn Tech Alumni Foundation",
@@ -216,7 +216,7 @@ export default function Home() {
     return (
         <section>
             <HeroParallax products={heroItems}/>
-            <div className="text-center h-[60vh] mb-5">
+            <div className="text-center h-[90vh] mb-10">
                 <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main">Sponsors</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
                     Thank you to all our sponsors and families who supported this. We couldn't make our robot without
@@ -246,7 +246,7 @@ export default function Home() {
                     </div>
                 </motion.h1>
             </LampContainer>
-            <div className="text-center h-[20vh] my-20 align-middle">
+            <div className="text-center h-[20vh] my-24 align-middle">
                 <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white secondary">Have a Question?</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
                     You can reach out to us by email

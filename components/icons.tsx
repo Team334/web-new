@@ -259,3 +259,43 @@ export const YoutubeIcon: React.FC<IconSvgProps> = ({
         </svg>
     )
 };
+
+export const TBAIcon: React.FC<IconSvgProps> = ({
+                                                        size = 32,
+                                                        width,
+                                                        height,
+                                                        ...props
+                                                    }) => {
+    return (
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px" width={width} height={height} viewBox="0 0 72 112" enableBackground="new 0 0 72 112"
+             xmlSpace="preserve">
+                <g>
+                    <g>
+                        <rect x="8" y="20" fill="#FFFFFF" width="6" height="64"/>
+                    </g>
+                    <g>
+                        <rect x="58" y="20" fill="#FFFFFF" width="6" height="64"/>
+                    </g>
+                    <g>
+                        <path fill="#FFFFFF" d="M36,112C20.561,112,8,99.439,8,84h6c0,12.131,9.869,22,22,22V112z"/>
+                    </g>
+                    <g>
+                        <path fill="#FFFFFF" d="M36,112v-6c12.131,0,22-9.869,22-22h6C64,99.439,51.439,112,36,112z"/>
+                    </g>
+                    <g>
+                        <rect x="33" y="20" fill="#FFFFFF" width="6" height="89"/>
+                    </g>
+                    <g>
+                        <rect x="11" y="78" fill="#FFFFFF" width="50" height="6"/>
+                    </g>
+                    <g>
+                        <rect x="11" y="50" fill="#FFFFFF" width="50" height="6"/>
+                    </g>
+                    <g id="Lamp_Rectangle_4_">
+                        <path fill="#FFFFFF" d="M72,24c0,2.2-1.8,4-4,4H4c-2.2,0-4-1.8-4-4V4c0-2.2,1.8-4,4-4h64c2.2,0,4,1.8,4,4V24z"/>
+                    </g>
+                </g>
+                </svg>
+    )
+};
