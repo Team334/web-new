@@ -55,7 +55,7 @@ export default function RootLayout({
                 fontSans.variable
             )}
         >
-        <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
+        <Providers themeProps={{attribute: "class", defaultTheme: "dark", children: children}}>
             <Cursor/>
             <Navbar/>
             <main className="px-0">

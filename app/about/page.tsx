@@ -15,10 +15,10 @@ const World = dynamic(() => import("@/components/aceternity/ui/globe").then((m) 
 
 export default function AboutPage() {
     const images = [
-        "/team2021.png",
         "/team2022.png",
-        "/team2023.png",
-        "/team2024.png",
+        "/team2020.jpg",
+        "/team2019-2.jpg",
+        "/team2019.jpg",
     ];
 
 
