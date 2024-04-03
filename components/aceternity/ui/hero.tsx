@@ -4,7 +4,7 @@ import Image from "next/legacy/image";
 import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
-import {GithubIcon, InstagramIcon, YoutubeIcon} from "@/components/icons";
+import {GithubIcon, HeartFilledIcon, InstagramIcon, TBAIcon, YoutubeIcon} from "@/components/icons";
 import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
@@ -124,17 +124,17 @@ const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full z-30 left-0 top-0">
             <h1 className="text-[2rem] md:text-7xl font-bold dark:text-white">
-                <TextGenerateEffect words={"We are"}/>
+                <TextGenerateEffect words={"We are the"}/>
                 <TextGenerateEffect words={"Techknights"} className={"main"}/>
             </h1>
             <p className="text-base md:text-xl mt-8 dark:text-neutral-200">
-                TechKnights is a FIRST® Robotics Competition Team from Brooklyn Technical
+                The TechKnights is a FIRST® Robotics Competition Team from Brooklyn Technical
                 High School in Downtown Brooklyn, NY.
             </p>
             <div className="flex flex-row gap-3 mt-5 opacity-1">
                 <NextuiLink
                     isExternal
-                    className={buttonStyles({variant: "bordered", radius: "full"})}
+                    className={buttonStyles({variant: "solid", radius: "full", color: "success"})}
                     href={siteConfig.links.instagram}
                 >
                     <InstagramIcon size={20}/>
@@ -142,7 +142,15 @@ const Header = () => {
                 </NextuiLink>
                 <NextuiLink
                     isExternal
-                    className={buttonStyles({variant: "bordered", radius: "full"})}
+                    className={buttonStyles({variant: "solid", radius: "full", color: "danger"})}
+                    href={siteConfig.links.youtube}
+                >
+                    <YoutubeIcon width={24} height={24}/>
+                    <b>Youtube</b>
+                </NextuiLink>
+                <NextuiLink
+                    isExternal
+                    className={buttonStyles({variant: "solid", radius: "full", color: "secondary"})}
                     href={siteConfig.links.github}
                 >
                     <GithubIcon size={20}/>
@@ -150,11 +158,19 @@ const Header = () => {
                 </NextuiLink>
                 <NextuiLink
                     isExternal
-                    className={buttonStyles({variant: "bordered", radius: "full"})}
-                    href={siteConfig.links.youtube}
+                    className={buttonStyles({variant: "solid", radius: "full", color: "warning"})}
+                    href={siteConfig.links.blueAlliance}
                 >
-                    <YoutubeIcon width={24} height={24}/>
-                    <b>Youtube</b>
+                    <TBAIcon width={24} height={24}/>
+                    <b>Blue Alliance</b>
+                </NextuiLink>
+                <NextuiLink
+                    isExternal
+                    className={buttonStyles({variant: "solid", radius: "full", color: "primary"})}
+                    href={siteConfig.links.donate}
+                >
+                    <HeartFilledIcon width={24} height={24} className="text-danger m-auto" />
+                    <b>Donate</b>
                 </NextuiLink>
             </div>
         </div>

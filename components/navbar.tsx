@@ -16,7 +16,7 @@ import {siteConfig} from "@/config/site";
 import clsx from "clsx";
 
 import {ThemeSwitch} from "@/components/theme-switch";
-import {GithubIcon, HeartFilledIcon, InstagramIcon, LoginIcon, YoutubeIcon} from "@/components/icons";
+import {GithubIcon, InstagramIcon, LoginIcon, YoutubeIcon} from "@/components/icons";
 import React from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {
@@ -104,7 +104,7 @@ export const Navbar = React.memo(() => {
     return (
         <NextUINavbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}
                       className={"flex z-20 box-border border-shadow-lg p-0 capitalize rounded-[3.5rem] max-w-screen-lg mx-auto mt-7 shadow"}>
-            <NavbarContent>
+            <NavbarContent className={"md:mr-[8rem]"}>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="md:hidden"
@@ -151,18 +151,18 @@ export const Navbar = React.memo(() => {
                     <ThemeSwitch/>
                 </NavbarItem>
 
-                <NavbarItem className="hidden md:flex">
-                    <Button
-                        isExternal
-                        as={Link}
-                        className="text-sm text-default-800 font-bold bg-default-100"
-                        href={siteConfig.links.donate}
-                        startContent={<HeartFilledIcon className="text-danger m-auto"/>}
-                        variant="flat"
-                    >
-                        Donate
-                    </Button>
-                </NavbarItem>
+                {/*<NavbarItem className="hidden md:flex">*/}
+                {/*    <Button*/}
+                {/*        isExternal*/}
+                {/*        as={Link}*/}
+                {/*        className="text-sm text-default-800 font-bold bg-default-100"*/}
+                {/*        href={siteConfig.links.donate}*/}
+                {/*        startContent={<HeartFilledIcon className="text-danger m-auto"/>}*/}
+                {/*        variant="flat"*/}
+                {/*    >*/}
+                {/*        Donate*/}
+                {/*    </Button>*/}
+                {/*</NavbarItem>*/}
                 <div className="hidden lg:flex border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
                 <NavbarItem className="hidden lg:flex">
                     {isAuthenticated ? (
@@ -211,7 +211,9 @@ export const Navbar = React.memo(() => {
                     {siteConfig.navItems.map((item, index) => (
                         <NavbarMenuItem key={`${item}-${index}`} className="hover:animate-pulse">
                             <Link
-                                color={index === 1 ? "primary" : index === siteConfig.navItems.length - 1 ? "danger" : "foreground"}
+                                color={
+                                    item.color
+                                }
                                 className="w-full block main text-2xl text-center"
                                 href={item.href}
                                 size="lg"
@@ -234,18 +236,18 @@ export const Navbar = React.memo(() => {
                         <ThemeSwitch/>
 
                     </div>
-                    <div className="mt-4 flex justify-center items-end space-x-4 align-bottom">
-                        <Button
-                            isExternal
-                            as={Link}
-                            className="text-sm text-default-800 font-bold bg-default-100"
-                            href={siteConfig.links.donate}
-                            startContent={<HeartFilledIcon className="text-danger m-auto"/>}
-                            variant="flat"
-                        >
-                            Donate
-                        </Button>
-                    </div>
+                    {/*<div className="mt-4 flex justify-center items-end space-x-4 align-bottom">*/}
+                    {/*    <Button*/}
+                    {/*        isExternal*/}
+                    {/*        as={Link}*/}
+                    {/*        className="text-sm text-default-800 font-bold bg-default-100"*/}
+                    {/*        href={siteConfig.links.donate}*/}
+                    {/*        startContent={<HeartFilledIcon className="text-danger m-auto"/>}*/}
+                    {/*        variant="flat"*/}
+                    {/*    >*/}
+                    {/*        Donate*/}
+                    {/*    </Button>*/}
+                    {/*</div>*/}
                 </div>
             </NavbarMenu>
         </NextUINavbar>

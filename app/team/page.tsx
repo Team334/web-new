@@ -33,7 +33,7 @@ export default function TeamPage() {
 
     return (
         <div>
-            <h1 className="underline font-bold text-center text-5xl md:text-6xl main py-20">Our Team Members</h1>
+            <h1 className="underline font-bold text-center text-5xl md:text-6xl main py-20 p-3">Our Team Members</h1>
 
             {Object.keys(departments).map((department, index) => (
                 <div key={index}>

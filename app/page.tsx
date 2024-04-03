@@ -3,7 +3,6 @@ import React, {useEffect, useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {HeroParallax} from "@/components/aceternity/ui/hero";
 import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
-import Faq from "@/components/faq";
 import YouTubePlayer from "@/components/youtube";
 import {Tabs} from "@/components/aceternity/ui/tabs";
 import {Progress} from "@/components/shadcn/ui/progress";
@@ -50,7 +49,7 @@ export default function Home() {
             "title": "Techknigts",
             "description": "The 334th Team in FIRST Robotics Competition",
             "link": "/",
-            "thumbnail": "/logo.png"
+            "thumbnail": "/old-logo.png"
         },
         {
             "title": "Brooklyn Tech Alumni Foundation",
@@ -217,7 +216,7 @@ export default function Home() {
     return (
         <section>
             <HeroParallax products={heroItems}/>
-            <div className="text-center h-[60vh] mb-5">
+            <div className="text-center h-[90vh] mb-10">
                 <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main">Sponsors</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
                     Thank you to all our sponsors and families who supported this. We couldn't make our robot without
@@ -239,8 +238,7 @@ export default function Home() {
                 >
                     <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season
                         Recaps!</h1>
-                    <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">These are all our
-                        2024
+                    <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">Here are all our 2024
                         Season recaps.</p>
                     <div
                         className="relative b flex flex-col max-w-5xl w-full h-[70vh]">
@@ -248,7 +246,28 @@ export default function Home() {
                     </div>
                 </motion.h1>
             </LampContainer>
-            <Faq/>
+            <div className="text-center h-[20vh] my-24 align-middle">
+                <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white secondary">Have a Question?</h1>
+                <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
+                    You can reach out to us by email
+                </p>
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <h3 className="font-lg main">STUDENTS</h3>
+                        <ul className="mt-2 space-y-2">
+                            <li className={"secondary"}><b>Matthew Piszcz</b> - Matthewp403@nycstudents.net</li>
+                            <li className={"secondary"}><b>Gadin Aggarwal</b> - gadina@nycstudents.net</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="font-lg main">MENTORS</h3>
+                        <ul className="mt-2 space-y-2">
+                            <li className={"secondary"}><b>Ms. Shaina Doherty</b> - SDoherty2@schools.nyc.gov</li>
+                            <li className={"secondary"}><b>Mr. Marlon Esguerra</b> - MEsguerra@schools.nyc.gov</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }

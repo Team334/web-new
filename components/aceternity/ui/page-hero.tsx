@@ -74,7 +74,7 @@ export const ImagesSlider = ({
         if (autoplay) {
             interval = setInterval(() => {
                 handleNext();
-            }, 5000);
+            }, 3000);
         }
 
         return () => {

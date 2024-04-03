@@ -10,8 +10,6 @@ import Cursor from "@/components/cursor";
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import React from "react";
-import {CommandMenu} from "@/components/commandDialog";
-
 
 export const viewport: Viewport = {
     themeColor: [
@@ -67,7 +65,7 @@ export default function RootLayout({
             </main>
             <footer className="relative bottom-0 w-full flex py-3 p-6 text-start">
                 <div className={"secondary container items-start justify-start md:ml-12"}>
-                    <span>©1998-2024 TechKnights</span>
+                    <span className={"font-bold"}>©1998-2024 TechKnights</span>
                 </div>
                 <Link
                     isExternal
@@ -75,12 +73,10 @@ export default function RootLayout({
                     href="https://github.com/Team334"
                     title="Team 334"
                 >
-                    <span>Made by</span>
-                    <p className="text-primary">Team 334</p>
+                    <span className={"secondary"}>Made by</span>
+                    <p className="text-primary">Ze Rui Zheng</p>
                 </Link>
             </footer>
-            {/*Scrapped Idea I'll keep it here for an example*/}
-            {/*<CommandMenu/>*/}
         </Providers>
         </body>
         </html>

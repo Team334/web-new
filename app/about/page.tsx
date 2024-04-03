@@ -15,10 +15,10 @@ const World = dynamic(() => import("@/components/aceternity/ui/globe").then((m) 
 
 export default function AboutPage() {
     const images = [
-        "/team2021.png",
         "/team2022.png",
-        "/team2023.png",
-        "/team2024.png",
+        "/team2020.jpg",
+        "/team2019-2.jpg",
+        "/team2019.jpg",
     ];
 
 
@@ -26,72 +26,72 @@ export default function AboutPage() {
         {
             title: "Finalist",
             year: "2023",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Excellence in Engineering Award",
             year: "2019",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Judges' Award",
             year: "2019",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Industrial Design Award",
             year: "2016",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Winner",
             year: "2014",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Creativity Award",
             year: "2014",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Industrial Design Award",
             year: "2013",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Creativity Award",
             year: "2012",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Gracious Professionalism Award",
             year: "2008",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Engineering Inspiration Award",
             year: "2007",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Sportsmanship Award",
             year: "2006",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Engineering Inspiration Award",
             year: "2005",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Engineering Inspiration Award",
             year: "2004",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Chairman's Award",
             year: "2003",
-            comp: "NYC Regionals"
+            comp: "NYC Regional"
         },
         {
             title: "Rookie All-Star",
@@ -172,7 +172,7 @@ export default function AboutPage() {
                     Fun: We enjoy and celebrate what we do!
                 </p>,
             header: <div
-                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
                 <Image
                     alt={"FIRST-3"}
                     src={"https://www.firstinspires.org/sites/default/files/uploads/hero_headers/Header-image-fallback-gradient-high-res.jpg"}
@@ -278,87 +278,6 @@ export default function AboutPage() {
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
-            order: 3,
-            startLat: -6.2088,
-            startLng: 106.8456,
-            endLat: 51.5072,
-            endLng: -0.1276,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 11.986597,
-            startLng: 8.571831,
-            endLat: -15.595412,
-            endLng: -56.05918,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: -34.6037,
-            startLng: -58.3816,
-            endLat: 22.3193,
-            endLng: 114.1694,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: 48.8566,
-            endLng: -2.3522,
-            arcAlt: 0.1,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: 14.5995,
-            startLng: 120.9842,
-            endLat: 51.5072,
-            endLng: -0.1276,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 5,
-            startLat: 1.3521,
-            startLng: 103.8198,
-            endLat: -33.8688,
-            endLng: 151.2093,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: 48.8566,
-            endLng: -2.3522,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: -15.432563,
-            startLng: 28.315853,
-            endLat: 1.094136,
-            endLng: -63.34546,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 37.5665,
-            startLng: 126.978,
-            endLat: 35.6762,
-            endLng: 139.6503,
-            arcAlt: 0.1,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
             order: 5,
             startLat: 22.3193,
             startLng: 114.1694,
@@ -383,78 +302,6 @@ export default function AboutPage() {
             endLat: 52.52,
             endLng: 13.405,
             arcAlt: 0.1,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: 52.52,
-            startLng: 13.405,
-            endLat: 34.0522,
-            endLng: -118.2437,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 5,
-            startLat: -8.833221,
-            startLng: 13.264837,
-            endLat: -33.936138,
-            endLng: 18.436529,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 5,
-            startLat: 49.2827,
-            startLng: -123.1207,
-            endLat: 52.3676,
-            endLng: 4.9041,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 5,
-            startLat: 1.3521,
-            startLng: 103.8198,
-            endLat: 40.7128,
-            endLng: -74.006,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: 34.0522,
-            endLng: -118.2437,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: -22.9068,
-            endLng: -43.1729,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: 1.3521,
-            startLng: 103.8198,
-            endLat: -34.6037,
-            endLng: -58.3816,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: -22.9068,
-            startLng: -43.1729,
-            endLat: 28.6139,
-            endLng: 77.209,
-            arcAlt: 0.7,
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
@@ -494,33 +341,6 @@ export default function AboutPage() {
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
-            order: 4,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: 1.3521,
-            endLng: 103.8198,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: 37.7749,
-            endLng: -122.4194,
-            arcAlt: 0.1,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 5,
-            startLat: 35.6762,
-            startLng: 139.6503,
-            endLat: 22.3193,
-            endLng: 114.1694,
-            arcAlt: 0.2,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
             order: 2,
             startLat: 22.3193,
             startLng: 114.1694,
@@ -530,7 +350,7 @@ export default function AboutPage() {
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
-            order: 1,
+            order: 10,
             startLat: 52.52,
             startLng: 13.405,
             endLat: 22.3193,
@@ -581,303 +401,6 @@ export default function AboutPage() {
             endLat: 40.7128,
             endLng: -74.006,
             arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: 41.9028,
-            endLng: 12.4964,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: 34.0522,
-            endLng: -118.2437,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: 35.6895,
-            startLng: 139.6917,
-            endLat: 37.7749,
-            endLng: -122.4194,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: 34.0522,
-            endLng: -118.2437,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: 48.8566,
-            startLng: 2.3522,
-            endLat: -33.8688,
-            endLng: 151.2093,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: -33.8688,
-            startLng: 151.2093,
-            endLat: 34.0522,
-            endLng: -118.2437,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: -15.7781,
-            startLng: -47.9292,
-            endLat: -34.6037,
-            endLng: -58.3816,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 40.7128,
-            startLng: -74.006,
-            endLat: -22.9068,
-            endLng: -43.1729,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: 35.6895,
-            startLng: 139.6917,
-            endLat: 1.3521,
-            endLng: 103.8198,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: 14.5995,
-            endLng: 120.9842,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: -22.9068,
-            startLng: -43.1729,
-            endLat: 52.5200,
-            endLng: 13.4050,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: 37.7749,
-            endLng: -122.4194,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: -12.0464,
-            startLng: -77.0428,
-            endLat: -22.9068,
-            endLng: -43.1729,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: 1.3521,
-            startLng: 103.8198,
-            endLat: 31.2304,
-            endLng: 121.4737,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: 40.7128,
-            startLng: -74.006,
-            endLat: 35.6895,
-            endLng: 139.6917,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: -33.4489,
-            startLng: -70.6693,
-            endLat: 35.6895,
-            endLng: 139.6917,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 7,
-            startLat: 52.5200,
-            startLng: 13.4050,
-            endLat: 48.8566,
-            endLng: 2.3522,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 31.2304,
-            startLng: 121.4737,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: 51.5072,
-            endLng: -0.1276,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 5,
-            startLat: 37.7749,
-            startLng: -122.4194,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: -15.7781,
-            startLng: -47.9292,
-            endLat: 1.3521,
-            endLng: 103.8198,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: -34.6037,
-            startLng: -58.3816,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: 37.7749,
-            startLng: -122.4194,
-            endLat: 22.3193,
-            endLng: 114.1694,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: 31.2304,
-            endLng: 121.4737,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 14.5995,
-            startLng: 120.9842,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 2,
-            startLat: 48.8566,
-            startLng: 2.3522,
-            endLat: 40.7128,
-            endLng: -74.006,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 1,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: 14.5995,
-            endLng: 120.9842,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: -33.4489,
-            startLng: -70.6693,
-            endLat: 1.3521,
-            endLng: 103.8198,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 3,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: 48.8566,
-            endLng: 2.3522,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 4,
-            startLat: 31.2304,
-            startLng: 121.4737,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 6,
-            startLat: 52.5200,
-            startLng: 13.4050,
-            endLat: -22.9068,
-            endLng: -43.1729,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 7,
-            startLat: 37.7749,
-            startLng: -122.4194,
-            endLat: 51.5072,
-            endLng: -0.1276,
-            arcAlt: 0.7,
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
@@ -932,60 +455,6 @@ export default function AboutPage() {
             endLat: 40.7128,
             endLng: -74.006,
             arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 7,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: -33.4489,
-            endLng: -70.6693,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 8,
-            startLat: 35.6895,
-            startLng: 139.6917,
-            endLat: 34.0522,
-            endLng: -118.2437,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 9,
-            startLat: 52.5200,
-            startLng: 13.4050,
-            endLat: -12.0464,
-            endLng: -77.0428,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 9,
-            startLat: 40.7128,
-            startLng: -74.006,
-            endLat: 48.8566,
-            endLng: 2.3522,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 7,
-            startLat: -33.4489,
-            startLng: -70.6693,
-            endLat: 14.5995,
-            endLng: 120.9842,
-            arcAlt: 0.3,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 7,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: 31.2304,
-            endLng: 121.4737,
-            arcAlt: 0.7,
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
@@ -1058,69 +527,6 @@ export default function AboutPage() {
             endLat: 1.3521,
             endLng: 103.8198,
             arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 12,
-            startLat: 22.3193,
-            startLng: 114.1694,
-            endLat: 37.7749,
-            endLng: -122.4194,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 12,
-            startLat: 51.5072,
-            startLng: -0.1276,
-            endLat: 40.7128,
-            endLng: -74.006,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 12,
-            startLat: 48.8566,
-            startLng: 2.3522,
-            endLat: 22.3193,
-            endLng: 114.1694,
-            arcAlt: 0.7,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 11,
-            startLat: 40.7128,
-            startLng: -74.006,
-            endLat: -34.6037,
-            endLng: -58.3816,
-            arcAlt: 0.4,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 10,
-            startLat: -33.8688,
-            startLng: 151.2093,
-            endLat: 51.5072,
-            endLng: -0.1276,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 11,
-            startLat: 1.3521,
-            startLng: 103.8198,
-            endLat: 52.5200,
-            endLng: 13.4050,
-            arcAlt: 0.6,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
-            order: 10,
-            startLat: 34.0522,
-            startLng: -118.2437,
-            endLat: -33.8688,
-            endLng: 151.2093,
-            arcAlt: 0.7,
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
@@ -1223,9 +629,14 @@ export default function AboutPage() {
                         We are a team that consists of 50-60 students which come nearly every day to work on the
                         robot during the build season and compete against teams all over the world. After 10th period,
                         we meet at the wonderful Ike Heller
-                        Robotics Center at BTHS to build our award-winning robots. With the help of our mentors, we
-                        machine and fabricate all our parts in-house—from 3D printing and sanding, to cutting on the
-                        plasma cutter and the CNC machines.
+                        <br />
+                        <br />
+                        During our preseason, we exchange information between the previous members, and the newcomers,
+                        ensuring that our build season occurs flawlessly. We host events and tryouts for students at our
+                        school to have an opportunity to join the team. During our offseason, we begin planning ahead
+                        for next year’s preseason and work on projects around the lab. We also host Future Vision
+                        events, in which middle schools from all across Brooklyn come to visit the school. We teach them
+                        about FIRST and engineering, while also letting them drive our robot.
                     </p>
                     <br/>
                     <div

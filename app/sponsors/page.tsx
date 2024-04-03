@@ -9,31 +9,85 @@ import React from "react";
 export default function SponsorPage() {
     const bentoItems = [
         {
-            image: "/team2022.png",
+            image: "/logos/first.png",
             text: <div>
-                <h1>Team</h1>
-                <p>Something</p>
+                <h1 className={"main"}>FIRST</h1>
             </div>,
+            url: "https://www.firstinspires.org/",
             className:
                 "md:col-span-1",
         },
         {
-            image: "/team2022.png",
+            image: "/sponsors/alumni-foundation.png",
             text: <div>
-                <h1>Team</h1>
-                <p>Something</p>
+                <h1 className={"main"}>Brooklyn Tech Alumni Foundation</h1>
             </div>,
+            url: "",
             className:
                 "md:col-span-2",
         },
         {
-            image: "/team2022.png",
+            image: "/sponsors/arament.png",
             text: <div>
-                <h1>Team</h1>
-                <p>Something</p>
+                <h1 className={"main"}>Arament Research, Development and Engineering Center</h1>
             </div>,
+            url: "",
             className:
-                "md:col-span-3",
+                "md:col-span-2",
+        },
+        {
+            image: "/sponsors/con-edison.png",
+            text: <div>
+                <h1 className={"main"}>Con Edison</h1>
+            </div>,
+            url: "https://www.coned.com/en",
+            className:
+                "md:col-span-1",
+        },
+        {
+            image: "/sponsors/dodstem.png",
+            text: <div>
+                <h1 className={"main"}>DoD STEM</h1>
+            </div>,
+            url: "https://www.dodstem.us",
+            className:
+                "md:col-span-1",
+        },
+        {
+            image: "/sponsors/haas-foundation.png",
+            text: <div>
+                <h1 className={"main"}>Gene HAAS Foundation</h1>
+            </div>,
+            url: "https://ghaasfoundation.org/content/ghf/en/home.html",
+            className:
+                "md:col-span-1",
+        },
+        {
+            image: "/sponsors/ike-heller.png",
+            text: <div>
+                <h1 className={"main"}>Ike Heller</h1>
+            </div>,
+            url: "",
+            className:
+                "md:col-span-1",
+        },
+        {
+            image: "/sponsors/quotebeam.png",
+            text: <div>
+                <h1 className={"main"}>QuoteBeam</h1>
+            </div>,
+            url: "https://quotebeam.com",
+            className:
+                "md:col-span-1.5",
+        },
+        {
+            image: "/sponsors/whimsy-tech.png",
+            text: <div>
+                <h1 className={"main"}>Whimsy Tech</h1>
+            </div>,
+            url: "https://whimsytech.com",
+            className:
+                "md:col-span-2",
         },
     ];
 
@@ -65,6 +119,7 @@ export default function SponsorPage() {
                             key={i}
                             image={item.image}
                             text={item.text}
+                            url={item.url}
                             className={item.className}
                         />
                     ))}
