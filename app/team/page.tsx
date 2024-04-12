@@ -30,6 +30,13 @@ export default function TeamPage() {
         return acc;
     }, {});
 
+    const addSIfNeeded = (word: string): string => {
+        if (word === "Executive" || word === "Mentor") {
+            return word + "s";
+        }
+        return word;
+    };
+
 
     return (
         <div>
@@ -37,7 +44,7 @@ export default function TeamPage() {
 
             {Object.keys(departments).map((department, index) => (
                 <div key={index}>
-                    <TextGenerateEffect words={department}
+                    <TextGenerateEffect words={addSIfNeeded(department)}
                                         className={"font-bold text-3xl md:text-4xl text-center main py-4 mb-10"}/>
                     <div className="flex flex-wrap gap-10 justify-center">
                         {departments[department].sort((a, b) => a.name < b.name ? -1 : 1).map((member, i) => (

@@ -29,6 +29,11 @@ export default function AboutPage() {
             comp: "NYC Regional"
         },
         {
+            title: "Finalist",
+            year: "2023",
+            comp: "Long Island Regional"
+        },
+        {
             title: "Excellence in Engineering Award",
             year: "2019",
             comp: "NYC Regional"
@@ -100,19 +105,6 @@ export default function AboutPage() {
         },
     ]
 
-
-    const teamImages = [
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-        "/team/",
-    ];
 
     const moreItem = [
         {
