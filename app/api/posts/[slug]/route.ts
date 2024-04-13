@@ -7,3 +7,9 @@ export async function GET(request: NextRequest, {params}: { params: { slug: stri
     const post = getPostBySlug(slug);
     return NextResponse.json(post);
 }
+
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
