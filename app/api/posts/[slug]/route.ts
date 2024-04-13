@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import {getPostBySlug} from "../markdown";
+import {getPostBySlug, getAllPosts} from "../markdown";
 
 
 export async function GET(request: NextRequest, {params}: { params: { slug: string } }) {
@@ -10,6 +10,6 @@ export async function GET(request: NextRequest, {params}: { params: { slug: stri
 
 
 export async function generateStaticParams() {
-  const slugs = await getAllSlugs();
+  const slugs = await getAllPosts();
   return slugs.map((slug) => ({ slug }));
 }
