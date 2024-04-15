@@ -61,7 +61,7 @@ export default function Faq() {
     return (
         <div className="container my-12 mx-auto md:px-6 xl:px-24">
             <section className="mb-10">
-                <Accordion type="single" collapsible className="w-[1000px] p-3">
+                <Accordion type="single" collapsible className="p-3">
                     {faqs.map((faq, index) => (
                         <AccordionItem key={index} value={`faq-${index + 1}`}>
                             <AccordionTrigger className={"text-base md:text-xl dark:text-neutral-200"}>

@@ -204,6 +204,7 @@ export const Navbar = React.memo(() => {
                             className="w-full block main text-2xl text-center"
                             href="/"
                             size="lg"
+                            onPress={setIsMenuOpen}
                         >
                             Home
                         </Link>
