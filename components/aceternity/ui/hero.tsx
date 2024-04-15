@@ -35,7 +35,7 @@ const ProductCard = React.memo(({product, translate}: {
                 y: -20
             }}
             key={product.title}
-            className="group/product h-60 w-[13rem] md:h-96 md:w-[30rem] relative flex-shrink-0"
+            className="group/product min-h-50 w-[13rem] md:w-[30rem] relative flex-shrink-0"
         >
             {loading ? (
                 <Skeleton className="w-full h-full"/>
@@ -131,48 +131,54 @@ const Header = () => {
                 The TechKnights is a FIRST® Robotics Competition Team from Brooklyn Technical
                 High School in Downtown Brooklyn, NY.
             </p>
-            <div className="flex flex-row gap-3 mt-5 opacity-1">
-                <NextuiLink
-                    isExternal
-                    className={buttonStyles({variant: "solid", radius: "full", color: "success"})}
-                    href={siteConfig.links.instagram}
-                >
-                    <InstagramIcon size={20}/>
-                    <b>Instagram</b>
-                </NextuiLink>
-                <NextuiLink
-                    isExternal
-                    className={buttonStyles({variant: "solid", radius: "full", color: "danger"})}
-                    href={siteConfig.links.youtube}
-                >
-                    <YoutubeIcon width={24} height={24}/>
-                    <b>Youtube</b>
-                </NextuiLink>
-                <NextuiLink
-                    isExternal
-                    className={buttonStyles({variant: "solid", radius: "full", color: "secondary"})}
-                    href={siteConfig.links.github}
-                >
-                    <GithubIcon size={20}/>
-                    <b>Github</b>
-                </NextuiLink>
-                <NextuiLink
-                    isExternal
-                    className={buttonStyles({variant: "solid", radius: "full", color: "warning"})}
-                    href={siteConfig.links.blueAlliance}
-                >
-                    <TBAIcon width={24} height={24}/>
-                    <b>Blue Alliance</b>
-                </NextuiLink>
-                <NextuiLink
-                    isExternal
-                    className={buttonStyles({variant: "solid", radius: "full", color: "primary"})}
-                    href={siteConfig.links.donate}
-                >
-                    <HeartFilledIcon width={24} height={24} className="text-danger m-auto" />
-                    <b>Donate</b>
-                </NextuiLink>
-            </div>
+            <div className="flex flex-col md:flex-row gap-3 mt-5 opacity-1">
+  <div className="flex flex-col md:flex-row gap-3 space-y-1">
+    <NextuiLink
+      isExternal
+      className={buttonStyles({ variant: "solid", radius: "full", color: "success" })}
+      href={siteConfig.links.instagram}
+    >
+      <InstagramIcon size={20} />
+      <b>Instagram</b>
+    </NextuiLink>
+    <NextuiLink
+      isExternal
+      className={buttonStyles({ variant: "solid", radius: "full", color: "danger" })}
+      href={siteConfig.links.youtube}
+    >
+      <YoutubeIcon width={24} height={24} />
+      <b>Youtube</b>
+    </NextuiLink>
+    <NextuiLink
+      isExternal
+      className={buttonStyles({ variant: "solid", radius: "full", color: "secondary" })}
+      href={siteConfig.links.github}
+    >
+      <GithubIcon size={20} />
+      <b>Github</b>
+    </NextuiLink>
+  </div>
+  <div className="flex flex-col md:flex-row gap-3">
+    <NextuiLink
+      isExternal
+      className={buttonStyles({ variant: "solid", radius: "full", color: "warning" })}
+      href={siteConfig.links.blueAlliance}
+    >
+      <TBAIcon width={24} height={24} />
+      <b>Blue Alliance</b>
+    </NextuiLink>
+    <NextuiLink
+  isExternal
+  className={buttonStyles({ variant: "solid", radius: "full", color: "primary" })}
+  href={siteConfig.links.donate}
+>
+  <div className="flex items-center">
+  <HeartFilledIcon width={24} height={24} className="text-danger ml-2" />
+    <b>Donate</b>
+  </div>
+</NextuiLink>
+  </div>
+</div>
         </div>
     );
 };

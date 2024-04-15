@@ -246,12 +246,12 @@ export default function Home() {
                     </div>
                 </motion.h1>
             </LampContainer>
-            <div className="text-center h-[20vh] my-24 align-middle">
+            <div className="text-center h-[30vh] my-24 align-middle">
                 <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white secondary">Have a Question?</h1>
                 <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
                     You can reach out to us by email
                 </p>
-                <div className="grid grid-cols-2 gap-4 mt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                     <div>
                         <h3 className="font-lg main">STUDENTS</h3>
                         <ul className="mt-2 space-y-2">
