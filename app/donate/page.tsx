@@ -68,11 +68,9 @@ export default function DonatePage() {
                                     <br/>
                                     Brooklyn Tech Alumni Foundation
                                     <br/>
-                                    c/o Brooklyn Technical High School Room 1W9
+                                    P.O. Box 26608
                                     <br/>
-                                    29 Fort Greene Place, Brooklyn NY 11227
-                                    <br/>
-                                    Attn: Techknights Donation
+                                    Attn: Techknights Robotics Donation
                                 </p>
                                 <p className={"secondary text-lg text-red-300"}>
                                     The Brooklyn Technical Alumni foundation is a 501(c)(3) nonprofit organization. A W-9 form can be provided on request. Our tax ID is 11-2739496. All donations are tax deductible.
