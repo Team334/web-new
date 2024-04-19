@@ -1,0 +1,27 @@
+{
+  "type": "Prerender",
+  "expiration": false,
+  "group": 6,
+  "bypassToken": "efb38f145b335f0a7b0f7025e48c4ad7",
+  "experimentalBypassFor": [
+    {
+      "type": "header",
+      "key": "Next-Action"
+    },
+    {
+      "type": "header",
+      "key": "content-type",
+      "value": "multipart/form-data;.*"
+    }
+  ],
+  "fallback": {
+    "type": "FileFsRef",
+    "mode": 33188,
+    "fsPath": "donate.rsc.prerender-fallback.rsc"
+  },
+  "initialHeaders": {
+    "content-type": "text/x-component",
+    "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch"
+  },
+  "allowQuery": []
+}

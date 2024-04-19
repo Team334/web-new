@@ -1,0 +1,27 @@
+{
+  "type": "Prerender",
+  "expiration": false,
+  "group": 11,
+  "bypassToken": "efb38f145b335f0a7b0f7025e48c4ad7",
+  "experimentalBypassFor": [
+    {
+      "type": "header",
+      "key": "Next-Action"
+    },
+    {
+      "type": "header",
+      "key": "content-type",
+      "value": "multipart/form-data;.*"
+    }
+  ],
+  "fallback": {
+    "type": "FileFsRef",
+    "mode": 33188,
+    "fsPath": "team.prerender-fallback.html"
+  },
+  "initialHeaders": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/team/layout,_N_T_/team/page,_N_T_/team",
+    "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch"
+  },
+  "allowQuery": []
+}
