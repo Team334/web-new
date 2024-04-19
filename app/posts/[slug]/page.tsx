@@ -48,21 +48,19 @@ async function fetchAllPosts() {
 }
 
 async function fetchPostBySlug(slug: string) {
-    const response = await fetch(checkEnvironment() + `/api/posts?slug=${slug}`);
+    const response = await fetch(checkEnvironment() + `/api/posts/slug?slug=${slug}`);
     return await response.json();
 }
 
 
 export default async function Post({params}: Params) {
-    const postInfo = await fetchPostBySlug(params.slug[0]);
-    const post = postInfo[0];
+    const post = await fetchPostBySlug(params.slug);
 
     if (!post) {
         return notFound();
     }
 
     return (
-
         <div className="p-10">
             <div className={"flex justify-center items-center text-center w-full my-10"}>
                 <div className={"space-y-5"}>
@@ -84,7 +82,7 @@ export default async function Post({params}: Params) {
                     <NextUIImage
                         src={post.coverImage}
                         alt={"blogImage"}
-                        style={{width: '100%', height: 'auto', maxWidth: '1500px', maxHeight: '600px'}}
+                        style={{ minHeight: '800px', minWidth: '1500px'}}
                     />
                 </div>
             </div>
@@ -124,8 +122,7 @@ type Params = {
 };
 
 export async function generateMetadata({params}: Params): Promise<Metadata> {
-    const postInfo = await fetchPostBySlug(params.slug);
-    const post = postInfo[0]
+    const post = await fetchPostBySlug(params.slug);
 
     if (!post) {
         return notFound();

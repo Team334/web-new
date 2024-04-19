@@ -1,7 +1,7 @@
 "use client"
 import ReactMarkdown from "react-markdown";
 import React, {useRef, useState} from "react";
-import markdownStyles from "@/app/posts/[...slug]/markdown-styles.module.css";
+import markdownStyles from "@/app/posts/[slug]/markdown-styles.module.css";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
