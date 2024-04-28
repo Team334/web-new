@@ -48,6 +48,7 @@ async function fetchAllPosts() {
 }
 
 async function fetchPostBySlug(slug: string) {
+    slug = slug.replace("/posts/", "")
     const response = await fetch(checkEnvironment() + `/api/posts/slug?slug=${slug}`);
     return await response.json();
 }
@@ -144,7 +145,7 @@ export async function generateStaticParams() {
 
     return posts.map((post: any) => ({
         params: {
-            slug: post.slug,
+            slug: "/posts/" + post.slug,
         }
     }));
 }
