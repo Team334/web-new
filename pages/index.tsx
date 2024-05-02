@@ -1,118 +1,263 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+"use client"
+import React, {useEffect, useState} from "react";
+import {HeroParallax} from "@/components/aceternity/ui/hero";
+import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
+import YouTubePlayer from "@/components/youtube";
+import {Tabs} from "@/components/aceternity/ui/tabs";
+import {LampContainer} from "@/components/aceternity/ui/lamp";
+import {motion} from "framer-motion";
 
 export default function Home() {
+  const [progress, setProgress] = useState(13);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(100), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  const heroItems = [
+    {
+      "title": "Autodesk",
+      "description": "Autodesk is a global leader in design and make technology, with expertise across architecture, engineering, construction, design, manufacturing, etc.",
+      "link": "https://www.autodesk.com/",
+      "thumbnail": "/logos/autodesk.png"
+    },
+    {
+      "title": "Limelight",
+      "description": "Limelight was designed to make robotic perception as easy and reliable as possible without sacrificing raw performance. Limelight is easy enough for complete beginners, and powerful enough for professionals. ",
+      "link": "https://limelightvision.io/",
+      "thumbnail": "/logos/limelight.png"
+    },
+    {
+      "title": "FRC",
+      "description": "Teams of students are challenged to raise funds, design a team \"brand,\" hone teamwork skills, and build and program industrial-size robots to play a difficult field game against like-minded competitors. It’s as close to real-world engineering as a student can get. Volunteer professional mentors lend their time and talents to guide each team. Each season ends with an exciting FIRST Championship.",
+      "link": "https://www.firstinspires.org/robotics/frc",
+      "thumbnail": "/logos/frc.png"
+    },
+    {
+      "title": "Techknigts",
+      "description": "The 334th Team in FIRST Robotics Competition",
+      "link": "/",
+      "thumbnail": "/old-logo.png"
+    },
+    {
+      "title": "Brooklyn Tech Alumni Foundation",
+      "description": "A simple and modern dashboard for FRC.",
+      "link": "https://bthsalumni.org/",
+      "thumbnail": "/sponsors/alumni-foundation.png",
+    },
+    {
+      "title": "Brooklyn Tech Alumni Foundation",
+      "description": "A simple and modern dashboard for FRC.",
+      "link": "https://bthsalumni.org/",
+      "thumbnail": "/sponsors/alumni-foundation.png",
+    },
+    {
+      "title": "Java",
+      "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
+      "link": "https://www.java.com/en/",
+      "thumbnail": "/logos/java.png"
+    },
+    {
+      "title": "CTR Electronics",
+      "description": "CTR Electronics provides robust embedded solutions for various control and robotic applications.",
+      "link": "https://store.ctr-electronics.com/",
+      "thumbnail": "/logos/ctr.png"
+    },
+    {
+      "title": "Wpilib",
+      "description": "The WPILib Mission is to enable FIRST Robotics teams to focus on writing game-specific software rather than focusing on hardware details - \"raise the floor, don't lower the ceiling\". We work to enable teams with limited programming knowledge and/or mentor experience to be as successful as possible, while not hampering the abilities of teams with more advanced programming capabilities.",
+      "link": "https://docs.wpilib.org/en/stable/index.html",
+      "thumbnail": "/logos/wpilib.png"
+    },
+    {
+      "title": "Andymark",
+      "description": "AndyMark develops, manufactures, and distributes mechanical and electrical parts for the mobile and competitive robotics market, with a focus on robotics education. The AndyMark staff strives to support the FIRST Community by developing and distributing important components to robot builders within the education, competition, and mobile robotics markets.",
+      "link": "https://www.autodesk.com/",
+      "thumbnail": "/logos/Andymark.png"
+    },
+    {
+      "title": "Andymark",
+      "description": "AndyMark develops, manufactures, and distributes mechanical and electrical parts for the mobile and competitive robotics market, with a focus on robotics education. The AndyMark staff strives to support the FIRST Community by developing and distributing important components to robot builders within the education, competition, and mobile robotics markets.",
+      "link": "https://www.autodesk.com/",
+      "thumbnail": "/logos/Andymark.png"
+    },
+  ]
+
+  const sponsors = [
+    {
+      title: "FIRST",
+      link: "/logos/first.png",
+      url: "https://www.firstinspires.org/"
+    },
+    {
+      title: "Brooklyn Tech Alumni Foundation",
+      link: "/sponsors/alumni-foundation.png",
+      url: "https://bthsalumni.org/"
+    },
+    {
+      title: "Arament Research, Development and Engineering Center",
+      link: "/sponsors/arament.png",
+      url: "/"
+    },
+    {
+      title: "Con Edison",
+      link: "/sponsors/con-edison.png",
+      url: "https://www.coned.com/en/"
+    },
+    {
+      title: "DoD STEM",
+      link: "/sponsors/dodstem.png",
+      url: "https://dodstem.us/"
+    },
+    {
+      title: "Gene HAAS Foundation",
+      link: "/sponsors/haas-foundation.png",
+      url: "https://ghaasfoundation.org/content/ghf/en/home.html"
+    },
+    {
+      title: "Ike Heller",
+      link: "/sponsors/ike-heller.png",
+      url: "/"
+    },
+    {
+      title: "QuoteBeam",
+      link: "/sponsors/quotebeam.png",
+      url: "https://quotebeam.com/"
+    },
+    {
+      title: "Whimsy Tech",
+      link: "/sponsors/whimsy-tech.png",
+      url: "https://www.whimsytech.net/"
+    },
+  ];
+
+
+  const tabs = [
+    {
+      title: "Week 1",
+      value: "week1",
+      content: (
+          <div
+              className="w-full  relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2]">
+            <h1 className={"light:text-white text-black"}>Week 1 Recap</h1>
+            <YouTubePlayer videoId={"vGIsE0y7tVQ"}/>
+          </div>
+      ),
+    },
+    {
+      title: "Week 2",
+      value: "week2",
+      content: (
+          <div
+              className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+            <h1 className={"light:text-white text-black"}>Week 2 Recap</h1>
+            <YouTubePlayer videoId={"k9-qFX8pPWc"}/>
+          </div>
+      ),
+    },
+    {
+      title: "Week 3",
+      value: "week3",
+      content: (
+          <div
+              className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+            <h1 className={"light:text-white text-black"}>Week 3 Recap</h1>
+            <YouTubePlayer videoId={"kMeeyb-l-0U"}/>
+          </div>
+      ),
+    },
+    {
+      title: "Week 4",
+      value: "week4",
+      content: (
+          <div
+              className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+            <h1 className={"light:text-white text-black"}>Week 4 Recap</h1>
+            <YouTubePlayer videoId={"3xwtSjaZoUM"}/>
+          </div>
+      ),
+    },
+    {
+      title: "Week 5",
+      value: "week5",
+      content: (
+          <div
+              className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+            <h1 className={"light:text-white text-black"}>Week 5 Recap</h1>
+            <YouTubePlayer videoId={"bjL-mn2fMTc"}/>
+          </div>
+      ),
+    },
+    {
+      title: "Week 6",
+      value: "week6",
+      content: (
+          <div
+              className="w-full relative h-full rounded-2xl p-10 text-xl md:text-4xl main font-bold light:bg-gray-950 bg-[#f2f2f2] ">
+            <h1 className={"light:text-white text-black"}>Week 6 Recap</h1>
+            <YouTubePlayer videoId={"KSeID8Ug1Os"}/>
+          </div>
+      ),
+    },
+  ]
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <section>
+        <HeroParallax products={heroItems}/>
+        <div className="text-center h-[90vh] mb-10">
+          <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main">Sponsors</h1>
+          <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
+            Thank you to all our sponsors and families who supported this. We couldn't make our robot without
+            your help!
+          </p>
+          <InfiniteMovingCards items={sponsors}/>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+        <LampContainer>
+          <motion.h1
+              initial={{opacity: 0.5, y: 100}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center tracking-tight text-transparent w-full"
+          >
+            <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season
+              Recaps!</h1>
+            <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">Here are all our 2024
+              Season recaps.</p>
+            <div
+                className="relative b flex flex-col max-w-5xl w-full h-[70vh]">
+              <Tabs tabs={tabs}/>
+            </div>
+          </motion.h1>
+        </LampContainer>
+        <div className="text-center h-[30vh] my-24 align-middle">
+          <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white secondary">Have a Question?</h1>
+          <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2">
+            You can reach out to us by email
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            <div>
+              <h3 className="font-lg main">STUDENTS</h3>
+              <ul className="mt-2 space-y-2">
+                <li className={"secondary"}><b>Matthew Piszcz</b> - Matthewp403@nycstudents.net</li>
+                <li className={"secondary"}><b>Gadin Aggarwal</b> - gadina@nycstudents.net</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-lg main">MENTORS</h3>
+              <ul className="mt-2 space-y-2">
+                <li className={"secondary"}><b>Ms. Shaina Doherty</b> - SDoherty2@schools.nyc.gov</li>
+                <li className={"secondary"}><b>Mr. Marlon Esguerra</b> - MEsguerra@schools.nyc.gov</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+  )
 }

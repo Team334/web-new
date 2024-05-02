@@ -1,11 +1,9 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import {motion, useScroll, useSpring, useTransform} from "framer-motion";
 import Image from "next/legacy/image";
-import {Link as NextuiLink} from "@nextui-org/link";
 import Link from "next/link";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 import {GithubIcon, HeartFilledIcon, InstagramIcon, TBAIcon, YoutubeIcon} from "@/components/icons";
-import {button as buttonStyles} from "@nextui-org/theme";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
 
@@ -133,50 +131,45 @@ const Header = () => {
             </p>
             <div className="flex flex-col md:flex-row gap-3 mt-5 opacity-1">
   <div className="flex flex-col md:flex-row gap-3 space-y-1">
-    <NextuiLink
-      isExternal
-      className={buttonStyles({ variant: "solid", radius: "full", color: "success" })}
+    <Link
+      target={"_blank"}
       href={siteConfig.links.instagram}
     >
       <InstagramIcon size={20} />
       <b>Instagram</b>
-    </NextuiLink>
-    <NextuiLink
-      isExternal
-      className={buttonStyles({ variant: "solid", radius: "full", color: "danger" })}
+    </Link>
+    <Link
+      target={"_blank"}
       href={siteConfig.links.youtube}
     >
       <YoutubeIcon width={24} height={24} />
       <b>Youtube</b>
-    </NextuiLink>
-    <NextuiLink
-      isExternal
-      className={buttonStyles({ variant: "solid", radius: "full", color: "secondary" })}
+    </Link>
+    <Link
+      target={"_blank"}
       href={siteConfig.links.github}
     >
       <GithubIcon size={20} />
       <b>Github</b>
-    </NextuiLink>
+    </Link>
   </div>
   <div className="flex flex-col md:flex-row gap-3">
-    <NextuiLink
-      isExternal
-      className={buttonStyles({ variant: "solid", radius: "full", color: "warning" })}
+    <Link
+      target={"_blank"}
       href={siteConfig.links.blueAlliance}
     >
       <TBAIcon width={24} height={24} />
       <b>Blue Alliance</b>
-    </NextuiLink>
-    <NextuiLink
-  isExternal
-  className={buttonStyles({ variant: "solid", radius: "full", color: "primary" })}
+    </Link>
+    <Link
+  target={"_blank"}
   href={siteConfig.links.donate}
 >
   <div className="flex items-center">
   <HeartFilledIcon width={24} height={24} className="text-danger ml-2" />
     <b>Donate</b>
   </div>
-</NextuiLink>
+</Link>
   </div>
 </div>
         </div>
