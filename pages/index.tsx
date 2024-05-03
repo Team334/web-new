@@ -6,36 +6,6 @@ import YouTubePlayer from "@/components/youtube";
 import {Tabs} from "@/components/aceternity/ui/tabs";
 import {LampContainer} from "@/components/aceternity/ui/lamp";
 import {motion} from "framer-motion";
-import {Metadata, Viewport} from "next";
-import {siteConfig} from "@/config/site";
-
-export const viewport: Viewport = {
-  themeColor: [
-    {media: "(prefers-color-scheme: light)", color: "white"},
-    {media: "(prefers-color-scheme: dark)", color: "black"},
-  ],
-  initialScale: 1,
-  width: 'device-width'
-}
-export const metadata: Metadata = {
-  metadataBase: new URL("https://team334.vercel.app"),
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: '/logo.png',
-    url: 'https://bthsrobotics.com'
-  }
-};
 
 export default function Home() {
   const heroItems = [
