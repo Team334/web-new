@@ -1,7 +1,7 @@
 "use client";
 import {cn} from "@/components/cn";
 import React, {ReactNode} from "react";
-import {BackgroundGradient} from "@/componets/aceternity/ui/bg-gradient-card";
+import {BackgroundGradient} from "@/components/aceternity/ui/bg-gradient-card";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
     children: ReactNode;

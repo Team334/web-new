@@ -1,21 +1,43 @@
 "use client"
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {HeroParallax} from "@/components/aceternity/ui/hero";
 import {InfiniteMovingCards} from "@/components/aceternity/ui/infinite-moving-cards";
 import YouTubePlayer from "@/components/youtube";
 import {Tabs} from "@/components/aceternity/ui/tabs";
 import {LampContainer} from "@/components/aceternity/ui/lamp";
 import {motion} from "framer-motion";
+import {Metadata, Viewport} from "next";
+import {siteConfig} from "@/config/site";
+
+export const viewport: Viewport = {
+  themeColor: [
+    {media: "(prefers-color-scheme: light)", color: "white"},
+    {media: "(prefers-color-scheme: dark)", color: "black"},
+  ],
+  initialScale: 1,
+  width: 'device-width'
+}
+export const metadata: Metadata = {
+  metadataBase: new URL("https://team334.vercel.app"),
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: '/logo.png',
+    url: 'https://bthsrobotics.com'
+  }
+};
 
 export default function Home() {
-  const [progress, setProgress] = useState(13);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(100), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-
   const heroItems = [
     {
       "title": "Autodesk",
@@ -226,12 +248,13 @@ export default function Home() {
               }}
               className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center tracking-tight text-transparent w-full"
           >
-            <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season
-              Recaps!</h1>
-            <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">Here are all our 2024
-              Season recaps.</p>
+            <div>
+              <h1 className="text-[2.9rem] md:text-7xl font-bold dark:text-white main p-2 text-center">Season Recaps</h1>
+              <p className="text-base md:text-xl my-3 dark:text-neutral-200 p-2 text-center">Here are all our 2024
+                Season recaps.</p>
+            </div>
             <div
-                className="relative b flex flex-col max-w-5xl w-full h-[70vh]">
+                className="relative flex flex-col w-full h-[70vh] justify-center">
               <Tabs tabs={tabs}/>
             </div>
           </motion.h1>

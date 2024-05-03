@@ -1,3 +1,5 @@
+"use client"
+
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import {motion, useScroll, useSpring, useTransform} from "framer-motion";
 import Image from "next/legacy/image";
@@ -6,6 +8,7 @@ import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
 import {GithubIcon, HeartFilledIcon, InstagramIcon, TBAIcon, YoutubeIcon} from "@/components/icons";
 import {siteConfig} from "@/config/site";
 import {Skeleton} from "@/components/shadcn/ui/skeleton";
+import {Button} from "@/components/shadcn/ui/button";
 
 
 const springConfig = {stiffness: 120, damping: 20, bounce: 25, mass: 0.1};
@@ -81,24 +84,9 @@ const HeroParallax = React.memo(({products}: {
     const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
     const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
 
-    const containerHeight = useMemo(() => {
-        const minHeight = 2150;
-        const screenHeight = window.innerHeight;
-        const isMobile = window.innerWidth <= 768;
-
-        let adjustedHeight = minHeight;
-        if (isMobile) {
-            adjustedHeight -= 450;
-        }
-
-        return Math.max(adjustedHeight, screenHeight);
-    }, []);
-
-
     return (
         <div ref={ref}
-             style={{height: containerHeight}}
-             className="py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
+             className="h-[130rem] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
             <Header/>
             <motion.div style={{rotateX, rotateZ, translateY, opacity}} className="">
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
@@ -122,56 +110,71 @@ const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full z-30 left-0 top-0">
             <h1 className="text-[2rem] md:text-7xl font-bold dark:text-white">
-                <TextGenerateEffect words={"We are the"}/>
-                <TextGenerateEffect words={"Techknights"} className={"main"}/>
+                <TextGenerateEffect words={"We are the Techknights"} className={"main"}/>
             </h1>
             <p className="text-base md:text-xl mt-8 dark:text-neutral-200">
                 The TechKnights is a FIRST® Robotics Competition Team from Brooklyn Technical
                 High School in Downtown Brooklyn, NY.
             </p>
             <div className="flex flex-col md:flex-row gap-3 mt-5 opacity-1">
-  <div className="flex flex-col md:flex-row gap-3 space-y-1">
-    <Link
-      target={"_blank"}
-      href={siteConfig.links.instagram}
-    >
-      <InstagramIcon size={20} />
-      <b>Instagram</b>
-    </Link>
-    <Link
-      target={"_blank"}
-      href={siteConfig.links.youtube}
-    >
-      <YoutubeIcon width={24} height={24} />
-      <b>Youtube</b>
-    </Link>
-    <Link
-      target={"_blank"}
-      href={siteConfig.links.github}
-    >
-      <GithubIcon size={20} />
-      <b>Github</b>
-    </Link>
-  </div>
-  <div className="flex flex-col md:flex-row gap-3">
-    <Link
-      target={"_blank"}
-      href={siteConfig.links.blueAlliance}
-    >
-      <TBAIcon width={24} height={24} />
-      <b>Blue Alliance</b>
-    </Link>
-    <Link
-  target={"_blank"}
-  href={siteConfig.links.donate}
->
-  <div className="flex items-center">
-  <HeartFilledIcon width={24} height={24} className="text-danger ml-2" />
-    <b>Donate</b>
-  </div>
-</Link>
-  </div>
-</div>
+              <div className="flex flex-col md:flex-row gap-3">
+                  <Button>
+                    <Link
+                      target={"_blank"}
+                      href={siteConfig.links.instagram}
+                      className={"flex flex-row gap-1"}
+                    >
+                      <InstagramIcon size={20} />
+                      <b>Instagram</b>
+                    </Link>
+                  </Button>
+                  <Button>
+                      <Link
+                          target={"_blank"}
+                          href={siteConfig.links.instagram}
+                          className={"flex flex-row gap-1"}
+                      >
+                      <YoutubeIcon width={24} height={24} />
+                      <b>Youtube</b>
+                    </Link>
+                  </Button>
+                  <Button>
+                      <Link
+                          target={"_blank"}
+                          href={siteConfig.links.instagram}
+                          className={"flex flex-row gap-1"}
+                      >
+                      <GithubIcon size={20} />
+                      <b>Github</b>
+                    </Link>
+                  </Button>
+              </div>
+              <div className="flex flex-col md:flex-row gap-3">
+                  <Button>
+                      <Link
+                          target={"_blank"}
+                          href={siteConfig.links.instagram}
+                          className={"flex flex-row gap-1"}
+                      >
+                      <TBAIcon width={24} height={24} />
+                      <b>Blue Alliance</b>
+                    </Link>
+                  </Button>
+
+                  <Button>
+                      <Link
+                          target={"_blank"}
+                          href={siteConfig.links.instagram}
+                          className={"flex flex-row gap-1"}
+                      >
+                        <div className="flex items-center">
+                            <HeartFilledIcon width={24} height={24} className="text-danger" />
+                            <b>Donate</b>
+                        </div>
+                    </Link>
+                  </Button>
+              </div>
+            </div>
         </div>
     );
 };

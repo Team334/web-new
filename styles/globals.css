@@ -4,21 +4,21 @@
 
 
 @font-face {
-  font-family: '--main';
+  font-family: 'MainFont';
   src: url("../public/fonts/Richardson Brand Accelerator.otf");
 }
 
 @font-face {
-  font-family: '--secondary';
+  font-family: 'SecondaryFont';
   src: url("../public/fonts/oxanium-vrb.ttf");
 }
 
 .main {
-  font-family: '--main', 'sans-serif';
+  font-family: 'MainFont', sans-serif;
 }
 
 .secondary {
-  font-family: '--secondary', 'sans-serif';
+  font-family: 'SecondaryFont', sans-serif;
 }
 
 /* Firefox */
