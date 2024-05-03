@@ -86,7 +86,7 @@ const HeroParallax = React.memo(({products}: {
 
     return (
         <div ref={ref}
-             className="h-[130rem] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
+             className="h-[130rem] py-40 -mb-32 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] will-change-auto">
             <Header/>
             <motion.div style={{rotateX, rotateZ, translateY, opacity}} className="">
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
@@ -131,7 +131,7 @@ const Header = () => {
                   <Button>
                       <Link
                           target={"_blank"}
-                          href={siteConfig.links.instagram}
+                          href={siteConfig.links.youtube}
                           className={"flex flex-row gap-1"}
                       >
                       <YoutubeIcon width={24} height={24} />
@@ -141,7 +141,7 @@ const Header = () => {
                   <Button>
                       <Link
                           target={"_blank"}
-                          href={siteConfig.links.instagram}
+                          href={siteConfig.links.github}
                           className={"flex flex-row gap-1"}
                       >
                       <GithubIcon size={20} />
@@ -153,7 +153,7 @@ const Header = () => {
                   <Button>
                       <Link
                           target={"_blank"}
-                          href={siteConfig.links.instagram}
+                          href={siteConfig.links.blueAlliance}
                           className={"flex flex-row gap-1"}
                       >
                       <TBAIcon width={24} height={24} />
@@ -164,10 +164,10 @@ const Header = () => {
                   <Button>
                       <Link
                           target={"_blank"}
-                          href={siteConfig.links.instagram}
+                          href={siteConfig.links.donate}
                           className={"flex flex-row gap-1"}
                       >
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-1">
                             <HeartFilledIcon width={24} height={24} className="text-danger" />
                             <b>Donate</b>
                         </div>

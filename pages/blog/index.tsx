@@ -1,21 +1,10 @@
-import Link from "@next/link";
+import Link from "next/link";
 import Image from 'next/image';
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/shadcn/ui/card";
 import React from "react";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
-import { GetStaticProps, NextPage } from 'next';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-
-interface BlogPost {
-    slug: string;
-    frontMatter: { [key: string]: any };
-}
-
-interface BlogHomeProps {
-    posts: BlogPost[];
-}
+import {getAllPosts, Post} from "./markdown"
+import {GetStaticProps} from "next";
 
 const BlogHome = ({ posts }) => {
 
@@ -29,7 +18,7 @@ const BlogHome = ({ posts }) => {
                     .sort((a: any, b: any) => new Date(a.date) < new Date(b.date) ? 1 : -1)
                     .map((post: any) => (
                         <Link
-                            href={`/posts/${post.slug}`}
+                            href={`/blog/${post.slug}`}
                             key={post.slug}
                         >
                             <Card className="w-[330px]">
@@ -73,24 +62,19 @@ const BlogHome = ({ posts }) => {
     );
 }
 
-export const getStaticProps: GetStaticProps<BlogHomeProps> = async () => {
-    const files = fs.readdirSync(path.join('posts'));
+interface BlogHomeProps {
+    posts: Post[];
+}
 
-    const posts = files.map(filename => {
-        const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-        const { data } = matter(markdownWithMeta);
-        return {
-            frontMatter: data,
-            slug: filename.split('.')[0]
-        };
-    });
+export const getStaticProps: GetStaticProps<BlogHomeProps> = async () => {
+    const posts = getAllPosts();
 
     return {
         props: {
-            // Jank way of working around Next.js's inability to serialize Date objects
-            posts: JSON.parse(JSON.stringify(posts)),
-        }
+            posts,
+        },
     };
 };
+
 
 export default BlogHome;
