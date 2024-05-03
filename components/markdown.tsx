@@ -1,6 +1,6 @@
 import fs from "fs";
-import matter from "gray-matter";
 import {join} from "path";
+import matter from "gray-matter";
 
 const postsDirectory: string = join(process.cwd(), "_posts");
 

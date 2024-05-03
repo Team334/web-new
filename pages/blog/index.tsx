@@ -3,7 +3,7 @@ import Image from 'next/image';
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/shadcn/ui/card";
 import React from "react";
 import {TextGenerateEffect} from "@/components/aceternity/ui/autotype";
-import {getAllPosts, Post} from "./markdown"
+import {getAllPosts, Post} from "@/components/markdown"
 import {GetStaticProps} from "next";
 
 const BlogHome = ({ posts }) => {

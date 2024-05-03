@@ -24,7 +24,7 @@ import rehypeStringify from "rehype-stringify";
 // import java from 'react-syntax-highlighter/dist/esm/languages/prism/java';
 // import dart from 'react-syntax-highlighter/dist/esm/languages/prism/dart';
 import {GetStaticPaths, GetStaticProps} from "next";
-import {getPostBySlug, getPostSlugs, Post} from "./markdown";
+import {getPostBySlug, getPostSlugs, Post} from "@/components/markdown";
 //
 // SyntaxHighlighter.registerLanguage('tsx', tsx);
 // SyntaxHighlighter.registerLanguage('js', js);
@@ -106,7 +106,6 @@ type Params = {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = getPostSlugs().map((slug) => ({ params: { slug: slug.replace(/\.md$/, '') } }));
-
     return {
         paths,
         fallback: false,
