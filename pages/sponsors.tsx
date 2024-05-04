@@ -79,10 +79,10 @@ export default function SponsorPage() {
                     }}
                     className="relative flex flex-col gap-4 items-center justify-center px-4 text-center"
                 >
-                    <div className="text-4xl md:text-7xl font-bold dark:text-white text-center main">
+                    <div className="text-4xl md:text-7xl font-bold text-white text-center main">
                         Our Sponsors
                     </div>
-                    <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
+                    <div className="font-extralight text-base md:text-4xl text-neutral-200 py-4">
                         This page is dedicated to our all of sponsors! We couldn't make our robot without your help!
                     </div>
                 </motion.div>
@@ -91,7 +91,7 @@ export default function SponsorPage() {
                 <div className="flex flex-wrap justify-center gap-5">
                     {bentoItems.map((item, i) => (
                         <BackgroundGradient
-                            className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900 flex flex-col justify-between"
+                            className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-zinc-900 flex flex-col justify-between"
                             key={i}>
                             <div className="h-[400px] w-[300px] flex flex-col justify-between">
                                 <div className="flex items-center justify-center h-[300px] overflow-hidden">
@@ -104,11 +104,11 @@ export default function SponsorPage() {
                                     />
                                 </div>
                                 <div className="mt-4">
-                                    <Link className="text-base sm:text-xl text-black dark:text-neutral-200"
+                                    <Link className="text-base sm:text-xl text-neutral-200"
                                           href={item.url}>
                                         {item.title}
                                     </Link>
-                                    <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                                    <p className="text-sm text-neutral-400">
                                         {item.description}
                                     </p>
                                 </div>

@@ -3,7 +3,6 @@
 import {motion} from "framer-motion";
 import {ImagesSlider} from "@/components/aceternity/ui/page-hero";
 import React from "react";
-import {title} from "@/components/primitives";
 import {AwardBanner} from "@/components/awards";
 import Image from "next/image"
 import {BentoGrid, BentoGridItem} from "@/components/aceternity/ui/bento-grid";
@@ -114,7 +113,7 @@ export default function AboutPage() {
                 "high schools for science, technology, engineering, and mathematics. Tech is the largest high\n" +
                 "school in the United States, with an enrollment of 6,500 students across all four grades.",
             header: <div
-                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-dot-white/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-white/[0.2] bg-black">
                 <Image
                     width={"1500"}
                     height={"400"}
@@ -130,7 +129,7 @@ export default function AboutPage() {
                 "Kamen and Woody Flowers, was created to assist in inspiring and teaching young explorers\n" +
                 "like us to connect across the globe via engineering and innovation",
             header: <div
-                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-dot-white/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-white/[0.2] bg-black">
                 <Image
                     width={"1000"}
                     height={"400"}
@@ -150,7 +149,7 @@ export default function AboutPage() {
                 "are invited to compete at the championship, which takes place in Houston, Texas. Over 450\n" +
                 "teams proceeded to the championships in the 2022 season",
             header: <div
-                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   bg-dot-white/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-white/[0.2] bg-black">
                 <Image
                     width={"1500"}
                     height={"400"}
@@ -171,7 +170,7 @@ export default function AboutPage() {
                     Fun: We enjoy and celebrate what we do!
                 </p>,
             header: <div
-                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black">
+                className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-dot-white/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-white/[0.2] bg-black">
                 <Image
                     width={"1000"}
                     height={"400"}
@@ -605,7 +604,7 @@ export default function AboutPage() {
                 </ImagesSlider>
             </div>
             <div className={"w-full justify-center text-center items-center p-5"}>
-                <h1 className={title({class: "main"})}>Awards</h1>
+                <h1 className={"main"}>Awards</h1>
                 <hr className="align-middle border-gray-500 my-2 w-[40%] overflow-x-hidden m-auto"/>
                 <div className={"flex flex-wrap mt-10 gap-7 items-center justify-center"}>
                     {Awards.map((award, index) => (
@@ -619,7 +618,7 @@ export default function AboutPage() {
                 </div>
             </div>
             <div
-                className="flex flex-row items-center justify-center py-20 h-[100vh] md:h-auto dark:bg-black bg-white relative w-full text-center">
+                className="flex flex-row items-center justify-center py-20 h-[100vh] md:h-auto bg-black relative w-full text-center">
                 <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
 
                     <h1 className="text-2xl sm:text-[2rem] md:text-[2rem] lg:text-[3.1rem] font-semibold main">
@@ -641,7 +640,7 @@ export default function AboutPage() {
                     </p>
                     <br/>
                     <div
-                        className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40"/>
+                        className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40"/>
                     <div className="absolute w-full -bottom-30 h-full z-10">
                         <World data={sampleArcs} globeConfig={globeConfig}/>
                     </div>

@@ -61,7 +61,7 @@ export const Navbar = React.memo(() => {
             </NavbarContent>
 
             <NavbarContent justify="end">
-                <NavbarItem className="gap-2 flex">
+                <NavbarItem className="gap-4 flex">
                     <Link isExternal href={siteConfig.links.instagram} aria-label="Instagram"
                           className={"hidden lg:flex"}>
                         <InstagramIcon className="text-default-500 m-auto"/>
@@ -69,6 +69,7 @@ export const Navbar = React.memo(() => {
                     <Link isExternal href={siteConfig.links.github} aria-label="Github" className={"hidden lg:flex"}>
                         <GithubIcon className={"text-default-500 m-auto"}/>
                     </Link>
+
                     {/*<ThemeSwitch/>*/}
                 </NavbarItem>
 

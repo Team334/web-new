@@ -203,7 +203,7 @@ export default function EditorPage() {
                                     d="M18.4,10.6C16.55,9 14.15,8 11.5,8C6.85,8 2.92,11.03 1.54,15.22L3.9,16C4.95,12.81 7.95,10.5 11.5,10.5C13.45,10.5 15.23,11.22 16.62,12.38L13,16H22V7L18.4,10.6Z"></path>
                             </svg>
                         </button>
-                        <div className="border-l dark:border-gray-300 border-gray-900 h-8 "/>
+                        <div className="border-l border-gray-300 h-8 "/>
                         <button
                             className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                             title={"Heading"}
@@ -282,7 +282,7 @@ export default function EditorPage() {
                                     d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                             </svg>
                         </button>
-                        <div className="border-l dark:border-gray-300 border-gray-900 h-8 "/>
+                        <div className="border-l border-gray-300 h-8 "/>
                         <button
                             className="px-2 py-1 hover:bg-gray-400 text-white rounded-md"
                             title={"List Ordered"}
@@ -316,7 +316,7 @@ export default function EditorPage() {
                                     d="M 5,4L 19,4C 20.1046,4 21,4.89543 21,6L 21,18C 21,19.1046 20.1046,20 19,20L 5,20C 3.89543,20 3,19.1046 3,18L 3,6C 3,4.89543 3.89543,4 5,4 Z M 5,8L 5,12L 11,12L 11,8L 5,8 Z M 13,8L 13,12L 19,12L 19,8L 13,8 Z M 5,14L 5,18L 11,18L 11,14L 5,14 Z M 13,14L 13,18L 19,18L 19,14L 13,14 Z "></path>
                             </svg>
                         </button>
-                        <div className="border-l dark:border-gray-300 border-gray-900 h-8 "/>
+                        <div className="border-l border-gray-300 h-8 "/>
                         <button
                             className="px-2 py-1 text-white rounded-md"
                             title={"Image"}
@@ -347,7 +347,7 @@ export default function EditorPage() {
                 <div
                     className={"w-full text-wrap break-words h-full p-4 overflow-x-hidden whitespace-normal max-h-[85vh]"}
                     ref={markdownRef}>
-                    <div className="prose max-w-none dark:prose-invert ">
+                    <div className="prose max-w-none prose-invert ">
                         <ReactMarkdown
                             className={markdownStyles["markdown"]}
                             remarkPlugins={[remarkGfm, remarkParse, remarkStringify, remarkRehype, remarkMath, remarkGemoji]}

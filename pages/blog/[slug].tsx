@@ -46,7 +46,7 @@ const PostPage = ({post}) => {
         <div className="p-10">
             <div className={"flex justify-center items-center text-center w-full my-10"}>
                 <div className={"space-y-5"}>
-                    <h1 className={"text-[2.9rem] md:text-7xl font-bold dark:text-white secondary p-2"}>{post.title}</h1>
+                    <h1 className={"text-[2.9rem] md:text-7xl font-bold text-white secondary p-2"}>{post.title}</h1>
                     <div className="flex flex-row items-center justify-center text-center gap-2">
                         <Image
                             alt="blogAuthor"
@@ -58,7 +58,7 @@ const PostPage = ({post}) => {
                         />
 
                         <h1 className="main">{post.author.name}</h1>
-                        <div className="border-l dark:border-gray-300 border-gray-900 h-6 mx-2"/>
+                        <div className="border-l border-gray-300 h-6 mx-2"/>
                         <h1 className="secondary">{new Date(post.date).toLocaleDateString()}</h1>
                     </div>
                     <Image
@@ -69,7 +69,7 @@ const PostPage = ({post}) => {
                     />
                 </div>
             </div>
-            <div className="prose max-w-none dark:prose-invert">
+            <div className="prose max-w-none prose-invert">
 
                 <ReactMarkdown
                     className={markdownStyles["markdown"]}
