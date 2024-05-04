@@ -2,12 +2,13 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Link from "next/link";
 import Head from "next/head";
+import {Navbar} from "@/components/navbar";
 
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
       <main>
-        {/*<Navbar />*/}
+        <Navbar />
         <Head>
           <title>TechKnights | Team 334</title>
           <meta name="description"
