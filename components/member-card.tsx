@@ -17,7 +17,7 @@ export const MemberCard: React.FC<MemberProps> = React.memo(({member}) => (
             <Image unoptimized loader={({src}) => src} src={member.image} alt={member.name} layout="fill"
                    className="rounded-full object-cover"/>
         </div>
-        <p className="text-center mb-0 text-base md:text-medium dark:text-neutral-200 secondary">{member.name}</p>
+        <p className="text-center mb-0 text-base md:text-medium text-neutral-200 secondary">{member.name}</p>
     </div>
 ));
 
